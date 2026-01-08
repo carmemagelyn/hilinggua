@@ -1,0 +1,167 @@
+export const vocabularyData = [
+  {
+    id: 1,
+    word: "Bata",
+    pronunciation: "buh-tah",
+    meaning: "Child",
+    exampleSentence: "Ang bata nagakaon.",
+    exampleTranslation: "The child is eating.",
+    exampleImage: "/asset/img-sentence/The child is eating..png",
+    image: "/asset/img-word/Bata.png",
+    audio: "/asset/word-voice/Bata.m4a"
+  },
+  {
+    id: 2,
+    word: "Manok",
+    pronunciation: "muh-nok",
+    meaning: "Chicken",
+    exampleSentence: "Ang manok nagalupad.",
+    exampleTranslation: "The chicken is flying.",
+    exampleImage: "/asset/img-sentence/The chicken is flying..png",
+    image: "/asset/img-word/Manok.png",
+    audio: "/asset/word-voice/Manok.m4a"
+  },
+  {
+    id: 3,
+    word: "Libro",
+    pronunciation: "lib-ro",
+    meaning: "Book",
+    exampleSentence: "Nagbasa siya sang libro.",
+    exampleTranslation: "He/She read a book.",
+    exampleImage: "/asset/img-sentence/He_She read a book..png",
+    image: "/asset/img-word/Libro.png",
+    audio: "/asset/word-voice/Libro.m4a"
+  },
+  {
+    id: 4,
+    word: "Tubig",
+    pronunciation: "too-big",
+    meaning: "Water",
+    exampleSentence: "Nagkuha niya sang tubig.",
+    exampleTranslation: "He/She took the water.",
+    exampleImage: "/asset/img-sentence/He_She took the water..png",
+    image: "/asset/img-word/Tubig.png",
+    audio: "/asset/word-voice/Tubig.m4a"
+  },
+  {
+    id: 5,
+    word: "Eskwelahan",
+    pronunciation: "es-kwe-la-han",
+    meaning: "School",
+    exampleSentence: "Nagpadulong siya sa eskwelahan.",
+    exampleTranslation: "He/She went to school.",
+    exampleImage: "/asset/img-sentence/He_She went to school..png",
+    image: "/asset/img-word/Eskwelahan.png",
+    audio: "/asset/word-voice/Eskwelahan.m4a"
+  },
+  {
+    id: 6,
+    word: "Regalo",
+    pronunciation: "re-ga-lo",
+    meaning: "Gift",
+    exampleSentence: "Ginhatag niya ang regalo sa bata.",
+    exampleTranslation: "He/She gave the gift to the child.",
+    exampleImage: "/asset/img-sentence/He_She gave the gift to the child..png",
+    image: "/asset/img-word/Regalo.png",
+    audio: "/asset/word-voice/Regalo.m4a"
+  },
+  {
+    id: 7,
+    word: "Tatay",
+    pronunciation: "ta-tay",
+    meaning: "Father",
+    exampleSentence: "Nagsulat siya para kay tatay.",
+    exampleTranslation: "He/She wrote a letter to Dad.",
+    exampleImage: "/asset/img-sentence/He_She wrote a letter to Dad..png",
+    image: "/asset/img-word/Tatay.png",
+    audio: "/asset/word-voice/Tatay.m4a"
+  },
+  {
+    id: 8,
+    word: "Sapatos",
+    pronunciation: "sa-pa-tos",
+    meaning: "Shoes",
+    exampleSentence: "Sapatos nina Ana kag Maria.",
+    exampleTranslation: "Ana and Maria's shoes.",
+    exampleImage: "/asset/img-sentence/Ana and Maria's shoes..png",
+    image: "/asset/img-word/Sapatos.png",
+    audio: "/asset/word-voice/Sapatos.m4a"
+  },
+  {
+    id: 9,
+    word: "Balay",
+    pronunciation: "ba-lay",
+    meaning: "House",
+    exampleSentence: "May balay siya nga daku.",
+    exampleTranslation: "He/She has a house that is big.",
+    exampleImage: "/asset/img-sentence/He_She has a house that is big..png",
+    image: "/asset/img-word/Balay.png",
+    audio: "/asset/word-voice/Balay.m4a"
+  },
+  {
+    id: 10,
+    word: "Tulog",
+    pronunciation: "too-log",
+    meaning: "Sleep",
+    exampleSentence: "Matulog na lang ko.",
+    exampleTranslation: "I'll just sleep.",
+    exampleImage: "/asset/img-sentence/I'll just sleep..png",
+    image: "/asset/img-word/Tulog.png",
+    audio: "/asset/word-voice/Tulog.m4a"
+  },
+  {
+    id: 11,
+    word: "Mag-tuon",
+    pronunciation: "mag-too-on",
+    meaning: "Study",
+    exampleSentence: "Magtuon ka lang anay.",
+    exampleTranslation: "Just study.",
+    exampleImage: "/asset/img-sentence/just study..png",
+    image: "/asset/img-word/Tuon.png",
+    audio: "/asset/word-voice/Magtuon.m4a"
+  },
+  {
+    id: 12,
+    word: "Makalakat",
+    pronunciation: "ma-ka-la-kat",
+    meaning: "Travel",
+    exampleSentence: "Malain ang panahon, gani indi kita makalakat.",
+    exampleTranslation: "The weather is bad, so we won't go.",
+    exampleImage: "/asset/img-sentence/The weather is bad, so we won't go..png",
+    image: "/asset/img-word/Makalakat.png",
+    audio: "/asset/word-voice/Makalakat.m4a"
+  },
+  {
+    id: 13,
+    word: "Mag-luto",
+    pronunciation: "mag-loo-to",
+    meaning: "Cook",
+    exampleSentence: "Tudloi man ako magluto.",
+    exampleTranslation: "Teach me to cook too.",
+    exampleImage: "/asset/img-sentence/Teach me to cook too..png",
+    image: "/asset/img-word/Luto.png",
+    audio: "/asset/word-voice/Magluto.m4a"
+  },
+  {
+    id: 14,
+    word: "Masadya",
+    pronunciation: "ma-sad-ya",
+    meaning: "Happy",
+    exampleSentence: "Daw masadya siya subong.",
+    exampleTranslation: "He/She seems happy now.",
+    exampleImage: "/asset/img-sentence/He_She seems happy now..png",
+    image: "/asset/img-word/Masadya.png",
+    audio: "/asset/word-voice/Masadya.m4a"
+  },
+  {
+    id: 15,
+    word: "Prutas",
+    pronunciation: "proo-tas",
+    meaning: "Fruit",
+    exampleSentence: "Daw matam-is ini nga prutas.",
+    exampleTranslation: "It looks like a sweet fruit.",
+    exampleImage: "/asset/img-sentence/This fruit seems sweet..png",
+    image: "/asset/img-word/Prutas.png",
+    audio: "/asset/word-voice/Prutas.m4a"
+  }
+];

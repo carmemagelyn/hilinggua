@@ -1,0 +1,351 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: white;
+  background: linear-gradient(135deg, #26ccc2 0%, #6aece1 100%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 600;
+  color: #fff57e;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #ffb76c;
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #26ccc2 0%, #6aece1 100%);
+}
+
+h1 {
+  font-size: clamp(1.3em, 5vw, 3.2em);
+  line-height: 1.1;
+  color: white;
+}
+
+h2 {
+  font-size: clamp(1.1em, 4vw, 2em);
+  color: white;
+}
+
+h3 {
+  font-size: clamp(0.95em, 3vw, 1.3em);
+  color: white;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  width: 100%;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #fff57eaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #ffb76caa);
+}
+
+.card {
+  padding: clamp(1rem, 3vw, 2em);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.read-the-docs {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+  border-radius: 8px;
+  border: 2px solid #fff57e;
+  padding: clamp(0.5em, 1.5vw, 1em) clamp(0.75em, 2vw, 1.5em);
+  font-size: clamp(0.85em, 2vw, 1em);
+  font-weight: 600;
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #fff57e;
+  color: #26ccc2;
+  border-color: #ffb76c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+button:focus,
+button:focus-visible {
+  outline: 2px solid #ffb76c;
+  outline-offset: 2px;
+}
+
+input {
+  padding: clamp(0.5em, 1.5vw, 0.75em) clamp(0.75em, 2vw, 1em);
+  border: 2px solid #fff57e;
+  border-radius: 8px;
+  font-size: clamp(0.9em, 2vw, 1em);
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #26ccc2;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ffb76c;
+  box-shadow: 0 0 8px rgba(255, 181, 108, 0.3);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  max-width: 400px;
+  margin: clamp(1rem, 3vw, 2rem) auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+form input {
+  width: 100%;
+}
+
+form button {
+  width: 100%;
+}
+
+.tabs {
+  display: flex;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: clamp(0.6em, 1.5vw, 1em) clamp(1em, 2vw, 1.5em);
+  border-radius: 8px;
+  border: 2px solid #fff57e;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: clamp(0.8em, 1.8vw, 1em);
+}
+
+.tab-button.active {
+  background-color: #fff57e;
+  color: #26ccc2;
+}
+
+.tab-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  #app {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  form {
+    gap: 0.75rem;
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  #app {
+    padding: 0.75rem;
+  }
+
+  .card {
+    padding: 0.75rem;
+  }
+
+  form {
+    gap: 0.5rem;
+    margin: 0.75rem auto;
+    padding: 0.75rem;
+    max-width: 100%;
+  }
+
+  button {
+    padding: 0.5em 1em;
+    font-size: 0.85em;
+  }
+
+  input {
+    padding: 0.5em 0.75em;
+    font-size: 0.85em;
+  }
+
+  /* Markers Styling */
+  .markers-container {
+    padding: clamp(1rem, 5vw, 3rem);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .intro-text {
+    font-size: clamp(0.9em, 2vw, 1.1em);
+    color: white;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .markers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .marker-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid #fff57e;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .marker-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .marker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .marker-name {
+    color: #fff57e;
+    margin: 0;
+    font-size: clamp(1em, 3vw, 1.5em);
+  }
+
+  .toggle-icon {
+    color: #fff57e;
+    font-size: clamp(1.2em, 4vw, 1.8em);
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+
+  .marker-card:hover .toggle-icon {
+    transform: scale(1.2);
+  }
+
+  .marker-usage {
+    color: white;
+    font-size: clamp(0.85em, 2vw, 1em);
+    margin: 0.5rem 0 0 0;
+    font-weight: 500;
+  }
+
+  .marker-examples {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .marker-examples h4 {
+    color: #ffb76c;
+    margin: 0 0 0.75rem 0;
+    font-size: clamp(0.9em, 2vw, 1em);
+  }
+
+  .example-item {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255, 181, 108, 0.1);
+    border-left: 3px solid #ffb76c;
+    border-radius: 4px;
+  }
+
+  .example-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin: 0.5rem auto;
+    display: block;
+  }
+
+  .example-sentence {
+    color: #fff57e;
+    margin: 0 0 0.3rem 0;
+    font-size: clamp(0.85em, 2vw, 0.95em);
+  }
+
+  .example-translation {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-size: clamp(0.8em, 1.8vw, 0.9em);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .markers-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .marker-card {
+      padding: 1rem;
+    }
+
+    .intro-text {
+      font-size: 0.95em;
+    }
+  }
+}
+
