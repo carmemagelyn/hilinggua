@@ -2,7 +2,7 @@ export const vocabularyData = [
   {
     id: 1,
     word: "Bata",
-    pronunciation: "buh-tah",
+    pronunciation: "ba-ta",
     meaning: "Child",
     exampleSentence: "Ang bata nagakaon.",
     exampleTranslation: "The child is eating.",
@@ -13,7 +13,7 @@ export const vocabularyData = [
   {
     id: 2,
     word: "Manok",
-    pronunciation: "muh-nok",
+    pronunciation: "ma-nok",
     meaning: "Chicken",
     exampleSentence: "Ang manok nagalupad.",
     exampleTranslation: "The chicken is flying.",
@@ -24,7 +24,7 @@ export const vocabularyData = [
   {
     id: 3,
     word: "Libro",
-    pronunciation: "lib-ro",
+    pronunciation: "li-bro",
     meaning: "Book",
     exampleSentence: "Nagbasa siya sang libro.",
     exampleTranslation: "He/She read a book.",
@@ -35,7 +35,7 @@ export const vocabularyData = [
   {
     id: 4,
     word: "Tubig",
-    pronunciation: "too-big",
+    pronunciation: "tu-big",
     meaning: "Water",
     exampleSentence: "Nagkuha siya sang tubig.",
     exampleTranslation: "He/She took the water.",
@@ -102,7 +102,7 @@ export const vocabularyData = [
   {
     id: 10,
     word: "Tulog",
-    pronunciation: "too-log",
+    pronunciation: "tu-log",
     meaning: "Sleep",
     exampleSentence: "Matulog na lang ko.",
     exampleTranslation: "I'll just sleep.",
@@ -114,7 +114,7 @@ export const vocabularyData = [
   {
     id: 11,
     word: "Mag-tuon",
-    pronunciation: "mag-too-on",
+    pronunciation: "mag-tu-on",
     meaning: "Study",
     exampleSentence: "Magtuon ka lang anay.",
     exampleTranslation: "Just study.",
@@ -137,7 +137,7 @@ export const vocabularyData = [
   {
     id: 13,
     word: "Mag-luto",
-    pronunciation: "mag-loo-to",
+    pronunciation: "mag-lu-to",
     meaning: "Cook",
     exampleSentence: "Tudloi man ako magluto.",
     exampleTranslation: "Teach me to cook too.",
@@ -161,7 +161,7 @@ export const vocabularyData = [
   {
     id: 15,
     word: "Prutas",
-    pronunciation: "proo-tas",
+    pronunciation: "pru-tas",
     meaning: "Fruit",
     exampleSentence: "Daw matam-is ini nga prutas.",
     exampleTranslation: "It looks like a sweet fruit.",
