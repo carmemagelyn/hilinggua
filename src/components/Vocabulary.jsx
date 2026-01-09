@@ -119,14 +119,14 @@ function Vocabulary({ initialIndex = 0, onIndexChange }) {
           </div>
           {/* Meaning Section */}
           <div style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '2px solid rgba(255, 255, 255, 0.2)' }}>
-            <h3 style={{ color: '#E2852E', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>📖 English Meaning</h3>
-            <p style={{ fontSize: 'clamp(1em, 2.5vw, 1.2em)', color: '#E2852E', fontWeight: '600' }}>
+            <h3 style={{ color: '#E2852E', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>English Meaning</h3>
+            <p style={{ fontSize: 'clamp(1em, 2.5vw, 1.2em)', color: '#ffff', fontWeight: '600' }}>
               {selectedWord.meaning}
             </p>
           </div>
           {/* Example Sentence Section */}
           <div>
-            <h3 style={{ color: '#6aece1', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>✍️ Example Sentences</h3>
+            <h3 style={{ color: '#646464', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>Example Sentences</h3>
             {/* First Example */}
             <div style={{ 
               padding: '15px',
