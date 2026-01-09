@@ -397,7 +397,7 @@ function Markers() {
                 )}
                 {/* Pronunciation audio */}
                 <div style={{ marginBottom: '0.5rem', textAlign: 'center' }}>
-                  <audio controls style={{ width: '100%', maxWidth: '400px' }}>
+                  <audio key={audioSrc} controls style={{ width: '100%', maxWidth: '400px' }}>
                     <source src={audioSrc} type="audio/mpeg" />
                     Your browser does not support the audio element.
                   </audio>
