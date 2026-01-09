@@ -36,25 +36,48 @@ function AppContent() {
         background: 'linear-gradient(135deg, #26ccc2 0%, #6aece1 100%)',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
       }}>
-        <Link to="/">
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', background: 'none', boxShadow: 'none', border: 'none' }}>
           <img 
             src="/asset/ref/logo.png" 
             alt="Logo" 
             style={{ 
-              height: '64px', 
-              width: '64px'
+              height: '96px', 
+              width: '96px',
+              background: 'none',
+              boxShadow: 'none',
+              border: 'none',
+              padding: 0,
+              margin: 0
             }} 
           />
+          <span style={{
+            marginLeft: 18,
+            fontWeight: 800,
+            fontSize: '2.1em',
+            color: '#fff57e',
+            letterSpacing: '1px',
+            lineHeight: 1,
+            fontFamily: 'inherit',
+            textShadow: '0 2px 8px #26ccc299'
+          }}>
+            Hilinggua
+          </span>
         </Link>
 
-        <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+        <div style={{ display: 'flex', gap: '18px', alignItems: 'center', justifyContent: 'flex-end', flex: 1 }}>
           <Link 
             to="/vocabulary"
             style={{
               color: location.pathname === '/vocabulary' ? '#fff57e' : 'white',
               fontWeight: location.pathname === '/vocabulary' ? '700' : '600',
               transition: 'all 0.3s ease',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              fontSize: '1.08em',
+              padding: '8px 18px',
+              borderRadius: '10px',
+              border: location.pathname === '/vocabulary' ? '2px solid #fff57e' : '2px solid transparent',
+              background: location.pathname === '/vocabulary' ? 'rgba(255,245,126,0.18)' : 'transparent',
+              boxShadow: location.pathname === '/vocabulary' ? '0 1px 4px #fff57e33' : 'none',
             }}
           >
             Vocabulary
@@ -65,7 +88,13 @@ function AppContent() {
               color: location.pathname === '/markers' ? '#fff57e' : 'white',
               fontWeight: location.pathname === '/markers' ? '700' : '600',
               transition: 'all 0.3s ease',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              fontSize: '1.08em',
+              padding: '8px 18px',
+              borderRadius: '10px',
+              border: location.pathname === '/markers' ? '2px solid #fff57e' : '2px solid transparent',
+              background: location.pathname === '/markers' ? 'rgba(255,245,126,0.18)' : 'transparent',
+              boxShadow: location.pathname === '/markers' ? '0 1px 4px #fff57e33' : 'none',
             }}
           >
             Markers
@@ -76,7 +105,13 @@ function AppContent() {
               color: location.pathname === '/quiz' ? '#fff57e' : 'white',
               fontWeight: location.pathname === '/quiz' ? '700' : '600',
               transition: 'all 0.3s ease',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              fontSize: '1.08em',
+              padding: '8px 18px',
+              borderRadius: '10px',
+              border: location.pathname === '/quiz' ? '2px solid #fff57e' : '2px solid transparent',
+              background: location.pathname === '/quiz' ? 'rgba(255,245,126,0.18)' : 'transparent',
+              boxShadow: location.pathname === '/quiz' ? '0 1px 4px #fff57e33' : 'none',
             }}
           >
             Quiz
