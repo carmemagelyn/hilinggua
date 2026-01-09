@@ -37,7 +37,7 @@ function Home() {
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1.2em', flexWrap: 'wrap', marginBottom: '1.2em' }}>
           <Link to="/vocabulary">
-            <button style={{ fontSize: '1em', padding: '0.7em 1.5em', borderRadius: '8px', border: '2px solid FFE05D', background: 'FFE05D', color: '#26ccc2', fontWeight: 700, cursor: 'pointer', marginBottom: '0.5em' }}>
+            <button style={{ fontSize: '1em', padding: '0.7em 1.5em', borderRadius: '8px', border: '2px solid #FFE05D', background: '#FFE05D', color: '#26ccc2', fontWeight: 700, cursor: 'pointer', marginBottom: '0.5em' }}>
               Vocabulary
             </button>
           </Link>
