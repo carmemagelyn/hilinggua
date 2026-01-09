@@ -359,7 +359,7 @@ function Markers() {
               padding: '8px 12px',
               fontSize: '0.95em',
               borderRadius: '6px',
-              border: '2px solid #',
+              border: '2px solid #FFE05D',
               background: '#FFE05D',
               color: '#26ccc2',
               cursor: 'pointer',
@@ -430,7 +430,7 @@ function Markers() {
                   </audio>
                 </div>
                 <div style={{ width: '100%', textAlign: 'center' }}>
-                  <p style={{ color: 'FFE05D', margin: '0 0 0.3rem 0', fontWeight: 'bold', fontSize: '1.1em' }}>{example.sentence}</p>
+                  <p style={{ color: '#FFE05D', margin: '0 0 0.3rem 0', fontWeight: 'bold', fontSize: '1.1em' }}>{example.sentence}</p>
                   <p style={{ color: 'rgba(255, 255, 255, 0.8)', margin: 0, fontStyle: 'italic' }}>{example.translation}</p>
                 </div>
               </div>
