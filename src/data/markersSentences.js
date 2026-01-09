@@ -7,13 +7,14 @@ const markersSentences = [
     marker: "Ang + verb",
     sentence: "Ang bata nagakaon.",
     translation: "The child is eating.",
-    image: "/asset/img-sentence/The child is eating..png"
-  },
+    image: "/asset/img-sentence/The child is eating..png",
+  },  
   {
-    marker: "Ang + verb",
-    sentence: "Ang manok nagalupad.",
-    translation: "The chicken is flying.",
-    image: "/asset/img-sentence/The chicken is flying..png"
+    marker: "Sang + verb/object",
+    sentence: "Nagkuha siya sang tubig.",
+    translation: "He/She took the water.",
+    image: "/asset/img-sentence/He_She took the water..png",
+
   },
   // Sang + verb/object
   {
@@ -24,9 +25,10 @@ const markersSentences = [
   },
   {
     marker: "Sang + verb/object",
-    sentence: "Nagkuha niya sang tubig.",
+    sentence: "Nagkuha siya sang tubig.",
     translation: "He/She took the water.",
-    image: "/asset/img-sentence/He_She took the water..png"
+    image: "/asset/img-sentence/He_She took the water..png",
+   
   },
   // Sa + verb/location/recipient
   {
@@ -65,7 +67,8 @@ const markersSentences = [
     marker: "Ni / Nina + verb/possession",
     sentence: "Sapatos nina Ana kag Maria.",
     translation: "Ana and Maria’s shoes.",
-    image: "/asset/img-sentence/Ana and Maria’s shoes..png"
+    image: "/asset/img-sentence/Ana and Maria’s shoes..png",
+    pronunciation: "/asset/word-sent-hil/Sapatos ni Ana kag Maria.m4a"
   },
   // Nga + verb/description
   {
@@ -111,13 +114,15 @@ const markersSentences = [
     marker: "Na / Na lang + verb",
     sentence: "Nakakaon na ikaw?",
     translation: "Have you eaten?",
-    image: "/asset/img-sentence/Have you eaten.png"
+    image: "/asset/img-sentence/Have you eaten.png",
+    pronunciation: "/asset/word-sent-hil/Nakakaon na ikaw_.m4a"
   },
   {
     marker: "Na / Na lang + verb",
     sentence: "Matulog na lang ko.",
     translation: "I’ll just sleep.",
-    image: "/asset/img-sentence/I’ll just sleep..png"
+    image: "/asset/img-sentence/I’ll just sleep..png",
+    pronunciation: "/asset/word-sent-hil/Matulog nalang ko.m4a"
   },
   // Lang + verb
   {
@@ -137,7 +142,8 @@ const markersSentences = [
     marker: "Gani / Gani man + verb",
     sentence: "Malain ang panahon, gani indi kita makalakat.",
     translation: "The weather is bad, so we won’t go.",
-    image: "/asset/img-sentence/The weather is bad, so we won’t go..png"
+    image: "/asset/img-sentence/The weather is bad, so we won’t go..png",
+    pronunciation: "/asset/word-sent-hil/Malain ang panahon, gani indi kita makalakat.m4a"
   },
   {
     marker: "Gani / Gani man + verb",
@@ -163,13 +169,15 @@ const markersSentences = [
     marker: "Sa gihapon + verb",
     sentence: "Nagahulat siya sa gihapon.",
     translation: "He/She is still waiting.",
-    image: "/asset/img-sentence/He_She is still waiting..png"
+    image: "/asset/img-sentence/He_She is still waiting..png",
+    pronunciation: "/asset/word-sent-hil/Nagahulat sya sa gihapon.m4a"
   },
   {
     marker: "Sa gihapon + verb",
     sentence: "Biskan malain ang panahon, naglakat siya sa gihapon.",
     translation: "Despite the bad weather, he/she still walked.",
-    image: "/asset/img-sentence/Even though the weather is bad, he_she is still going..png"
+    image: "/asset/img-sentence/Even though the weather is bad, he_she is still going..png",
+    pronunciation: "/asset/word-sent-hil/Biskan malain ang panahon naglakat sya sa gihapon.m4a"
   },
   // Biskan / Maski + verb
   {
@@ -182,7 +190,8 @@ const markersSentences = [
     marker: "Biskan / Maski + verb",
     sentence: "Maski malayo, naglakat siya.",
     translation: "Even though it’s far, he/she went.",
-    image: "/asset/img-sentence/Even though it’s far, he_she went..png"
+    image: "/asset/img-sentence/Even though it’s far, he_she went..png",
+    pronunciation: "/asset/word-sent-hil/Maski malayo, naglakat sya.m4a"
   },
   // Pa / Pa man + verb
   {
@@ -195,20 +204,23 @@ const markersSentences = [
     marker: "Pa / Pa man + verb",
     sentence: "Tudloi man ako magluto.",
     translation: "Teach me to cook too.",
-    image: "/asset/img-sentence/Teach me to cook too..png"
+    image: "/asset/img-sentence/Teach me to cook too..png",
+    pronunciation: "/asset/word-sent-hil/Tudlui man ako magluto.m4a"
   },
   // Daw / Daw lang + verb
   {
     marker: "Daw / Daw lang + verb",
     sentence: "Daw masadya siya subong.",
     translation: "He/She seems happy now.",
-    image: "/asset/img-sentence/He_She seems happy now..png"
+    image: "/asset/img-sentence/He_She seems happy now..png",
+    pronunciation: "/asset/word-sent-hil/Daw masadya sya subong.m4a"
   },
   {
     marker: "Daw / Daw lang + verb",
     sentence: "Daw matam-is ini nga prutas.",
     translation: "It looks like a sweet fruit.",
-    image: "/asset/img-sentence/This fruit seems sweet..png"
+    image: "/asset/img-sentence/This fruit seems sweet..png",
+    pronunciation: "/asset/word-sent-hil/Daw matam is ini nga prutas.m4a"
   }
 ];
 

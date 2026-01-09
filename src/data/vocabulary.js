@@ -37,7 +37,7 @@ export const vocabularyData = [
     word: "Tubig",
     pronunciation: "too-big",
     meaning: "Water",
-    exampleSentence: "Nagkuha niya sang tubig.",
+    exampleSentence: "Nagkuha siya sang tubig.",
     exampleTranslation: "He/She took the water.",
     exampleImage: "/asset/img-sentence/He_She took the water..png",
     image: "/asset/img-word/Tubig.png",
