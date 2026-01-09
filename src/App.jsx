@@ -86,6 +86,7 @@ function AppContent() {
           >
             Quiz
           </Link>
+          {/* 
           <Link 
             to="/login"
             style={{
@@ -108,6 +109,7 @@ function AppContent() {
           >
             Register
           </Link>
+           */}
         </div>
 
        
