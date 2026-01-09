@@ -10,6 +10,7 @@ import './App.css';
 
 function AppContent() {
   const [vocabIndex, setVocabIndex] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const totalWords = 15;
 
@@ -22,6 +23,9 @@ function AppContent() {
   };
 
   const isVocabularyPage = location.pathname === '/vocabulary';
+
+  // Detect mobile
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
   return (
     <div className="App">
@@ -64,7 +68,56 @@ function AppContent() {
           </span>
         </Link>
 
-        <div style={{ display: 'flex', gap: '18px', alignItems: 'center', justifyContent: 'flex-end', flex: 1 }}>
+        {/* Hamburger for mobile */}
+        <div className="nav-hamburger" style={{ display: 'none', marginLeft: 18 }}>
+          <button
+            aria-label="Open menu"
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 0,
+              margin: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: 48,
+              width: 48,
+            }}
+            onClick={() => setMenuOpen(m => !m)}
+          >
+            <span style={{
+              width: 32,
+              height: 4,
+              background: '#fff57e',
+              borderRadius: 2,
+              marginBottom: 6,
+              display: 'block',
+              transition: '0.3s',
+            }} />
+            <span style={{
+              width: 32,
+              height: 4,
+              background: '#fff57e',
+              borderRadius: 2,
+              marginBottom: 6,
+              display: 'block',
+              transition: '0.3s',
+            }} />
+            <span style={{
+              width: 32,
+              height: 4,
+              background: '#fff57e',
+              borderRadius: 2,
+              display: 'block',
+              transition: '0.3s',
+            }} />
+          </button>
+        </div>
+
+        {/* Desktop nav links */}
+        <div className="nav-links" style={{ display: 'flex', gap: '18px', alignItems: 'center', justifyContent: 'flex-end', flex: 1 }}>
           <Link 
             to="/vocabulary"
             style={{
@@ -116,33 +169,18 @@ function AppContent() {
           >
             Quiz
           </Link>
-          {/* 
-          <Link 
-            to="/login"
-            style={{
-              color: location.pathname === '/login' ? '#fff57e' : 'white',
-              fontWeight: location.pathname === '/login' ? '700' : '600',
-              transition: 'all 0.3s ease',
-              textDecoration: 'none'
-            }}
-          >
-            Login
-          </Link>
-          <Link 
-            to="/register"
-            style={{
-              color: location.pathname === '/register' ? '#fff57e' : 'white',
-              fontWeight: location.pathname === '/register' ? '700' : '600',
-              transition: 'all 0.3s ease',
-              textDecoration: 'none'
-            }}
-          >
-            Register
-          </Link>
-           */}
         </div>
 
-       
+        {/* Mobile nav menu as modal */}
+        {menuOpen && (
+          <div className="mobile-menu-modal" onClick={() => setMenuOpen(false)}>
+            <div className="mobile-menu-dropdown" onClick={e => e.stopPropagation()}>
+              <Link to="/vocabulary" className="mobile-menu-link" onClick={() => setMenuOpen(false)}>Vocabulary</Link>
+              <Link to="/markers" className="mobile-menu-link" onClick={() => setMenuOpen(false)}>Markers</Link>
+              <Link to="/quiz" className="mobile-menu-link" onClick={() => setMenuOpen(false)}>Quiz</Link>
+            </div>
+          </div>
+        )}
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -152,6 +190,16 @@ function AppContent() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      {/* Responsive hamburger logic */}
+      <style>{`
+        @media (max-width: 900px) {
+          .nav-links { display: none !important; }
+          .nav-hamburger { display: flex !important; }
+        }
+        @media (min-width: 901px) {
+          .mobile-nav-menu { display: none !important; }
+        }
+      `}</style>
     </div>
   );
 }
