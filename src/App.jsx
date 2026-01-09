@@ -62,7 +62,7 @@ function AppContent() {
               textDecoration: 'none'
             }}
           >
-            📚 Vocabulary
+            Vocabulary
           </Link>
           <Link 
             to="/markers"
@@ -73,7 +73,7 @@ function AppContent() {
               textDecoration: 'none'
             }}
           >
-            🏷️ Markers
+            Markers
           </Link>
           <Link 
             to="/quiz"
@@ -84,7 +84,7 @@ function AppContent() {
               textDecoration: 'none'
             }}
           >
-            🎯 Quiz
+            Quiz
           </Link>
           <Link 
             to="/login"
@@ -95,7 +95,7 @@ function AppContent() {
               textDecoration: 'none'
             }}
           >
-            🔓 Login
+            Login
           </Link>
           <Link 
             to="/register"
@@ -106,65 +106,11 @@ function AppContent() {
               textDecoration: 'none'
             }}
           >
-            📝 Register
+            Register
           </Link>
         </div>
 
-        {isVocabularyPage && (
-          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            <button
-              onClick={handlePrevious}
-              style={{
-                padding: '8px 12px',
-                fontSize: '0.9em',
-                borderRadius: '6px',
-                border: '2px solid #fff57e',
-                background: '#fff57e',
-                color: '#26ccc2',
-                cursor: 'pointer',
-                fontWeight: '700',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = 'white';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 255, 255, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = '#fff57e';
-                e.target.style.boxShadow = 'none';
-              }}
-            >
-              ←
-            </button>
-            <span style={{ color: '#fff57e', fontWeight: '700', minWidth: '50px', textAlign: 'center' }}>
-              {vocabIndex + 1}/{totalWords}
-            </span>
-            <button
-              onClick={handleNext}
-              style={{
-                padding: '8px 12px',
-                fontSize: '0.9em',
-                borderRadius: '6px',
-                border: '2px solid #fff57e',
-                background: '#fff57e',
-                color: '#26ccc2',
-                cursor: 'pointer',
-                fontWeight: '700',
-                transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = 'white';
-                e.target.style.boxShadow = '0 4px 12px rgba(255, 255, 255, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = '#fff57e';
-                e.target.style.boxShadow = 'none';
-              }}
-            >
-              →
-            </button>
-          </div>
-        )}
+       
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
