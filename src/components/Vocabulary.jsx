@@ -27,59 +27,61 @@ function Vocabulary({ initialIndex = 0, onIndexChange }) {
 
   return (
     <main style={{ paddingTop: '70px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '18px', marginBottom: '1.2rem', flexWrap: 'wrap' }}>
+      <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
         <h1 style={{ margin: 0 }}>Vocabularies</h1>
-        <button
-          onClick={handlePrevious}
-          style={{
-            padding: '8px 12px',
-            fontSize: '0.95em',
-            borderRadius: '6px',
-            border: '2px solid #fff57e',
-            background: '#fff57e',
-            color: '#26ccc2',
-            cursor: 'pointer',
-            fontWeight: '700',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={e => {
-            e.target.style.background = 'white';
-            e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
-          }}
-          onMouseLeave={e => {
-            e.target.style.background = '#fff57e';
-            e.target.style.boxShadow = 'none';
-          }}
-        >
-          ←
-        </button>
-        <span style={{ color: '#fff57e', fontWeight: '700', minWidth: '50px', textAlign: 'center' }}>
-          {selectedIndex + 1}/{totalWords}
-        </span>
-        <button
-          onClick={handleNext}
-          style={{
-            padding: '8px 12px',
-            fontSize: '0.95em',
-            borderRadius: '6px',
-            border: '2px solid #fff57e',
-            background: '#fff57e',
-            color: '#26ccc2',
-            cursor: 'pointer',
-            fontWeight: '700',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={e => {
-            e.target.style.background = 'white';
-            e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
-          }}
-          onMouseLeave={e => {
-            e.target.style.background = '#fff57e';
-            e.target.style.boxShadow = 'none';
-          }}
-        >
-          →
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '18px', marginTop: '1rem', flexWrap: 'wrap' }}>
+          <button
+            onClick={handlePrevious}
+            style={{
+              padding: '8px 12px',
+              fontSize: '0.95em',
+              borderRadius: '6px',
+              border: '2px solid #FFE05D',
+              background: '#FFE05D',
+              color: '#26ccc2',
+              cursor: 'pointer',
+              fontWeight: '700',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={e => {
+              e.target.style.background = 'white';
+              e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
+            }}
+            onMouseLeave={e => {
+              e.target.style.background = '#FFE05D';
+              e.target.style.boxShadow = 'none';
+            }}
+          >
+            ←
+          </button>
+          <span style={{ color: '#FFE05D', fontWeight: '700', minWidth: '50px', textAlign: 'center' }}>
+            {selectedIndex + 1}/{totalWords}
+          </span>
+          <button
+            onClick={handleNext}
+            style={{
+              padding: '8px 12px',
+              fontSize: '0.95em',
+              borderRadius: '6px',
+              border: '2px solid #FFE05D',
+              background: '#FFE05D',
+              color: '#26ccc2',
+              cursor: 'pointer',
+              fontWeight: '700',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={e => {
+              e.target.style.background = 'white';
+              e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
+            }}
+            onMouseLeave={e => {
+              e.target.style.background = '#FFE05D';
+              e.target.style.boxShadow = 'none';
+            }}
+          >
+            →
+          </button>
+        </div>
       </div>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
         <div className="card">
@@ -97,12 +99,12 @@ function Vocabulary({ initialIndex = 0, onIndexChange }) {
             />
           </div>
           {/* Word Title */}
-          <h2 style={{ marginBottom: '20px', color: '#fff57e', textAlign: 'center', fontSize: 'clamp(1.3em, 5vw, 1.8em)' }}>
+          <h2 style={{ marginBottom: '20px', color: '#FFE05D', textAlign: 'center', fontSize: 'clamp(1.3em, 5vw, 1.8em)' }}>
             {selectedWord.word}
           </h2>
           {/* Pronunciation Section */}
           <div style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '2px solid rgba(255, 255, 255, 0.2)' }}>
-            <h3 style={{ color: '#fff57e', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>🔊 Pronunciation</h3>
+            <h3 style={{ color: '#FFE05D', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>Pronunciation</h3>
             <p style={{ fontSize: 'clamp(0.95em, 2.5vw, 1.1em)', marginBottom: '10px' }}>
               <strong>{selectedWord.pronunciation}</strong>
             </p>
@@ -117,8 +119,8 @@ function Vocabulary({ initialIndex = 0, onIndexChange }) {
           </div>
           {/* Meaning Section */}
           <div style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '2px solid rgba(255, 255, 255, 0.2)' }}>
-            <h3 style={{ color: '#ffb76c', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>📖 English Meaning</h3>
-            <p style={{ fontSize: 'clamp(1em, 2.5vw, 1.2em)', color: '#ffb76c', fontWeight: '600' }}>
+            <h3 style={{ color: '#E2852E', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>📖 English Meaning</h3>
+            <p style={{ fontSize: 'clamp(1em, 2.5vw, 1.2em)', color: '#E2852E', fontWeight: '600' }}>
               {selectedWord.meaning}
             </p>
           </div>
@@ -130,22 +132,56 @@ function Vocabulary({ initialIndex = 0, onIndexChange }) {
               padding: '15px',
               background: 'rgba(255, 245, 126, 0.1)',
               borderRadius: '8px',
-              borderLeft: '4px solid #fff57e',
+              borderLeft: '4px solid #FFE05D',
               marginBottom: '15px'
             }}>
-              <p style={{ marginBottom: '5px', color: '#fff57e', fontWeight: '600', fontSize: 'clamp(0.85em, 2vw, 0.95em)' }}>Hiligaynon:</p>
+              <p style={{ marginBottom: '5px', color: '#FFE05D', fontWeight: '600', fontSize: 'clamp(0.85em, 2vw, 0.95em)' }}>Hiligaynon:</p>
               <p style={{ margin: '0', fontSize: 'clamp(0.9em, 2.2vw, 1.05em)' }}>
                 {selectedWord.exampleSentence}
               </p>
+              {/* Example Sentence Audio for all pages, with explicit mapping if present */}
+              {selectedWord.exampleSentence && (
+                <div style={{ marginTop: '10px', textAlign: 'center' }}>
+                  <audio
+                    key={selectedWord.exampleSentence + (selectedWord.exampleSentenceAudio || '')}
+                    controls
+                    style={{ width: '100%', maxWidth: '300px' }}
+                  >
+                    <source
+                      src={
+                        selectedWord.exampleSentenceAudio
+                          ? selectedWord.exampleSentenceAudio
+                          : `/asset/word-sent-hil/${selectedWord.exampleSentence
+                              .replace(/[?.]/g, '')
+                              .replace(/\s+/g, ' ')
+                              .trim()
+                              .replace(/ /g, ' ')
+                              .replace(/’/g, '')
+                              .replace(/_/g, '')
+                              .replace(/,/g, '')
+                              .replace(/:/g, '')
+                              .replace(/;/g, '')
+                              .replace(/-/, '')
+                              .replace(/…/g, '')
+                              .replace(/“|”/g, '')
+                              .replace(/'/g, '')
+                            }.m4a`
+                      }
+                      type="audio/mp4"
+                    />
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+              )}
             </div>
             <div style={{ 
               padding: '15px',
               background: 'rgba(255, 181, 108, 0.1)',
               borderRadius: '8px',
-              borderLeft: '4px solid #ffb76c',
+              borderLeft: '4px solid #E2852E',
               marginBottom: '15px'
             }}>
-              <p style={{ marginBottom: '5px', color: '#ffb76c', fontWeight: '600', fontSize: 'clamp(0.85em, 2vw, 0.95em)' }}>English:</p>
+              <p style={{ marginBottom: '5px', color: '#E2852E', fontWeight: '600', fontSize: 'clamp(0.85em, 2vw, 0.95em)' }}>English:</p>
               <p style={{ margin: '0', fontSize: 'clamp(0.9em, 2.2vw, 1.05em)' }}>
                 {selectedWord.exampleTranslation}
               </p>

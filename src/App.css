@@ -42,9 +42,9 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #fff57e;
-  color: #26ccc2;
-  border-color: #ffb76c;
+  background-color: transparent;
+  color: #E2852E;
+  border-color: #E2852E;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }

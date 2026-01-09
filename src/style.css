@@ -20,8 +20,9 @@ a {
   transition: color 0.3s ease;
 }
 a:hover {
-  color: #ffb76c;
+  color: #E2852E;
   text-decoration: underline;
+  
 }
 
 body {
@@ -297,7 +298,7 @@ form button {
   }
 
   .marker-examples h4 {
-    color: #ffb76c;
+    color: #E2852E;
     margin: 0 0 0.75rem 0;
     font-size: clamp(0.9em, 2vw, 1em);
   }

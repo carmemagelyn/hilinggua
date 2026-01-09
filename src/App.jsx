@@ -36,21 +36,16 @@ function AppContent() {
         background: 'linear-gradient(135deg, #26ccc2 0%, #6aece1 100%)',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <Link to="/">
           <img 
             src="/asset/ref/logo.png" 
-            alt="Hilinggua" 
+            alt="Logo" 
             style={{ 
-              height: '40px', 
-              width: '40px', 
-              borderRadius: '6px',
-              objectFit: 'cover'
+              height: '64px', 
+              width: '64px'
             }} 
           />
-          <Link to="/" style={{ color: 'white', fontWeight: 'bold', fontSize: '1.1em', textDecoration: 'none' }}>
-            Hilinggua
-          </Link>
-        </div>
+        </Link>
 
         <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
           <Link 

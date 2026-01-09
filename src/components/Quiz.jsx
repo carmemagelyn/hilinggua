@@ -53,57 +53,59 @@ function Quiz() {
 
   return (
     <main style={{ paddingTop: '70px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '18px', marginBottom: '1.2rem', flexWrap: 'wrap' }}>
-        <h1 style={{ margin: 0 }}>Quiz: Scrambled Sentences</h1>
-        <button
-          onClick={handlePrevious}
-          style={{
-            padding: '8px 12px',
-            fontSize: '0.95em',
-            borderRadius: '6px',
-            border: '2px solid #fff57e',
-            background: '#fff57e',
-            color: '#26ccc2',
-            cursor: 'pointer',
-            fontWeight: '700',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={e => {
-            e.target.style.background = 'white';
-            e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
-          }}
-          onMouseLeave={e => {
-            e.target.style.background = '#fff57e';
-            e.target.style.boxShadow = 'none';
-          }}
-        >
-          ←
-        </button>
-        <span style={{ color: '#fff57e', fontWeight: '700', minWidth: '50px', textAlign: 'center' }}>{quizIndex + 1}/{totalQuestions}</span>
-        <button
-          onClick={handleNext}
-          style={{
-            padding: '8px 12px',
-            fontSize: '0.95em',
-            borderRadius: '6px',
-            border: '2px solid #fff57e',
-            background: '#fff57e',
-            color: '#26ccc2',
-            cursor: 'pointer',
-            fontWeight: '700',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={e => {
-            e.target.style.background = 'white';
-            e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
-          }}
-          onMouseLeave={e => {
-            e.target.style.background = '#fff57e';
-            e.target.style.boxShadow = 'none';
-          }}
-        >
-          →
-        </button>
+      <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
+        <h1 style={{ margin: 0 }}>Scrambled Sentences</h1>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '18px', marginTop: '1rem', flexWrap: 'wrap' }}>
+          <button
+            onClick={handlePrevious}
+            style={{
+              padding: '8px 12px',
+              fontSize: '0.95em',
+              borderRadius: '6px',
+              border: '2px solid #FFE05D',
+              background: '#FFE05D',
+              color: '#26ccc2',
+              cursor: 'pointer',
+              fontWeight: '700',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={e => {
+              e.target.style.background = 'white';
+              e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
+            }}
+            onMouseLeave={e => {
+              e.target.style.background = '#FFE05D';
+              e.target.style.boxShadow = 'none';
+            }}
+          >
+            ←
+          </button>
+          <span style={{ color: '#FFE05D', fontWeight: '700', minWidth: '50px', textAlign: 'center' }}>{quizIndex + 1}/{totalQuestions}</span>
+          <button
+            onClick={handleNext}
+            style={{
+              padding: '8px 12px',
+              fontSize: '0.95em',
+              borderRadius: '6px',
+              border: '2px solid #FFE05D',
+              background: '#FFE05D',
+              color: '#26ccc2',
+              cursor: 'pointer',
+              fontWeight: '700',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={e => {
+              e.target.style.background = 'white';
+              e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
+            }}
+            onMouseLeave={e => {
+              e.target.style.background = '#FFE05D';
+              e.target.style.boxShadow = 'none';
+            }}
+          >
+            →
+          </button>
+        </div>
       </div>
       <p style={{ padding: '1rem', color: 'white', textAlign: 'center' }}>
         Unscramble the words to form the correct Hiligaynon sentence.
@@ -135,8 +137,8 @@ function Quiz() {
                   </audio>
                 </div>
               )}
-              <h3 style={{ color: '#fff57e', marginTop: 0 }}>Scrambled:</h3>
-              <p style={{ color: '#ffb76c', fontWeight: 'bold', fontSize: '1.2em', marginBottom: '1.5rem' }}>{scrambled}</p>
+              <h3 style={{ color: '#FFE05D', marginTop: 0 }}>Scrambled:</h3>
+              <p style={{ color: '#E2852E', fontWeight: 'bold', fontSize: '1.2em', marginBottom: '1.5rem' }}>{scrambled}</p>
               <input
                 type="text"
                 value={userAnswer}
@@ -146,7 +148,7 @@ function Quiz() {
                   width: '100%',
                   padding: '10px',
                   borderRadius: '6px',
-                  border: '2px solid #fff57e',
+                  border: '2px solid #FFE05D',
                   fontSize: '1em',
                   marginBottom: '1rem',
                   color: '#26ccc2',
@@ -161,8 +163,8 @@ function Quiz() {
                   style={{
                     padding: '8px 18px',
                     borderRadius: '6px',
-                    border: '2px solid #fff57e',
-                    background: '#fff57e',
+                    border: '2px solid #FFE05D',
+                    background: '#FFE05D',
                     color: '#26ccc2',
                     fontWeight: '700',
                     cursor: 'pointer',
@@ -173,7 +175,7 @@ function Quiz() {
                     e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
                   }}
                   onMouseLeave={e => {
-                    e.target.style.background = '#fff57e';
+                    e.target.style.background = '#FFE05D';
                     e.target.style.boxShadow = 'none';
                   }}
                 >
@@ -184,8 +186,8 @@ function Quiz() {
                   style={{
                     padding: '8px 18px',
                     borderRadius: '6px',
-                    border: '2px solid #ffb76c',
-                    background: '#ffb76c',
+                    border: '2px solid #E2852E',
+                    background: '#E2852E',
                     color: '#26ccc2',
                     fontWeight: '700',
                     cursor: 'pointer',
@@ -196,14 +198,14 @@ function Quiz() {
                     e.target.style.boxShadow = '0 4px 12px rgba(255,183,108,0.3)';
                   }}
                   onMouseLeave={e => {
-                    e.target.style.background = '#ffb76c';
+                    e.target.style.background = '#E2852E';
                     e.target.style.boxShadow = 'none';
                   }}
                 >
                   Show Answer
                 </button>
               </div>
-              {feedback && <p style={{ color: feedback.startsWith('✅') ? '#6aece1' : '#ffb76c', fontWeight: 'bold' }}>{feedback}</p>}
+              {feedback && <p style={{ color: feedback.startsWith('✅') ? '#6aece1' : '#E2852E', fontWeight: 'bold' }}>{feedback}</p>}
               {showAnswer && (
                 <div style={{ marginTop: '1rem', background: 'rgba(106,236,225,0.08)', padding: '0.75rem', borderRadius: '4px' }}>
                   <span style={{ color: '#6aece1', fontWeight: 'bold' }}>Answer: </span>

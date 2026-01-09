@@ -325,85 +325,114 @@ function Markers() {
 
   return (
     <main style={{ paddingTop: '70px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '18px', marginBottom: '1.2rem', flexWrap: 'wrap' }}>
+      <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
         <h1 style={{ margin: 0 }}>Hiligaynon Markers</h1>
-        <button
-          onClick={handlePrevious}
-          style={{
-            padding: '8px 12px',
-            fontSize: '0.95em',
-            borderRadius: '6px',
-            border: '2px solid #fff57e',
-            background: '#fff57e',
-            color: '#26ccc2',
-            cursor: 'pointer',
-            fontWeight: '700',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={e => {
-            e.target.style.background = 'white';
-            e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
-          }}
-          onMouseLeave={e => {
-            e.target.style.background = '#fff57e';
-            e.target.style.boxShadow = 'none';
-          }}
-        >
-          ←
-        </button>
-        <span style={{ color: '#fff57e', fontWeight: '700', minWidth: '50px', textAlign: 'center' }}>{markerIndex + 1}/{totalMarkers}</span>
-        <button
-          onClick={handleNext}
-          style={{
-            padding: '8px 12px',
-            fontSize: '0.95em',
-            borderRadius: '6px',
-            border: '2px solid #fff57e',
-            background: '#fff57e',
-            color: '#26ccc2',
-            cursor: 'pointer',
-            fontWeight: '700',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={e => {
-            e.target.style.background = 'white';
-            e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
-          }}
-          onMouseLeave={e => {
-            e.target.style.background = '#fff57e';
-            e.target.style.boxShadow = 'none';
-          }}
-        >
-          →
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '18px', marginTop: '1rem', flexWrap: 'wrap' }}>
+          <button
+            onClick={handlePrevious}
+            style={{
+              padding: '8px 12px',
+              fontSize: '0.95em',
+              borderRadius: '6px',
+              border: '2px solid #FFE05D',
+              background: '#FFE05D',
+              color: '#26ccc2',
+              cursor: 'pointer',
+              fontWeight: '700',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={e => {
+              e.target.style.background = 'white';
+              e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
+            }}
+            onMouseLeave={e => {
+              e.target.style.background = '#FFE05D';
+              e.target.style.boxShadow = 'none';
+            }}
+          >
+            ←
+          </button>
+          <span style={{ color: '#FFE05D', fontWeight: '700', minWidth: '50px', textAlign: 'center' }}>{markerIndex + 1}/{totalMarkers}</span>
+          <button
+            onClick={handleNext}
+            style={{
+              padding: '8px 12px',
+              fontSize: '0.95em',
+              borderRadius: '6px',
+              border: '2px solid #',
+              background: '#FFE05D',
+              color: '#26ccc2',
+              cursor: 'pointer',
+              fontWeight: '700',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={e => {
+              e.target.style.background = 'white';
+              e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
+            }}
+            onMouseLeave={e => {
+              e.target.style.background = '#FFE05D';
+              e.target.style.boxShadow = 'none';
+            }}
+          >
+            →
+          </button>
+        </div>
       </div>
       <p style={{ padding: '1rem', color: 'white', textAlign: 'center' }}>
         Learn about the various markers used in Hiligaynon grammar
       </p>
       <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 1rem' }}>
         <div className="card" style={{ marginBottom: '2rem' }}>
-          <h3 style={{ color: '#fff57e', marginTop: 0 }}>{currentMarker.marker}</h3>
+          <h3 style={{ color: '#FFE05D', marginTop: 0 }}>{currentMarker.marker}</h3>
           <p style={{ color: 'white', fontSize: '1.05em', marginBottom: '1.5rem' }}>{currentMarker.usage}</p>
-          <h4 style={{ color: '#ffb76c', marginBottom: '1rem' }}>Example sentences:</h4>
+          <h4 style={{ color: '#E2852E', marginBottom: '1rem' }}>Example sentences:</h4>
           {currentMarker.examples.map((example, idx) => {
             // Use explicit pronunciation property if present, else build filename
             const audioSrc = example.pronunciation
               ? example.pronunciation
               : `/asset/word-sent-hil/${example.sentence.replace(/[?.]/g, '').replace(/\s+/g, ' ').trim().replace(/ /g, ' ').replace(/’/g, '').replace(/_/g, '').replace(/,/g, '').replace(/:/g, '').replace(/;/g, '').replace(/-/, '').replace(/…/g, '').replace(/“|”/g, '').replace(/'/g, '')}.m4a`;
             return (
-              <div key={idx} style={{ marginBottom: '1rem', padding: '0.75rem', background: 'rgba(255, 181, 108, 0.1)', borderLeft: '3px solid #ffb76c', borderRadius: '4px' }}>
+              <div
+                key={idx}
+                className="marker-example-flex"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '1rem',
+                  marginBottom: '1.5rem',
+                  padding: '0.75rem',
+                  background: 'rgba(255, 181, 108, 0.1)',
+                  borderLeft: '3px solid #E2852E',
+                  borderRadius: '4px',
+                }}
+              >
                 {example.image && (
-                  <img src={example.image} alt={example.sentence} style={{ width: '100%', maxHeight: '300px', borderRadius: '6px', objectFit: 'contain', marginBottom: '0.75rem', display: 'block' }} />
+                  <img
+                    src={example.image}
+                    alt={example.sentence}
+                    style={{
+                      width: '100%',
+                      maxWidth: '340px',
+                      maxHeight: '260px',
+                      borderRadius: '6px',
+                      objectFit: 'contain',
+                      margin: '0 auto',
+                      display: 'block',
+                    }}
+                  />
                 )}
-                {/* Pronunciation audio */}
-                <div style={{ marginBottom: '0.5rem', textAlign: 'center' }}>
-                  <audio key={audioSrc} controls style={{ width: '100%', maxWidth: '400px' }}>
+                <div style={{ width: '100%', maxWidth: '400px', textAlign: 'center' }}>
+                  <audio key={audioSrc} controls style={{ width: '100%' }}>
                     <source src={audioSrc} type="audio/mpeg" />
                     Your browser does not support the audio element.
                   </audio>
                 </div>
-                <p style={{ color: '#fff57e', margin: '0 0 0.3rem 0', fontWeight: 'bold' }}>{example.sentence}</p>
-                <p style={{ color: 'rgba(255, 255, 255, 0.8)', margin: 0, fontStyle: 'italic' }}>{example.translation}</p>
+                <div style={{ width: '100%', textAlign: 'center' }}>
+                  <p style={{ color: 'FFE05D', margin: '0 0 0.3rem 0', fontWeight: 'bold', fontSize: '1.1em' }}>{example.sentence}</p>
+                  <p style={{ color: 'rgba(255, 255, 255, 0.8)', margin: 0, fontStyle: 'italic' }}>{example.translation}</p>
+                </div>
               </div>
             );
           })}

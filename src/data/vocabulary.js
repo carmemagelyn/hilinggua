@@ -83,9 +83,10 @@ export const vocabularyData = [
     meaning: "Shoes",
     exampleSentence: "Sapatos nina Ana kag Maria.",
     exampleTranslation: "Ana and Maria's shoes.",
-    exampleImage: "/asset/img-sentence/Ana and Maria's shoes..png",
+    exampleImage: "/asset/img-sentence/Ana and Maria’s shoes..png",
     image: "/asset/img-word/Sapatos.png",
-    audio: "/asset/word-voice/Sapatos.m4a"
+    audio: "/asset/word-voice/Sapatos.m4a",
+    exampleSentenceAudio: "/asset/word-sent-hil/Sapatos ni Ana kag Maria.m4a"
   },
   {
     id: 9,
@@ -105,9 +106,10 @@ export const vocabularyData = [
     meaning: "Sleep",
     exampleSentence: "Matulog na lang ko.",
     exampleTranslation: "I'll just sleep.",
-    exampleImage: "/asset/img-sentence/I'll just sleep..png",
+    exampleImage: "/asset/img-sentence/I’ll just sleep..png",
     image: "/asset/img-word/Tulog.png",
-    audio: "/asset/word-voice/Tulog.m4a"
+    audio: "/asset/word-voice/Tulog.m4a",
+    exampleSentenceAudio: "/asset/word-sent-hil/Matulog nalang ko.m4a"
   },
   {
     id: 11,
@@ -127,9 +129,10 @@ export const vocabularyData = [
     meaning: "Travel",
     exampleSentence: "Malain ang panahon, gani indi kita makalakat.",
     exampleTranslation: "The weather is bad, so we won't go.",
-    exampleImage: "/asset/img-sentence/The weather is bad, so we won't go..png",
+    exampleImage: "/asset/img-sentence/The weather is bad, so we won’t go..png",
     image: "/asset/img-word/Makalakat.png",
-    audio: "/asset/word-voice/Makalakat.m4a"
+    audio: "/asset/word-voice/Makalakat.m4a",
+    exampleSentenceAudio: "/asset/word-sent-hil/Malain ang panahon, gani indi kita makalakat.m4a"
   },
   {
     id: 13,
@@ -140,7 +143,8 @@ export const vocabularyData = [
     exampleTranslation: "Teach me to cook too.",
     exampleImage: "/asset/img-sentence/Teach me to cook too..png",
     image: "/asset/img-word/Luto.png",
-    audio: "/asset/word-voice/Magluto.m4a"
+    audio: "/asset/word-voice/Magluto.m4a",
+    exampleSentenceAudio: "/asset/word-sent-hil/Tudlui man ako magluto.m4a"
   },
   {
     id: 14,
@@ -151,7 +155,8 @@ export const vocabularyData = [
     exampleTranslation: "He/She seems happy now.",
     exampleImage: "/asset/img-sentence/He_She seems happy now..png",
     image: "/asset/img-word/Masadya.png",
-    audio: "/asset/word-voice/Masadya.m4a"
+    audio: "/asset/word-voice/Masadya.m4a",
+    exampleSentenceAudio: "/asset/word-sent-hil/Daw masadya sya subong.m4a"
   },
   {
     id: 15,
@@ -162,6 +167,7 @@ export const vocabularyData = [
     exampleTranslation: "It looks like a sweet fruit.",
     exampleImage: "/asset/img-sentence/This fruit seems sweet..png",
     image: "/asset/img-word/Prutas.png",
-    audio: "/asset/word-voice/Prutas.m4a"
+    audio: "/asset/word-voice/Prutas.m4a",
+    exampleSentenceAudio: "/asset/word-sent-hil/Daw matam is ini nga prutas.m4a"
   }
 ];
