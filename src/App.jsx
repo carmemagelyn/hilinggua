@@ -38,7 +38,7 @@ function AppContent() {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <img 
-            src="/asset/ref/logo.jpg" 
+            src="/asset/ref/logo.png" 
             alt="Hilinggua" 
             style={{ 
               height: '40px', 

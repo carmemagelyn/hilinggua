@@ -5,7 +5,7 @@ function Home() {
     <main>
       <div style={{ textAlign: 'center', marginBottom: '40px' }}>
         <img 
-          src="/asset/ref/logo.jpg" 
+          src="/asset/ref/logo.png" 
           alt="Hilinggua Logo" 
           style={{
             maxWidth: '200px',
