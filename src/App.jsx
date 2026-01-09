@@ -36,7 +36,7 @@ function AppContent() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '15px 20px',
+
         background: 'linear-gradient(135deg, #26ccc2 0%, #6aece1 100%)',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
       }}>
@@ -55,9 +55,9 @@ function AppContent() {
             }} 
           />
           <span style={{
-            marginLeft: 18,
+            marginLeft: 22,
             fontWeight: 800,
-            fontSize: '2.1em',
+            fontSize: '3em',
             color: '#fff57e',
             letterSpacing: '1px',
             lineHeight: 1,
