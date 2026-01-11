@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Home() {
+function Menu() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -115,4 +115,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Menu;

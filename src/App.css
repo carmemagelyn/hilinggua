@@ -115,7 +115,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #26ccc2 0%, #6aece1 100%);
+  background: url('/asset/ref/beebg.jpg') center center/cover no-repeat fixed;
   min-height: 100vh;
 }
 
@@ -123,7 +123,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #26ccc2 0%, #6aece1 100%);
 }
 
 nav {
