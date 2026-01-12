@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function StartScreen() {
+    useEffect(() => {
+      // Remove beebg background from body when StartScreen is shown
+      const originalBg = document.body.style.background;
+      document.body.style.background = 'none';
+      return () => {
+        document.body.style.background = originalBg;
+      };
+    }, []);
   const navigate = useNavigate();
   const [showStart, setShowStart] = useState(false);
 
@@ -14,7 +22,11 @@ export default function StartScreen() {
     <div
       style={{
         minHeight: "100vh",
+        minWidth: "100vw",
         width: "100vw",
+        height: "100vh",
+        margin: 0,
+        padding: "0 !important",
         background: `url('/asset/ref/huasiong.png') center center/cover no-repeat`,
         position: "relative",
         overflow: "hidden",
@@ -55,7 +67,7 @@ export default function StartScreen() {
           src="/asset/ref/peekaboo.gif"
           alt="Peekaboo"
           style={{
-            width: '100vw',
+            width: '200vw',
             maxWidth: '100%',
             height: 'auto',
             position: 'fixed',
