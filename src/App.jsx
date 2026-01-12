@@ -8,6 +8,11 @@ import StartScreen from './components/StartScreen';
 import Vocabulary from './components/Vocabulary';
 import Markers from './components/Markers';
 import Quiz from './components/Quiz';
+import QuizMenu from './components/QuizMenu';
+import QuizFillBlank from './components/QuizFillBlank';
+import QuizMultipleChoice from './components/QuizMultipleChoice';
+import QuizSentenceConstruction from './components/QuizSentenceConstruction';
+import QuizPictureMatching from './components/QuizPictureMatching';
 import Login from './components/Login';
 import Register from './components/Register';
 import VocabularyDetailPage from './components/VocabularyDetailPage';
@@ -42,6 +47,11 @@ function AppContent() {
         <Route path="/markers" element={<Markers />} />
 
         <Route path="/marker/:markerId" element={<MarkerDetailPage />} />
+        <Route path="/quiz-menu" element={<QuizMenu />} />
+        <Route path="/quiz-fill-blank" element={<QuizFillBlank />} />
+        <Route path="/quiz-multiple-choice" element={<QuizMultipleChoice />} />
+        <Route path="/quiz-sentence-construction" element={<QuizSentenceConstruction />} />
+        <Route path="/quiz-picture-matching" element={<QuizPictureMatching />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
