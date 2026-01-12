@@ -149,6 +149,230 @@ export default function MarkerDetailPage() {
               }}
             />
           )}
+           {markerIndex === 2 && (
+            <img
+              src="/asset/img-sentence/Nagbasa siya sang libro_.png"
+              alt="Nagbasa siya sang libro sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 3 && (
+            <img
+              src="/public/asset/img-sentence/Ginhatag ko ini kay Maria_.png"
+              alt="Ginhatag ko ini kay Maria sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 4 && (
+            <img
+              src="/public/asset/img-sentence/Ang bata nga malipayon nagahampang_.png"
+              alt="Ang bata nga malipayon nagahampang sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 5 && (
+            <img
+              src="/public/asset/img-sentence/Hatagi pa siya sang tubig_.png"
+              alt="Hatagi pa siya sang tubig sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 6 && (
+            <img
+              src="/public/asset/img-sentence/Balay ni Tatay_.png"
+              alt="Balay ni Tatay sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 7 && (
+            <img
+              src="/public/asset/img-sentence/Gab-e na, halong kamo. (It’s night already, take care).png"
+              alt="Gab-e na, halong kamo sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 8 && (
+            <img
+              src="/public/asset/img-sentence/Saging lang gin kaon ko  (I only ate banana.).png"
+              alt="Saging lang gin kaon ko sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 9 && (
+            <img
+              src="/public/asset/img-sentence/Nagahulat siya gihapon bisan init. (He_She is still waiting even if its hot.).png"
+              alt="Nagahulat siya gihapon bisan init sentence"
+              style={{
+                position: 'absolute',
+                top: '40%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '30%',
+                height: '70%',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 10 && (
+            <img
+              src="/public/asset/img-sentence/Hatagi pa ako sang tubig, palihog..png"
+              alt="Hatagi pa ako sang tubig, palihog sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 11 && (
+            <img
+              src="/public/asset/img-sentence/Daw masadya siya subong. (He_She seems happy now.).png"
+              alt="Daw masadya siya subong sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 12 && (
+            <img
+              src="/public/asset/img-sentence/Si Maria nagkanta.  (Maria sang.).png"
+              alt="Si Maria nagkanta sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 13 && (
+            <img
+              src="/public/asset/img-sentence/Sanday Ana kag Juan naghampang sa mga sapat. (Ana and Juan played with the animals.).png"
+              alt="Sanday Ana kag Juan naghampang sa mga sapat sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 14 && (
+            <img
+              src="/public/asset/img-sentence/Sila amo ang nagahampang (They are the ones who are playing.).png"
+              alt="Sila amo ang nagahampang sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+           {markerIndex === 15 && (
+            <img
+              src="/public/asset/img-sentence/Siya amo ang nagdaog sa patimpalak. (He_She is the one who won the contest.).png"
+              alt="Siya ang nagdaog sa patimpalak sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
         </div>
         
         <div style={{ position: 'fixed', top: '300px', left: '-120px', zIndex: 300, pointerEvents: 'none', width: 'auto', height: 'auto' }}>
@@ -172,19 +396,19 @@ export default function MarkerDetailPage() {
               <><span style={{ display: 'inline-block' }}><b>Ang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>naga-kaon</i>{verbLabel}</span>.</>,
               <><span style={{ display: 'inline-block' }}><b>Nagbasa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>sang libro</i>{verbLabel}</span>.</>,
               <><span style={{ display: 'inline-block' }}><b>Kamusta</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ka</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>sa eskwelahan</i>{verbLabel}</span>?</>,
-              <><span style={{ display: 'inline-block' }}><b>Kay</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Juan</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>ginhatag</i>{verbLabel}</span> ang libro.</>,
-              <><span style={{ display: 'inline-block' }}><b>Nga</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>maalam</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Pa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>palihog</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>kuha</i>{verbLabel}</span> sang tubig.</>,
-              <><span style={{ display: 'inline-block' }}><b>Ni</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Maria</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>ginbakal</i>{verbLabel}</span> ang tinapay.</>,
-              <><span style={{ display: 'inline-block' }}><b>Na</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>tapos</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>na</i>{verbLabel}</span> ang obra.</>,
-              <><span style={{ display: 'inline-block' }}><b>Lang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>isa</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>ka</i>{verbLabel}</span> piraso.</>,
-              <><span style={{ display: 'inline-block' }}><b>Gihapon</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>nagahulat</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Pa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>palihog</i>{verbLabel}</span> kuhaa.</>,
-              <><span style={{ display: 'inline-block' }}><b>Daw</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ulan</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>mag-abot</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Si</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Ana</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>nagapanikasog</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Sanday</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Pedro kag Juan</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>nagapananom</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Sila</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>nagahalin</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>subong</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Amo</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ang</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>nagdaog</i>{verbLabel}</span> sa kompetisyon.</>,
+              <><span style={{ display: 'inline-block' }}><b>Ginhatag</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ko ini</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>kay Maria</i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Ang bata nga malipayon</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>naga hampang</i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Hatagi pa siya sang tubig</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Balay ni Tatay</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Gab-e na, halong kamo</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Saging lang gin kaon ko</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Nagahulat siya gihapon bisan init</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Hatagi pa ako sang tubig, palihog</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Daw masadya siya subong</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Si Maria nagkanta</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Sanday Ana kag Juan naghampang sa mga sapat</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Sila amo ang nagahampang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Siya amo ang nagdaog sa patimpalak</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
             ];
             return (
               <div style={{ marginTop: '1.5em', marginBottom: '0.5em', textAlign: 'center', width: '100%' }}>
@@ -226,7 +450,25 @@ export default function MarkerDetailPage() {
                   fontFamily: 'Montserrat, Arial, sans-serif',
                 }}>
                   <span style={{ color: '#555' }}>
-                    <i>{markerIndex === 0 ? 'The child is eating.' : 'Translation goes here.'}</i>
+                    <i>{
+                      markerIndex === 0 ? 'The child is eating.' :
+                      markerIndex === 1 ? 'He/She read a book.' :
+                      markerIndex === 2 ? 'How are you at school?' :
+                      markerIndex === 3 ? 'I gave this to Maria.' :
+                      markerIndex === 4 ? 'The happy child is playing.' :
+                      markerIndex === 5 ? 'Give him/her some more water.' :
+                      markerIndex === 6 ? 'Dad’s house.' :
+                      markerIndex === 7 ? 'It’s night already, take care.' :
+                      markerIndex === 8 ? 'I only ate a banana.' :
+                      markerIndex === 9 ? 'He/She is still waiting even if it’s hot.' :
+                      markerIndex === 10 ? 'Give me some more water, please.' :
+                      markerIndex === 11 ? 'He/She seems happy now.' :
+                      markerIndex === 12 ? 'Maria sang / She sang.' :
+                      markerIndex === 13 ? 'Ana and Juan played with the animals.' :
+                      markerIndex === 14 ? 'They are the ones who are playing.' :
+                      markerIndex === 15 ? 'He/She is the one who won the contest.' :
+                      ''
+                    }</i>
                   </span>
                 </div>
               </div>
