@@ -1,62 +1,5 @@
               // Audio playback handler for marker sentences
-              const playAudio = () => {
-                // Map markerIndex to audio file paths
-                let audioPath = '';
-                if (markerIndex === 0) {
-                  audioPath = '/asset/word-sent-hil/Ang bata nagakaon.m4a';
-                } else {
-                  const audioFiles = [
-                    '', // 0 handled above
-                    'Nagbasa siya sang libro',
-                    'Kamusta ka sa eskwelahan',
-                    'Ginhatag ko ini kay Maria',
-                    'Ang bata nga malipayon naga hampang',
-                    'Hatagi pa siya sang tubig',
-                    'Balay ni Tatay',
-                    'Gab-e na, halong kamo',
-                    'Saging lang gin kaon ko',
-                    'Nagahulat siya gihapon bisan init',
-                    'Hatagi pa ako sang tubig, palihog',
-                    'Daw masadya siya subong',
-                    'Si Maria nagkanta',
-                    'Sanday Ana kag Juan naghampang sa mga sapat',
-                    'Sila amo ang nagahampang',
-                    'Siya amo ang nagdaog sa patimpalak',
-                  ];
-                  const fileBase = audioFiles[markerIndex];
-                  if (!fileBase) return;
-                  audioPath = `/asset/marker-voice/${fileBase}.m4a`;
-                }
-                const audio = new window.Audio(audioPath);
-                audio.onerror = () => {
-                  // Fallback to .mp3 in marker-voice for non-marker 0
-                  if (markerIndex !== 0) {
-                    const audioFiles = [
-                      '',
-                      'Nagbasa siya sang libro',
-                      'Kamusta ka sa eskwelahan',
-                      'Ginhatag ko ini kay Maria',
-                      'Ang bata nga malipayon naga hampang',
-                      'Hatagi pa siya sang tubig',
-                      'Balay ni Tatay',
-                      'Gab-e na, halong kamo',
-                      'Saging lang gin kaon ko',
-                      'Nagahulat siya gihapon bisan init',
-                      'Hatagi pa ako sang tubig, palihog',
-                      'Daw masadya siya subong',
-                      'Si Maria nagkanta',
-                      'Sanday Ana kag Juan naghampang sa mga sapat',
-                      'Sila amo ang nagahampang',
-                      'Siya amo ang nagdaog sa patimpalak',
-                    ];
-                    const fileBase = audioFiles[markerIndex];
-                    if (!fileBase) return;
-                    const fallback = new window.Audio(`/asset/marker-voice/${fileBase}.mp3`);
-                    fallback.play();
-                  }
-                };
-                audio.play();
-              };
+              // ...existing code...
             <img
               src="/asset/img-sentence/Nagbasa siya sang libro_.png"
               alt="Nagbasa siya sang libro sentence"
@@ -95,6 +38,86 @@ const markerButtons = [
 ];
 
 export default function MarkerDetailPage() {
+                    // Audio playback for AMO marker
+                    const playAmoVerbAudio = () => {
+                      const audio = new window.Audio('/asset/word-sent-hil/Siya ang nagdaog sa patimpalak.m4a');
+                      audio.play();
+                    };
+              // Audio playback for PA / MAN + VERB marker
+              const playPaManVerbAudio = () => {
+                const audio = new window.Audio('/asset/word-sent-hil/Hatagi pa siya sang tubig.m4a');
+                audio.play();
+              };
+              // Audio playback for NI + VERB/POSSESSION marker
+              const playNiVerbAudio = () => {
+                const audio = new window.Audio('/asset/word-sent-hil/Balay ni Tatay.m4a');
+                audio.play();
+              };
+              // Audio playback for NA / NA LANG + VERB marker
+              const playNaVerbAudio = () => {
+                const audio = new window.Audio('/asset/word-sent-hil/Gab e na, halong kamo.m4a');
+                audio.play();
+              };
+              // Audio playback for LANG + VERB marker
+              const playLangVerbAudio = () => {
+                const audio = new window.Audio('/asset/word-sent-hil/Saging lang ang ginkaon ko.m4a');
+                audio.play();
+              };
+              // Audio playback for GIHAPON + VERB marker
+              const playGihaponVerbAudio = () => {
+                const audio = new window.Audio('/asset/word-sent-hil/Nagahulat siya gihapon bisan init.m4a');
+                audio.play();
+              };
+              // Audio playback for PA + VERB marker
+              const playPaVerbAudio = () => {
+                const audio = new window.Audio('/asset/word-sent-hil/Hatagi pa ako sang tubig palihog.m4a');
+                audio.play();
+              };
+              // Audio playback for DAW + VERB marker
+              const playDawVerbAudio = () => {
+                const audio = new window.Audio('/asset/word-sent-hil/Daw masadya sya subong.m4a');
+                audio.play();
+              };
+              // Audio playback for SI marker
+              const playSiVerbAudio = () => {
+                const audio = new window.Audio('/asset/word-sent-hil/Si Maria nagkanta.m4a');
+                audio.play();
+              };
+              // Audio playback for SANDAY marker
+              const playSandayVerbAudio = () => {
+                const audio = new window.Audio('/asset/word-sent-hil/Sanday Ana kag Juan naghampang sa mga sapat.m4a');
+                audio.play();
+              };
+              // Audio playback for SILA marker
+              const playSilaVerbAudio = () => {
+                const audio = new window.Audio('/asset/word-sent-hil/Sila amo ang nagahampang.m4a');
+                audio.play();
+              };
+            // Audio playback for NGA + VERB/DESCRIPTION marker
+            const playNgaVerbAudio = () => {
+              const audio = new window.Audio('/asset/word-sent-hil/Ang bata nga malipayon nagahampang.m4a');
+              audio.play();
+            };
+          // Audio playback for KAY + VERB/PERSON marker
+          const playKayVerbAudio = () => {
+            const audio = new window.Audio('/asset/word-sent-hil/Ginhatag ko ini kay Maria.m4a');
+            audio.play();
+          };
+        // Audio playback for SA + VERB/LOCATION/RECIPIENT marker
+        const playSaVerbAudio = () => {
+          const audio = new window.Audio('/asset/word-sent-hil/Kumusta ka sa eskwelahan_.m4a');
+          audio.play();
+        };
+      // Audio playback for SANG + VERB/OBJECT marker
+      const playSangVerbAudio = () => {
+        const audio = new window.Audio('/asset/word-sent-hil/Nagbasa siya sang libro.m4a');
+        audio.play();
+      };
+    // Audio playback for ANG + VERB marker
+    const playAngVerbAudio = () => {
+      const audio = new window.Audio('/asset/word-sent-hil/Ang bata nagakaon.m4a');
+      audio.play();
+    };
   const { markerId } = useParams();
   const navigate = useNavigate();
   const markerIndex = parseInt(markerId, 10);
@@ -191,6 +214,454 @@ export default function MarkerDetailPage() {
                 zIndex: 2,
               }}
             />
+            )}
+           {markerIndex === 0 && (
+             <button
+               onClick={playAngVerbAudio}
+               style={{
+                 position: 'absolute',
+                 left: '50%',
+                 top: '100%',
+                 transform: 'translate(-50%, 0)',
+                 background: 'rgba(255,255,255,0.85)',
+                 border: '2px solid #fff57e',
+                 borderRadius: '50%',
+                 width: 64,
+                 height: 64,
+                 display: 'flex',
+                 alignItems: 'center',
+                 justifyContent: 'center',
+                 boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                 cursor: 'pointer',
+                 padding: 0,
+                 outline: 'none',
+                 transition: 'box-shadow 0.2s',
+                 zIndex: 10,
+               }}
+               aria-label="Play pronunciation"
+             >
+               <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+             </button>
+          )}
+          {markerIndex === 1 && (
+            <button
+              onClick={playSangVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 2 && (
+            <button
+              onClick={playSaVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 3 && (
+            <button
+              onClick={playKayVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 4 && (
+            <button
+              onClick={playNgaVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 5 && (
+            <button
+              onClick={playPaManVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 6 && (
+            <button
+              onClick={playNiVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 7 && (
+            <button
+              onClick={playNaVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 8 && (
+            <button
+              onClick={playLangVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 9 && (
+            <button
+              onClick={playGihaponVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 10 && (
+            <button
+              onClick={playPaVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 11 && (
+            <button
+              onClick={playDawVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 12 && (
+            <button
+              onClick={playSiVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 13 && (
+            <button
+              onClick={playSandayVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 14 && (
+            <button
+              onClick={playSilaVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
+          )}
+          {markerIndex === 15 && (
+            <button
+              onClick={playAmoVerbAudio}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '100%',
+                transform: 'translate(-50%, 0)',
+                background: 'rgba(255,255,255,0.85)',
+                border: '2px solid #fff57e',
+                borderRadius: '50%',
+                width: 64,
+                height: 64,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+                cursor: 'pointer',
+                padding: 0,
+                outline: 'none',
+                transition: 'box-shadow 0.2s',
+                zIndex: 10,
+              }}
+              aria-label="Play pronunciation"
+            >
+              <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+            </button>
           )}
           {markerIndex === 1 && (
             <img
@@ -209,36 +680,11 @@ export default function MarkerDetailPage() {
             />
           )}
           {/* Speaker button for audio playback */}
-          <button
-            onClick={playAudio}
-            style={{
-              position: 'absolute',
-              left: '50%',
-              top: '100%',
-              transform: 'translate(-50%, 0)',
-              background: 'rgba(255,255,255,0.85)',
-              border: '2px solid #fff57e',
-              borderRadius: '50%',
-              width: 64,
-              height: 64,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
-              cursor: 'pointer',
-              padding: 0,
-              outline: 'none',
-              transition: 'box-shadow 0.2s',
-              zIndex: 10,
-            }}
-            aria-label="Play pronunciation"
-          >
-            <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
-          </button>
+          {/* ...existing code... */}
            {markerIndex === 2 && (
             <img
-              src="/asset/img-sentence/Nagbasa siya sang libro_.png"
-              alt="Nagbasa siya sang libro sentence"
+              src="/asset/img-sentence/Kamusta ka sa eskwelahan__.png"
+              alt="Kamusta ka sa eskwelahan sentence"
               style={{
                 position: 'absolute',
                 top: '50%',
@@ -253,8 +699,8 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 3 && (
             <img
-              src="/public/asset/img-sentence/Ginhatag ko ini kay Maria_.png"
-              alt="Nagbasa siya sang libro sentence"
+              src="/asset/img-sentence/Ginhatag ko ini kay Maria_.png"
+              alt="Ginhatag ko ini kay Maria sentence"
               style={{
                 position: 'absolute',
                 top: '50%',
@@ -478,26 +924,29 @@ export default function MarkerDetailPage() {
             const markerLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>marker</div>;
             const subjectLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>subject</div>;
             const verbLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>verb</div>;
+             const objectLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>object</div>;
+             const locationLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>location</div>;
+             const possesorLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>possesor</div>;
             const examples = [
-              <><span style={{ display: 'inline-block' }}><b>Ang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>naga-kaon</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Nagbasa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>sang libro</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Kamusta</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ka</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>sa eskwelahan</i>{verbLabel}</span>?</>,
-              <><span style={{ display: 'inline-block' }}><b>Ginhatag</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ko ini</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>kay Maria</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Ang bata nga malipayon</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>naga hampang</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Hatagi pa siya sang tubig</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Balay ni Tatay</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Gab-e na, halong kamo</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Saging lang gin kaon ko</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Nagahulat siya gihapon bisan init</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Hatagi pa ako sang tubig, palihog</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Daw masadya siya subong</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Si Maria nagkanta</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Sanday Ana kag Juan naghampang sa mga sapat</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Sila amo ang nagahampang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Siya amo ang nagdaog sa patimpalak</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}></span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i></i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Ang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>naga-kaon.</i>{verbLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><i>Nagbasa</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>sang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>libro.{objectLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><i>Kamusta</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ka</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>sa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>eskwelahan?{locationLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><i>Ginhatag</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ko</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>kay</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>Maria{<div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>recipient.</div>}</span></>,
+              <><span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>nga</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>malipayon{<div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>description</div>}</span> <span style={{ display: 'inline-block' }}><i>nagahampang.</i>{verbLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><i>Hatagi</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>pa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>tubig.{objectLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Balay</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>ni</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>Tatay.{possesorLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}>Gab-e </span><span style={{ display: 'inline-block' }}><b>na,</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>halong</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>kamo.</span>{subjectLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}>Saging{objectLabel}</span> <span style={{ display: 'inline-block' }}><b>lang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>gin kaon</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ko.</span>{subjectLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><i>Nagahulat</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>gihapon</b>{markerLabel}</span> bisan init.</>,
+              <><span style={{ display: 'inline-block' }}><i>Hatagi</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><b>pa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ako</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}>tubig,{objectLabel}</span> palihog.</>,
+              <><span style={{ display: 'inline-block' }}><b>Daw</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>masadya</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> subong.</>,
+              <><span style={{ display: 'inline-block' }}><b>Si</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Maria</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>nagkanta.</i>{verbLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><b>Sanday</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Ana kag Juan</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>naghampang</i>{verbLabel}</span> sa mga sapat.</>,
+              <><span style={{ display: 'inline-block' }}><b>Sila</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>nagahampang.</i>{verbLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>amo</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>nagdaog</i>{verbLabel}</span> sa patimpalak.</>,
             ];
             return (
-              <div style={{ marginTop: '1.5em', marginBottom: '0.5em', textAlign: 'center', width: '100%' }}>
+              <div style={{ marginTop: '2.5em', marginBottom: '0.5em', textAlign: 'center', width: '100%' }}>
                 <span style={{ fontWeight: 700, fontSize: '.8em', color: '#222', letterSpacing: '1px', marginLeft: '2vw' }}>EXAMPLE SENTENCES</span>
                 <div style={{
                   background: 'rgba(255,255,255,0.45)',

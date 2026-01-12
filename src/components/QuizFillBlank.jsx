@@ -1,41 +1,45 @@
 import React, { useState } from "react";
-import markersSentences from "../data/markersSentences";
+// import markersSentences from "../data/markersSentences";
 import "../style.css";
 import { useNavigate } from "react-router-dom";
 
 
-// Utility to create a fill-in-the-blank version of a sentence
-function makeFillBlank(sentence) {
-  const words = sentence.split(" ");
-  if (words.length < 3) return sentence;
-  // Hide a random word (not first or last)
-  const blankIndex = Math.floor(Math.random() * (words.length - 2)) + 1;
-  const answer = words[blankIndex];
-  const display = words.map((w, i) => (i === blankIndex ? "______" : w)).join(" ");
-  return { display, answer };
-}
+
+// Static contextual fill-in-the-blank questions
+const fillBlankQuestions = [
+  {
+    sentence: "___ bata naga kaon sang saging.",
+    options: ["Ang", "Sang", "Sa"],
+    answer: "Ang",
+    translation: "The child is eating a banana."
+  },
+  {
+    sentence: "Naga ___ ang manok sa kahoy.",
+    options: ["kaon", "lupad", "tulog"],
+    answer: "lupad",
+    translation: "The chicken is flying in the tree."
+  }
+];
+
 
 export default function QuizFillBlank() {
   const navigate = useNavigate();
-  const quizData = markersSentences.filter(q => q.sentence && q.sentence.trim().length > 0);
   const [quizIndex, setQuizIndex] = useState(0);
-  const [userAnswer, setUserAnswer] = useState("");
+  const [selected, setSelected] = useState(null);
   const [feedback, setFeedback] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
 
-  if (quizData.length === 0) return <div>No quiz data available.</div>;
-
-  const { display, answer } = makeFillBlank(quizData[quizIndex].sentence);
+  const current = fillBlankQuestions[quizIndex];
 
   const handleNext = () => {
-    setQuizIndex((prev) => (prev + 1) % quizData.length);
-    setUserAnswer("");
+    setQuizIndex((prev) => (prev + 1) % fillBlankQuestions.length);
+    setSelected(null);
     setFeedback("");
     setShowAnswer(false);
   };
 
   const handleCheck = () => {
-    if (userAnswer.trim().toLowerCase() === answer.trim().toLowerCase()) {
+    if (selected === current.answer) {
       setFeedback("✅ Correct!");
     } else {
       setFeedback("❌ Try again or show answer.");
@@ -45,25 +49,41 @@ export default function QuizFillBlank() {
   return (
     <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat" }}>
       <div style={{ background: "rgba(255,255,255,0.8)", borderRadius: 24, padding: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.08)", textAlign: "center", maxWidth: 500 }}>
-        <h2 style={{ color: "#26ccc2", fontWeight: 800, fontSize: 28, marginBottom: 24 }}>Fill in the Blank</h2>
-        <div style={{ fontSize: 22, marginBottom: 24, color: "#222", fontWeight: 600 }}>{display}</div>
-        <input
-          type="text"
-          value={userAnswer}
-          onChange={e => setUserAnswer(e.target.value)}
-          placeholder="Type the missing word"
-          style={{ fontSize: 20, padding: "10px 18px", borderRadius: 12, border: "2px solid #26ccc2", outline: "none", marginBottom: 16, width: "70%" }}
-        />
+        <h2 style={{ color: "#26ccc2", fontWeight: 800, fontSize: 28, marginBottom: 24 }}>Fill in the Blank (Contextual)</h2>
+        <div style={{ fontSize: 22, marginBottom: 24, color: "#222", fontWeight: 600 }}>{current.sentence}</div>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: 16, marginBottom: 24 }}>
+          {current.options.map((option, idx) => (
+            <button
+              key={idx}
+              className="tab-button"
+              style={{
+                background: selected === option ? '#fff57e' : 'rgba(255,255,255,0.7)',
+                color: selected === option ? '#26ccc2' : '#222',
+                fontWeight: 700,
+                fontSize: 20,
+                border: '2px solid #26ccc2',
+                borderRadius: 12,
+                padding: '10px 18px',
+                cursor: 'pointer',
+                transition: 'background 0.2s, color 0.2s',
+              }}
+              onClick={() => setSelected(option)}
+              disabled={!!feedback}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
         <div style={{ marginBottom: 16 }}>
-          <button className="tab-button" style={{ marginRight: 16 }} onClick={handleCheck}>Check</button>
+          <button className="tab-button" style={{ marginRight: 16 }} onClick={handleCheck} disabled={selected === null}>Check</button>
           <button className="tab-button" onClick={() => setShowAnswer(true)}>Show Answer</button>
         </div>
         {feedback && <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 8 }}>{feedback}</div>}
-        {showAnswer && <div style={{ fontSize: 18, color: "#ffb76c" }}>Answer: <b>{answer}</b></div>}
+        {showAnswer && <div style={{ fontSize: 18, color: "#ffb76c" }}>Answer: <b>{current.answer}</b></div>}
+        <div style={{ fontSize: 16, color: '#888', marginTop: 12 }}>English: {current.translation}</div>
         <button className="tab-button" style={{ marginTop: 32 }} onClick={handleNext}>Next</button>
-
       </div>
-       {/* Left arrow back button */}
+      {/* Left arrow back button */}
       <button
         onClick={() => navigate("/quiz-menu")}
         style={{
