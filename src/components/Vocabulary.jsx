@@ -1,219 +1,167 @@
-import React, { useState, useEffect } from 'react';
-import { vocabularyData } from '../data/vocabulary';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function Vocabulary({ initialIndex = 0, onIndexChange }) {
-  const [selectedIndex, setSelectedIndex] = useState(initialIndex);
-  const totalWords = vocabularyData.length;
-  const selectedWord = vocabularyData[selectedIndex];
+// Vocabulary button labels (Hiligaynon words only)
+const vocabularyButtons = [
+  "Balay",
+  "Bata",
+  "Bulig",
+  "Dako",
+  "Eskwelahan",
+  "Gabe",
+  "Ginhatag",
+  "Ginhimo",
+  "Halong",
+  "Hatagi",
+  "Init",
+  "Isda",
+  "Kamusta",
+  "Libro",
+  "Madamo",
+  "Manok",
+  "Masadya",
+  "Matamis",
+  "Matulog",
+  "Nagahulat",
+  "Nagakaon",
+  "Nagalupad",
+  "Nagbasa",
+  "Nagbulig",
+  "Nagdaog",
+  "Nagkanta",
+  "Naglakat",
+  "Nageskwela",
+  "Nakadakop",
+  "Nagsulat",
+  "Nagtuon",
+  "Pagpauli",
+  "Prutas",
+  "Saging",
+  "Sapat",
+  "Tubig",
+  "Tugnaw"
+];
 
-  useEffect(() => {
-    setSelectedIndex(initialIndex);
-  }, [initialIndex]);
-
-  useEffect(() => {
-    if (onIndexChange) {
-      onIndexChange(selectedIndex);
-    }
-  }, [selectedIndex, onIndexChange]);
-
-
-  const handlePrevious = () => {
-    setSelectedIndex((prev) => (prev === 0 ? totalWords - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setSelectedIndex((prev) => (prev === totalWords - 1 ? 0 : prev + 1));
-  };
-
+export default function Vocabulary() {
+  const navigate = useNavigate();
+                                                                                            
+                                                                                    
+                                                                            
+                                                            
+                                                    
+                                            
+                                    
+                        
   return (
-    <main style={{ paddingTop: '70px' }}>
-      <div style={{ textAlign: 'center', marginBottom: '1.2rem' }}>
-        <h1 style={{ margin: 0 }}>Vocabularies</h1>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '18px', marginTop: '1rem', flexWrap: 'wrap' }}>
-          <button
-            onClick={handlePrevious}
-            style={{
-              padding: '8px 12px',
-              fontSize: '0.95em',
-              borderRadius: '6px',
-              border: '2px solid #FFE05D',
-              background: '#FFE05D',
-              color: '#26ccc2',
-              cursor: 'pointer',
-              fontWeight: '700',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={e => {
-              e.target.style.background = 'white';
-              e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
-            }}
-            onMouseLeave={e => {
-              e.target.style.background = '#FFE05D';
-              e.target.style.boxShadow = 'none';
-            }}
-          >
-            ←
-          </button>
-          <span style={{ color: '#FFE05D', fontWeight: '700', minWidth: '50px', textAlign: 'center' }}>
-            {selectedIndex + 1}/{totalWords}
-          </span>
-          <button
-            onClick={handleNext}
-            style={{
-              padding: '8px 12px',
-              fontSize: '0.95em',
-              borderRadius: '6px',
-              border: '2px solid #FFE05D',
-              background: '#FFE05D',
-              color: '#26ccc2',
-              cursor: 'pointer',
-              fontWeight: '700',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseEnter={e => {
-              e.target.style.background = 'white';
-              e.target.style.boxShadow = '0 4px 12px rgba(255,255,255,0.3)';
-            }}
-            onMouseLeave={e => {
-              e.target.style.background = '#FFE05D';
-              e.target.style.boxShadow = 'none';
-            }}
-          >
-            →
-          </button>
-        </div>
+    <div
+      style={{
+        minHeight: "100vh",
+        width: "100vw",
+        background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        padding: "0",
+        position: "relative"
+      }}
+    >
+      {/* Left arrow back button */}
+      <button
+        onClick={() => navigate("/menu")}
+        style={{
+          position: 'fixed',
+          top: 24,
+          left: 18,
+          zIndex: 200,
+          background: 'rgba(255,255,255,0.85)',
+          border: 'none',
+          borderRadius: '50%',
+          width: 48,
+          height: 48,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+          cursor: 'pointer',
+          padding: 0,
+          outline: 'none',
+          transition: 'box-shadow 0.2s',
+        }}
+        aria-label="Back to Home"
+      >
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="14,5 7,11 14,17" stroke="#222" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </svg>
+      </button>
+      {/* Top section with GIF and callout */}
+      {/* Overlay GIF at top left */}
+      <div style={{ position: 'fixed', top: '80px', right: '-150px', zIndex: 100, pointerEvents: 'none' }}>
+        <img
+          src="/asset/ref/blinkhappy.gif"
+          alt="Animated character blinking happily"
+          style={{
+            width: "420px",
+            height: "auto",
+            maxWidth: "120vw",
+            margin: 0,
+            display: "block",
+            transform: "scaleX(-1)",
+          }}
+        />
       </div>
-      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-        <div className="card">
-          {/* Word Image */}
-          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-            <img 
-              src={selectedWord.image} 
-              alt={selectedWord.word}
-              style={{
-                maxWidth: '100%',
-                maxHeight: '250px',
-                borderRadius: '8px',
-                objectFit: 'contain'
-              }}
-            />
-          </div>
-          {/* Word Title */}
-          <h2 style={{ marginBottom: '20px', color: '#FFE05D', textAlign: 'center', fontSize: 'clamp(1.3em, 5vw, 1.8em)' }}>
-            {selectedWord.word}
-          </h2>
-          {/* Pronunciation Section */}
-          <div style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '2px solid rgba(255, 255, 255, 0.2)' }}>
-            <h3 style={{ color: '#FFE05D', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>Pronunciation</h3>
-            <p style={{ fontSize: 'clamp(0.95em, 2.5vw, 1.1em)', marginBottom: '10px' }}>
-              <strong>{selectedWord.pronunciation}</strong>
-            </p>
-            <audio 
-              controls 
-              style={{ width: '100%', maxWidth: '300px' }}
-              controlsList="nodownload"
-            >
-              <source src={selectedWord.audio} type="audio/mp4" />
-              Your browser does not support the audio element.
-            </audio>
-          </div>
-          {/* Meaning Section */}
-          <div style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '2px solid rgba(255, 255, 255, 0.2)' }}>
-            <h3 style={{ color: '#E2852E', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>English Meaning</h3>
-            <p style={{ fontSize: 'clamp(1em, 2.5vw, 1.2em)', color: '#ffff', fontWeight: '600' }}>
-              {selectedWord.meaning}
-            </p>
-          </div>
-          {/* Example Sentence Section */}
-          <div>
-            <h3 style={{ color: '#646464', marginBottom: '10px', fontSize: 'clamp(1em, 3vw, 1.2em)' }}>Example Sentences</h3>
-            {/* First Example */}
-            <div style={{ 
-              padding: '15px',
-              background: 'rgba(255, 245, 126, 0.1)',
-              borderRadius: '8px',
-              borderLeft: '4px solid #FFE05D',
-              marginBottom: '15px'
-            }}>
-              <p style={{ marginBottom: '5px', color: '#FFE05D', fontWeight: '600', fontSize: 'clamp(0.85em, 2vw, 0.95em)' }}>Hiligaynon:</p>
-              <p style={{ margin: '0', fontSize: 'clamp(0.9em, 2.2vw, 1.05em)' }}>
-                {selectedWord.exampleSentence}
-              </p>
-              {/* Example Sentence Audio for all pages, with explicit mapping if present */}
-              {selectedWord.exampleSentence && (
-                <div style={{ marginTop: '10px', textAlign: 'center' }}>
-                  <audio
-                    key={selectedWord.exampleSentence + (selectedWord.exampleSentenceAudio || '')}
-                    controls
-                    style={{ width: '100%', maxWidth: '300px' }}
-                  >
-                    <source
-                      src={
-                        selectedWord.exampleSentenceAudio
-                          ? selectedWord.exampleSentenceAudio
-                          : `/asset/word-sent-hil/${selectedWord.exampleSentence
-                              .replace(/[?.]/g, '')
-                              .replace(/\s+/g, ' ')
-                              .trim()
-                              .replace(/ /g, ' ')
-                              .replace(/’/g, '')
-                              .replace(/_/g, '')
-                              .replace(/,/g, '')
-                              .replace(/:/g, '')
-                              .replace(/;/g, '')
-                              .replace(/-/, '')
-                              .replace(/…/g, '')
-                              .replace(/“|”/g, '')
-                              .replace(/'/g, '')
-                            }.m4a`
-                      }
-                      type="audio/mp4"
-                    />
-                    Your browser does not support the audio element.
-                  </audio>
-                </div>
-              )}
-            </div>
-            <div style={{ 
-              padding: '15px',
-              background: 'rgba(255, 181, 108, 0.1)',
-              borderRadius: '8px',
-              borderLeft: '4px solid #E2852E',
-              marginBottom: '15px'
-            }}>
-              <p style={{ marginBottom: '5px', color: '#E2852E', fontWeight: '600', fontSize: 'clamp(0.85em, 2vw, 0.95em)' }}>English:</p>
-              <p style={{ margin: '0', fontSize: 'clamp(0.9em, 2.2vw, 1.05em)' }}>
-                {selectedWord.exampleTranslation}
-              </p>
-            </div>
-            {/* Example Sentence Image */}
-            {selectedWord.exampleImage && (
-              <div style={{ 
-                marginTop: '15px',
-                padding: '15px',
-                background: 'rgba(255, 255, 255, 0.05)',
-                borderRadius: '8px',
-                textAlign: 'center'
-              }}>
-                <img 
-                  src={selectedWord.exampleImage} 
-                  alt="Example sentence visual"
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '300px',
-                    borderRadius: '6px',
-                    objectFit: 'contain'
-                  }}
-                />
-              </div>
-            )}
-          </div>
-        </div>
+      {/* Callout to the right of GIF */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          marginTop: "8vw",
+          marginLeft: "-50px",
+          width: "80%",
+          maxWidth: 900,
+        }}
+      >
+        <img
+          src="/asset/ref/vocabcallout.png"
+          alt="Vocabulary callout"
+          style={{
+            width: "520px",
+            maxWidth: "88vw",
+            height: "auto",
+            display: "block",
+            marginTop: "0.5em"
+          }}
+        />
       </div>
-    </main>
-  );
-}
-
-export default Vocabulary;
-
-  
+      {/* Responsive button below callout */}
+      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '5em', gap: '1.5em', paddingBottom: '3em' }}>
+        {vocabularyButtons.map((label, idx) => (
+          <button
+            key={idx}
+            style={{
+              background: '#fafeaa',
+              color: '#222',
+              fontWeight: 700,
+              fontSize: 'clamp(1.3em, 4vw, 2.2em)',
+              border: 'none',
+              borderRadius: '12px',
+              boxShadow: '0 4px 18px #7b8457',
+              padding: 'clamp(0.5em, 1.2vw, 0.7em) clamp(0.7em, 3vw, 1.2em)',
+              letterSpacing: '1px',
+              outline: 'none',
+              cursor: 'pointer',
+              width: 'clamp(220px, 80vw, 520px)',
+              maxWidth: '95vw',
+              whiteSpace: 'normal',
+              textAlign: 'center',
+              lineHeight: 1.25
+            }}
+            onClick={() => navigate(`/vocabulary/${label}`)}
+          >
+            {label[0]}-{label}
+          </button>
+        ))}
+        </div>
+    </div>
+    );
+    }

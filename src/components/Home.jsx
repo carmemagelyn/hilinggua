@@ -37,7 +37,7 @@ function Home() {
               Vocabulary
             </button>
           </Link>
-          <Link to="/markers-frontpage" style={{ width: '100%' }}>
+          <Link to="/markers" style={{ width: '100%' }}>
             <button style={{
               width: '100%',
               maxWidth: '420px',

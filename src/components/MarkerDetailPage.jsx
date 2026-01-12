@@ -43,7 +43,7 @@ export default function MarkerDetailPage() {
     >
       {/* Back arrow button to Markers Front Page */}
       <button
-        onClick={() => navigate("/markers-frontpage")}
+        onClick={() => navigate("/markers")}
         style={{
           position: 'fixed',
           top: 55,
@@ -70,7 +70,7 @@ export default function MarkerDetailPage() {
         </svg>
       </button>
       {/* Title at the top */}
-      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '2em', gap: '1.5em', paddingBottom: '3em' }}>
+      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '2em', gap: '1.5em', paddingBottom: '0' }}>
         <h1 style={{
           fontSize: 'clamp(1.3em, 4vw, 2.2em)',
           color: '#222',
@@ -84,18 +84,42 @@ export default function MarkerDetailPage() {
           maxWidth: '95vw',
           width: 'clamp(220px, 80vw, 700px)'
         }}>{title}</h1>
-        <img
-          src="/asset/ref/cloud.png"
-          alt="Cloud decoration"
-          style={{
-            width: 'clamp(1400px, 100vw, 2800px)',
-            maxWidth: '140vw',
-            height: 'auto',
-            margin: '0 0 1.5em 0',
-            filter: 'drop-shadow(0 4px 18px #7b8457aa)',
-            display: 'block',
-          }}
-        />
+        <div style={{
+          position: 'relative',
+          width: 'clamp(600px, 90vw, 1200px)',
+          maxWidth: '150vw',
+          margin: '0 0 1.5em 0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <img
+            src="/asset/ref/cloud.png"
+            alt="Cloud decoration"
+            style={{
+              width: '100%',
+              height: 'auto',
+              filter: 'drop-shadow(0 4px 18px #7b8457aa)',
+              display: 'block',
+            }}
+          />
+          {markerIndex === 0 && (
+            <img
+              src="/asset/img-sentence/Ang bata nagakaon..png"
+              alt="Ang bata nagakaon sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+        </div>
         
         <div style={{ position: 'fixed', top: '300px', left: '-120px', zIndex: 300, pointerEvents: 'none', width: 'auto', height: 'auto' }}>
           <img

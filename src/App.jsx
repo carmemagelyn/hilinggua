@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import Home from './components/Home';
 import Menu from './components/Menu';
 import MarkerDetailPage from './components/MarkerDetailPage';
-import MarkersFrontPage from './components/MarkersFrontPage';
+
 import StartScreen from './components/StartScreen';
 import Vocabulary from './components/Vocabulary';
 import Markers from './components/Markers';
 import Quiz from './components/Quiz';
 import Login from './components/Login';
 import Register from './components/Register';
+import VocabularyDetailPage from './components/VocabularyDetailPage';
 import './App.css';
 
 function AppContent() {
@@ -37,8 +38,9 @@ function AppContent() {
         <Route path="/" element={<StartScreen />} />
         <Route path="/home" element={<Home />} />
         <Route path="/vocabulary" element={<Vocabulary key={vocabIndex} initialIndex={vocabIndex} onIndexChange={setVocabIndex} />} />
+        <Route path="/vocabulary/:vocabId" element={<VocabularyDetailPage />} />
         <Route path="/markers" element={<Markers />} />
-        <Route path="/markers-frontpage" element={<MarkersFrontPage />} />
+
         <Route path="/marker/:markerId" element={<MarkerDetailPage />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/login" element={<Login />} />
