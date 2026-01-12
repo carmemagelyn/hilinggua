@@ -1,3 +1,62 @@
+              // Audio playback handler for marker sentences
+              const playAudio = () => {
+                // Map markerIndex to audio file paths
+                let audioPath = '';
+                if (markerIndex === 0) {
+                  audioPath = '/asset/word-sent-hil/Ang bata nagakaon.m4a';
+                } else {
+                  const audioFiles = [
+                    '', // 0 handled above
+                    'Nagbasa siya sang libro',
+                    'Kamusta ka sa eskwelahan',
+                    'Ginhatag ko ini kay Maria',
+                    'Ang bata nga malipayon naga hampang',
+                    'Hatagi pa siya sang tubig',
+                    'Balay ni Tatay',
+                    'Gab-e na, halong kamo',
+                    'Saging lang gin kaon ko',
+                    'Nagahulat siya gihapon bisan init',
+                    'Hatagi pa ako sang tubig, palihog',
+                    'Daw masadya siya subong',
+                    'Si Maria nagkanta',
+                    'Sanday Ana kag Juan naghampang sa mga sapat',
+                    'Sila amo ang nagahampang',
+                    'Siya amo ang nagdaog sa patimpalak',
+                  ];
+                  const fileBase = audioFiles[markerIndex];
+                  if (!fileBase) return;
+                  audioPath = `/asset/marker-voice/${fileBase}.m4a`;
+                }
+                const audio = new window.Audio(audioPath);
+                audio.onerror = () => {
+                  // Fallback to .mp3 in marker-voice for non-marker 0
+                  if (markerIndex !== 0) {
+                    const audioFiles = [
+                      '',
+                      'Nagbasa siya sang libro',
+                      'Kamusta ka sa eskwelahan',
+                      'Ginhatag ko ini kay Maria',
+                      'Ang bata nga malipayon naga hampang',
+                      'Hatagi pa siya sang tubig',
+                      'Balay ni Tatay',
+                      'Gab-e na, halong kamo',
+                      'Saging lang gin kaon ko',
+                      'Nagahulat siya gihapon bisan init',
+                      'Hatagi pa ako sang tubig, palihog',
+                      'Daw masadya siya subong',
+                      'Si Maria nagkanta',
+                      'Sanday Ana kag Juan naghampang sa mga sapat',
+                      'Sila amo ang nagahampang',
+                      'Siya amo ang nagdaog sa patimpalak',
+                    ];
+                    const fileBase = audioFiles[markerIndex];
+                    if (!fileBase) return;
+                    const fallback = new window.Audio(`/asset/marker-voice/${fileBase}.mp3`);
+                    fallback.play();
+                  }
+                };
+                audio.play();
+              };
             <img
               src="/asset/img-sentence/Nagbasa siya sang libro_.png"
               alt="Nagbasa siya sang libro sentence"
@@ -149,6 +208,33 @@ export default function MarkerDetailPage() {
               }}
             />
           )}
+          {/* Speaker button for audio playback */}
+          <button
+            onClick={playAudio}
+            style={{
+              position: 'absolute',
+              left: '50%',
+              top: '100%',
+              transform: 'translate(-50%, 0)',
+              background: 'rgba(255,255,255,0.85)',
+              border: '2px solid #fff57e',
+              borderRadius: '50%',
+              width: 64,
+              height: 64,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+              cursor: 'pointer',
+              padding: 0,
+              outline: 'none',
+              transition: 'box-shadow 0.2s',
+              zIndex: 10,
+            }}
+            aria-label="Play pronunciation"
+          >
+            <img src="/asset/ref/speaker.png" alt="Speaker" style={{ width: 70, height: 38 }} />
+          </button>
            {markerIndex === 2 && (
             <img
               src="/asset/img-sentence/Nagbasa siya sang libro_.png"
@@ -168,7 +254,7 @@ export default function MarkerDetailPage() {
            {markerIndex === 3 && (
             <img
               src="/public/asset/img-sentence/Ginhatag ko ini kay Maria_.png"
-              alt="Ginhatag ko ini kay Maria sentence"
+              alt="Nagbasa siya sang libro sentence"
               style={{
                 position: 'absolute',
                 top: '50%',
