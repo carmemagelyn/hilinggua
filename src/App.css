@@ -116,6 +116,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: url('/asset/ref/beebg.jpg') center center/cover no-repeat fixed;
+  background-attachment: fixed;
   min-height: 100vh;
 }
 

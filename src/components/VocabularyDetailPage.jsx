@@ -69,6 +69,7 @@ export default function VocabularyDetailPage() {
         minHeight: "100vh",
         width: "100vw",
         background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat",
+        backgroundAttachment: "fixed",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
