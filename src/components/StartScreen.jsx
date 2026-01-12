@@ -17,7 +17,7 @@ export default function StartScreen() {
   const [showStart, setShowStart] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowStart(true), 4500); // 5s delay for GIF
+    const timer = setTimeout(() => setShowStart(true), 6000); // 5s delay for GIF
     return () => clearTimeout(timer);
   }, []);
 
