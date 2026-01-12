@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 export default function StartScreen() {
     useEffect(() => {
-      // Remove beebg background from body when StartScreen is shown
+      // Remove beebg background and prevent scroll when StartScreen is shown
       const originalBg = document.body.style.background;
+      const originalOverflow = document.body.style.overflow;
       document.body.style.background = 'none';
+      document.body.style.overflow = 'hidden';
       return () => {
         document.body.style.background = originalBg;
+        document.body.style.overflow = originalOverflow;
       };
     }, []);
   const navigate = useNavigate();
@@ -19,23 +22,22 @@ export default function StartScreen() {
   }, []);
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        minWidth: "100vw",
-        width: "100vw",
-        height: "100vh",
-        margin: 0,
-        padding: "0 !important",
-        background: `url('/asset/ref/huasiong.png') center center/cover no-repeat`,
-        position: "relative",
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
+    <div style={{ position: 'relative', minHeight: '100vh', minWidth: '100vw', width: '100vw', height: '100vh', margin: 0, padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: -1,
+          background: `url('/asset/ref/huasiong.png') center center/cover no-repeat`,
+          backgroundAttachment: 'fixed',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
       {/* Start button (delayed) */}
       {showStart && (
         <button
