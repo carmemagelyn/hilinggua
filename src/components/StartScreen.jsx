@@ -69,11 +69,11 @@ export default function StartScreen() {
           src="/asset/ref/peekaboo.gif"
           alt="Peekaboo"
           style={{
-            width: '200vw',
-            maxWidth: '100%',
+            width: '150vw',
+            maxWidth: '150%',
             height: 'auto',
             position: 'fixed',
-            left: 0,
+            left: '-25vw',
             bottom: 0,
             zIndex: 3,
             pointerEvents: 'none',
