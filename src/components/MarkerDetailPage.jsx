@@ -1,3 +1,17 @@
+            <img
+              src="/asset/img-sentence/Nagbasa siya sang libro_.png"
+              alt="Nagbasa siya sang libro sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -105,8 +119,24 @@ export default function MarkerDetailPage() {
           />
           {markerIndex === 0 && (
             <img
-              src="/asset/img-sentence/Ang bata nagakaon..png"
+              src="/asset/img-sentence/Ang bata nagakaon_.png"
               alt="Ang bata nagakaon sentence"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '32%',
+                height: 'auto',
+                pointerEvents: 'none',
+                zIndex: 2,
+              }}
+            />
+          )}
+          {markerIndex === 1 && (
+            <img
+              src="/asset/img-sentence/Nagbasa siya sang libro_.png"
+              alt="Nagbasa siya sang libro sentence"
               style={{
                 position: 'absolute',
                 top: '50%',
@@ -140,8 +170,8 @@ export default function MarkerDetailPage() {
             const verbLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>verb</div>;
             const examples = [
               <><span style={{ display: 'inline-block' }}><b>Ang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>naga-kaon</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Sang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>kalan</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>ginlimpyo</i>{verbLabel}</span>.</>,
-              <><span style={{ display: 'inline-block' }}><b>Sa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>balay</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>nagapuyo</i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Nagbasa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>sang libro</i>{verbLabel}</span>.</>,
+              <><span style={{ display: 'inline-block' }}><b>Kamusta</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ka</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>sa eskwelahan</i>{verbLabel}</span>?</>,
               <><span style={{ display: 'inline-block' }}><b>Kay</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Juan</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>ginhatag</i>{verbLabel}</span> ang libro.</>,
               <><span style={{ display: 'inline-block' }}><b>Nga</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>maalam</i>{verbLabel}</span>.</>,
               <><span style={{ display: 'inline-block' }}><b>Pa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>palihog</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>kuha</i>{verbLabel}</span> sang tubig.</>,
