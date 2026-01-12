@@ -111,7 +111,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // match position with Bata and others
+            top: 'calc(11em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -134,7 +134,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(11em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -157,7 +157,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -180,7 +180,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -203,7 +203,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -226,7 +226,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(11.5em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -249,7 +249,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -272,7 +272,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -295,7 +295,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -318,7 +318,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(11em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -341,7 +341,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -364,7 +364,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -387,7 +387,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -410,7 +410,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -433,7 +433,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(10.5em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -456,7 +456,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -479,7 +479,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -502,7 +502,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -525,7 +525,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -548,7 +548,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -571,7 +571,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -594,7 +594,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -617,7 +617,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -640,7 +640,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -663,7 +663,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -686,7 +686,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -709,7 +709,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -732,7 +732,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -755,7 +755,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -778,7 +778,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -801,7 +801,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -824,7 +824,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(11em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -847,7 +847,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -870,7 +870,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -893,7 +893,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -916,7 +916,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
@@ -939,7 +939,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(10em + 2vw)', // moved up to overlay cloud
+            top: 'calc(12em + 2vw)', // moved up to overlay cloud
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
