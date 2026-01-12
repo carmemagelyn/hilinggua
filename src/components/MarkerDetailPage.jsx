@@ -269,7 +269,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 4 && (
             <img
-              src="/public/asset/img-sentence/Ang bata nga malipayon nagahampang_.png"
+              src="/asset/img-sentence/Ang bata nga malipayon nagahampang_.png"
               alt="Ang bata nga malipayon nagahampang sentence"
               style={{
                 position: 'absolute',
@@ -285,7 +285,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 5 && (
             <img
-              src="/public/asset/img-sentence/Hatagi pa siya sang tubig_.png"
+              src="/asset/img-sentence/Hatagi pa siya sang tubig_.png"
               alt="Hatagi pa siya sang tubig sentence"
               style={{
                 position: 'absolute',
@@ -301,7 +301,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 6 && (
             <img
-              src="/public/asset/img-sentence/Balay ni Tatay_.png"
+              src="/asset/img-sentence/Balay ni Tatay_.png"
               alt="Balay ni Tatay sentence"
               style={{
                 position: 'absolute',
@@ -317,7 +317,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 7 && (
             <img
-              src="/public/asset/img-sentence/Gab-e na, halong kamo. (It’s night already, take care).png"
+              src="/asset/img-sentence/Gab-e na, halong kamo. (It’s night already, take care).png"
               alt="Gab-e na, halong kamo sentence"
               style={{
                 position: 'absolute',
@@ -333,7 +333,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 8 && (
             <img
-              src="/public/asset/img-sentence/Saging lang gin kaon ko  (I only ate banana.).png"
+              src="/asset/img-sentence/Saging lang gin kaon ko  (I only ate banana.).png"
               alt="Saging lang gin kaon ko sentence"
               style={{
                 position: 'absolute',
@@ -349,7 +349,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 9 && (
             <img
-              src="/public/asset/img-sentence/Nagahulat siya gihapon bisan init. (He_She is still waiting even if its hot.).png"
+              src="/asset/img-sentence/Nagahulat siya gihapon bisan init. (He_She is still waiting even if its hot.).png"
               alt="Nagahulat siya gihapon bisan init sentence"
               style={{
                 position: 'absolute',
@@ -365,7 +365,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 10 && (
             <img
-              src="/public/asset/img-sentence/Hatagi pa ako sang tubig, palihog..png"
+              src="/asset/img-sentence/Hatagi pa ako sang tubig, palihog..png"
               alt="Hatagi pa ako sang tubig, palihog sentence"
               style={{
                 position: 'absolute',
@@ -381,7 +381,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 11 && (
             <img
-              src="/public/asset/img-sentence/Daw masadya siya subong. (He_She seems happy now.).png"
+              src="/asset/img-sentence/Daw masadya siya subong. (He_She seems happy now.).png"
               alt="Daw masadya siya subong sentence"
               style={{
                 position: 'absolute',
@@ -397,7 +397,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 12 && (
             <img
-              src="/public/asset/img-sentence/Si Maria nagkanta.  (Maria sang.).png"
+              src="/asset/img-sentence/Si Maria nagkanta.  (Maria sang.).png"
               alt="Si Maria nagkanta sentence"
               style={{
                 position: 'absolute',
@@ -413,7 +413,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 13 && (
             <img
-              src="/public/asset/img-sentence/Sanday Ana kag Juan naghampang sa mga sapat. (Ana and Juan played with the animals.).png"
+              src="/asset/img-sentence/Sanday Ana kag Juan naghampang sa mga sapat. (Ana and Juan played with the animals.).png"
               alt="Sanday Ana kag Juan naghampang sa mga sapat sentence"
               style={{
                 position: 'absolute',
@@ -429,7 +429,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 14 && (
             <img
-              src="/public/asset/img-sentence/Sila amo ang nagahampang (They are the ones who are playing.).png"
+              src="/asset/img-sentence/Sila amo ang nagahampang (They are the ones who are playing.).png"
               alt="Sila amo ang nagahampang sentence"
               style={{
                 position: 'absolute',
@@ -445,7 +445,7 @@ export default function MarkerDetailPage() {
           )}
            {markerIndex === 15 && (
             <img
-              src="/public/asset/img-sentence/Siya amo ang nagdaog sa patimpalak. (He_She is the one who won the contest.).png"
+              src="/asset/img-sentence/Siya amo ang nagdaog sa patimpalak. (He_She is the one who won the contest.).png"
               alt="Siya ang nagdaog sa patimpalak sentence"
               style={{
                 position: 'absolute',
