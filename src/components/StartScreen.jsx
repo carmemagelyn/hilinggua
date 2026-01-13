@@ -1,25 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 export default function StartScreen() {
-    useEffect(() => {
-      // Remove beebg background and prevent scroll when StartScreen is shown
-      const originalBg = document.body.style.background;
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.background = 'none';
-      document.body.style.overflow = 'hidden';
-      return () => {
-        document.body.style.background = originalBg;
-        document.body.style.overflow = originalOverflow;
-      };
-    }, []);
+  useEffect(() => {
+    // Remove beebg background and prevent scroll when StartScreen is shown
+    const originalBg = document.body.style.background;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.background = 'none';
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.background = originalBg;
+      document.body.style.overflow = originalOverflow;
+    };
+  }, []);
   const navigate = useNavigate();
   const [showStart, setShowStart] = useState(false);
+  const [showFly, setShowFly] = useState(false);
+  const [showBlink, setShowBlink] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowStart(true), 6000); // 5s delay for GIF
+    const timer = setTimeout(() => setShowStart(true), 6000); // 6s delay for GIF
     return () => clearTimeout(timer);
   }, []);
+
+  // Show flyright.gif when start button appears
+  useEffect(() => {
+    if (showStart) {
+      setShowFly(true);
+    }
+  }, [showStart]);
+
+  // Handler for Start button click
+  const handleStart = () => {
+    setShowFly(false);
+    setShowBlink(true);
+    setTimeout(() => {
+      navigate("/home");
+    }, 1200); // Show blinkhappy.gif for 1.2s before navigating
+  };
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', minWidth: '100vw', width: '100vw', height: '100vh', margin: 0, padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
@@ -39,9 +58,9 @@ export default function StartScreen() {
         }}
       />
       {/* Start button (delayed) */}
-      {showStart && (
+      {showStart && !showBlink && (
         <button
-          onClick={() => navigate("/home")}
+          onClick={handleStart}
           style={{
             background: "none",
             border: "none",
@@ -63,6 +82,42 @@ export default function StartScreen() {
           />
         </button>
       )}
+      {/* Show flyright.gif when start button appears */}
+      {showFly && !showBlink && (
+        <img
+          src="/asset/ref/flyright.gif"
+          alt="Fly right"
+          style={{
+            position: 'fixed',
+            top: '28%',
+            left: 0,
+            width: 'min(100vw, 900px)',
+            height: 'auto',
+            zIndex: 100,
+            pointerEvents: 'none',
+            display: 'block',
+            maxHeight: '40vh',
+          }}
+        />
+      )}
+      {/* Show blinkhappy.gif after start is clicked */}
+      {showBlink && (
+        <img
+          src="/asset/ref/blinkhappy.gif"
+          alt="Blink happy"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: 'min(100vw, 900px)',
+            height: 'auto',
+            zIndex: 200,
+            pointerEvents: 'none',
+            display: 'block',
+            maxHeight: '40vh',
+          }}
+        />
+      )}
       {/* Peekaboo GIF for mobile at the bottom, only show before start button */}
       {!showStart && (
         <img
@@ -78,9 +133,8 @@ export default function StartScreen() {
             zIndex: 3,
             pointerEvents: 'none',
             display: 'block',
-            // Make bigger on mobile
-              minHeight: '756px',
-              maxHeight: '100vh',
+            minHeight: '756px',
+            maxHeight: '100vh',
           }}
         />
       )}
