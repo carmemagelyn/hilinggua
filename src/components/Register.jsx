@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
+
 
 function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = async (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      alert('Registered successfully');
-      setEmail('');
-      setPassword('');
-    } catch (error) {
-      alert(error.message);
-    }
+    alert('Registration functionality is disabled. Google/Firebase authentication has been removed.');
   };
 
   return (

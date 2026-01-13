@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
+
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert('Logged in successfully');
-      setEmail('');
-      setPassword('');
-    } catch (error) {
-      alert(error.message);
-    }
+    alert('Login functionality is disabled. Google/Firebase authentication has been removed.');
   };
 
   return (
