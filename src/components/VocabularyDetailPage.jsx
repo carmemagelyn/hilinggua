@@ -8,7 +8,7 @@ const vocabularyDetails = {
   Bulig: { word: "Bulig", pronunciation: "bu-lig", meaning: "assistance or support", translation: "help" },
   Dako: { word: "Dako", pronunciation: "da-ko", meaning: "large in size or amount", translation: "big" },
   Eskwelahan: { word: "Eskwelahan", pronunciation: "es-kwe-la-han", meaning: "a place for learning", translation: "school" },
-  Gabe: { word: "Gab-e", pronunciation: "gab-e", meaning: "the time after sunset", translation: "night" },
+  Gabe: { word: "Gab e", pronunciation: "gab-e", meaning: "the time after sunset", translation: "night" },
   Ginhatag: { word: "Ginhatag", pronunciation: "gin-ha-tag", meaning: "something that was given to someone", translation: "was given" },
   Ginhimo: { word: "Ginhimo", pronunciation: "gin-hi-mo", meaning: "something that was made or done", translation: "made / did" },
   Halong: { word: "Halong", pronunciation: "ha-long", meaning: "a warning to be careful or take care", translation: "take care / be careful" },
@@ -212,18 +212,18 @@ export default function VocabularyDetailPage() {
           </div>
         )}
         {/* Word image for Bata overlaying the cloud */}
-        {details.word === 'Gab-e' && (
+        {details.word === 'Gab e' && (
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(11.5em + 2vw)', // moved down a bit
+            top: 'calc(12.5em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
           }}>
             <img
               src="/asset/img-word/gab e.png"
-              alt="Gabe"
+              alt="Gab e"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
                 maxWidth: '90vw',
