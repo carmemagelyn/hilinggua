@@ -84,9 +84,9 @@ export default function Markers() {
         style={{
           display: "flex",
           alignItems: "flex-start",
-          marginTop: "80vw",
-          marginLeft: "calc(60px + 0.5vw)",
-          width: "80%",
+          marginTop: "75vw",
+          marginLeft: "calc(90px + 0.5vw)",
+          width: "60%",
           maxWidth: 900,
         }}
       >
@@ -94,7 +94,7 @@ export default function Markers() {
           src="/asset/ref/quizcallout.png"
           alt="Quiz callout quote"
           style={{
-            width: "300px",
+            width: "250px",
             maxWidth: "85vw",
             height: "auto",
             display: "block",
