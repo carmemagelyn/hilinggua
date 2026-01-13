@@ -81,14 +81,69 @@ export default function QuizSentenceConstruction() {
         <div style={{ fontSize: 22, marginBottom: 16, color: '#222', fontWeight: 600, minHeight: 32 }}>
           {selectedWords.length > 0 && selectedWords.map(i => scrambled[i]).join(' ')}
         </div>
+
         <div style={{ marginBottom: 16 }}>
-          <button className="tab-button" style={{ marginRight: 16 }} onClick={handleCheck} disabled={selectedWords.length !== words.length}>Check</button>
-          <button className="tab-button" onClick={handleShowAnswer}>Show Answer</button>
+          <button className="tab-button" 
+          style={{ marginRight: 16,
+          background: '#26ccc2',
+          color: '#222',
+          fontWeight: 700,
+          fontSize: 11,
+           }} 
+          onClick={handleCheck} disabled={selectedWords.length !== words.length}>Check</button>
+
+          <button className="tab-button" 
+          style={{ marginRight: 16,
+          background: '#ff4d4f',
+          color: '#fff',
+          fontWeight: 700,
+          fontSize: 11,
+           }} 
+          onClick={handleShowAnswer}>Show Answer</button>
         </div>
+
         {feedback && <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 8 }}>{feedback}</div>}
-        {showAnswer && <div style={{ fontSize: 18, color: "#ffb76c" }}>Answer: <b>{sentence}</b></div>}
-        <button className="tab-button" style={{ marginTop: 32 }} onClick={handleNext}>Next</button>
+        {showAnswer && <div style={{ fontSize: 18, color: "#000000ff" }}>Answer: <b>{sentence}</b></div>}
+      
+
+
+        <button className="tab-button" 
+        style={{ marginTop: 32,
+        background: '#fff57e',
+        color: '#222',
+        fontWeight: 700,
+        fontSize: 11,
+           }} 
+        onClick={handleNext}>Next</button>
       </div>
+      {/* Left arrow back button */}
+      <button
+        onClick={() => navigate("/quiz-menu")}
+        style={{
+          position: 'fixed',
+          top: 24,
+          left: 18,
+          zIndex: 200,
+          background: 'rgba(255,255,255,0.85)',
+          border: 'none',
+          borderRadius: '50%',
+          width: 48,
+          height: 48,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
+          cursor: 'pointer',
+          padding: 0,
+          outline: 'none',
+          transition: 'box-shadow 0.2s',
+        }}
+        aria-label="Back to Home"
+      >
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="14,5 7,11 14,17" stroke="#222" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </svg>
+      </button>
     </main>
   );
 }

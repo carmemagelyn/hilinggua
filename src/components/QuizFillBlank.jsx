@@ -74,14 +74,40 @@ export default function QuizFillBlank() {
             </button>
           ))}
         </div>
+
         <div style={{ marginBottom: 16 }}>
-          <button className="tab-button" style={{ marginRight: 16 }} onClick={handleCheck} disabled={selected === null}>Check</button>
-          <button className="tab-button" onClick={() => setShowAnswer(true)}>Show Answer</button>
+          <button className="tab-button" 
+          style={{ marginRight: 16,
+          background: '#26ccc2',
+          color: '#222',
+          fontWeight: 700,
+          fontSize: 11,
+           }} 
+          onClick={handleCheck} disabled={selected === null}>Check</button>
+
+          <button className="tab-button" 
+          style={{ marginRight: 16,
+          background: '#ff4d4f',
+          color: '#fff',
+          fontWeight: 700,
+          fontSize: 11,
+           }} 
+          onClick={() => setShowAnswer(true)}>Show Answer</button>
         </div>
+
         {feedback && <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 8 }}>{feedback}</div>}
-        {showAnswer && <div style={{ fontSize: 18, color: "#ffb76c" }}>Answer: <b>{current.answer}</b></div>}
-        <div style={{ fontSize: 16, color: '#888', marginTop: 12 }}>English: {current.translation}</div>
-        <button className="tab-button" style={{ marginTop: 32 }} onClick={handleNext}>Next</button>
+        {showAnswer && <div style={{ fontSize: 18, color: "#000000ff" }}>Answer: <b>{current.answer}</b></div>}
+        <div style={{ fontSize: 12, color: '#888', marginTop: 50 }}>ENGLISH TRANSLATION:</div>
+        <div style={{ fontSize: 17, color: '#888', marginTop: 10 }}><b>{current.translation}</b></div>
+        
+        <button className="tab-button" 
+        style={{ marginTop: 32,
+        background: '#fff57e',
+        color: '#222',
+        fontWeight: 700,
+        fontSize: 11,
+           }} 
+        onClick={handleNext}>Next</button>
       </div>
       {/* Left arrow back button */}
       <button
