@@ -5,6 +5,7 @@ import Menu from './components/Menu';
 import MarkerDetailPage from './components/MarkerDetailPage';
 
 import StartScreen from './components/StartScreen';
+import PWAInstallButton from './components/PWAInstallButton';
 import Vocabulary from './components/Vocabulary';
 import Markers from './components/Markers';
 import Quiz from './components/Quiz';
@@ -57,6 +58,7 @@ function AppContent() {
         <Route path="/register" element={<Register />} />
         <Route path="/menu" element={<Menu />} />
       </Routes>
+      <PWAInstallButton />
     </div>
   );
 }

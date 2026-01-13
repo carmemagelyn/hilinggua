@@ -1,3 +1,38 @@
+@media (max-width: 600px) {
+  .pwa-install-btn {
+    top: 12px;
+    right: 12px;
+    padding: 10px 16px;
+    font-size: 0.95em;
+    border-radius: 12px;
+    color: #0000;
+  }
+}
+/* PWA Install Button Styles */
+.pwa-install-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: #111;
+  color: #fff57e;
+  border: 2px solid #fff57e;
+  border-radius: 16px;
+  padding: 14px 28px;
+  font-size: 1.1em;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pwa-install-btn:hover {
+  background: #fff57e;
+  color: #111;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+}
 /* Mobile menu modal overlay */
 .mobile-menu-modal {
   position: fixed;
