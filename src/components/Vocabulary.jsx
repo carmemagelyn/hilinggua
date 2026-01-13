@@ -54,17 +54,7 @@ export default function Vocabulary() {
                         
   return (
     <div
-      style={{
-        minHeight: "100vh",
-        width: "100vw",
-        background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        padding: "0",
-        position: "relative"
-      }}
+     
     >
       {/* Left arrow back button */}
       <button
@@ -116,7 +106,7 @@ export default function Vocabulary() {
           display: "flex",
           alignItems: "flex-start",
           marginTop: "8vw",
-          marginLeft: "-50px",
+          marginLeft: "-0px",
           width: "80%",
           maxWidth: 900,
         }}
@@ -142,7 +132,7 @@ export default function Vocabulary() {
               background: '#fafeaa',
               color: '#222',
               fontWeight: 700,
-              fontSize: 'clamp(1.3em, 4vw, 2.2em)',
+              fontSize: 'clamp(1.7em, 4vw, 2.2em)',
               border: 'none',
               borderRadius: '12px',
               boxShadow: '0 4px 18px #7b8457',
@@ -151,7 +141,7 @@ export default function Vocabulary() {
               outline: 'none',
               cursor: 'pointer',
               width: 'clamp(220px, 80vw, 520px)',
-              maxWidth: '95vw',
+              maxWidth: '75vw',
               whiteSpace: 'normal',
               textAlign: 'center',
               lineHeight: 1.25

@@ -1,19 +1,4 @@
-              // Audio playback handler for marker sentences
-              // ...existing code...
-            <img
-              src="/asset/img-sentence/Nagbasa siya sang libro_.png"
-              alt="Nagbasa siya sang libro sentence"
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '32%',
-                height: 'auto',
-                pointerEvents: 'none',
-                zIndex: 2,
-              }}
-            />
+
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -125,18 +110,7 @@ export default function MarkerDetailPage() {
 
   return (
     <div
-      style={{
-        minHeight: "100vh",
-        width: "100vw",
-        background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat",
-         backgroundAttachment: "fixed",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        padding: "0",
-        position: "relative"
-      }}
+      
     >
       {/* Back arrow button to Markers Front Page */}
       <button
@@ -171,7 +145,7 @@ export default function MarkerDetailPage() {
         <h1 style={{
           fontSize: 'clamp(1.3em, 4vw, 2.2em)',
           color: '#222',
-          background: '#fafeaa',
+          
           borderRadius: '12px',
           padding: '0.5em 1.5em',
           marginBottom: '1.5em',
@@ -194,7 +168,7 @@ export default function MarkerDetailPage() {
             src="/asset/ref/cloud.png"
             alt="Cloud decoration"
             style={{
-              width: '100%',
+              width: '70%',
               height: 'auto',
               filter: 'drop-shadow(0 4px 18px #7b8457aa)',
               display: 'block',

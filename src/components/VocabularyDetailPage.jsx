@@ -65,18 +65,7 @@ export default function VocabularyDetailPage() {
 
   return (
     <div
-      style={{
-        minHeight: "100vh",
-        width: "100vw",
-        background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat",
-        backgroundAttachment: "fixed",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        padding: 0,
-        position: "relative"
-      }}
+       
     >
       {/* Back arrow button */}
       <button
@@ -971,7 +960,7 @@ export default function VocabularyDetailPage() {
             src="/asset/ref/cloud.png"
             alt="Cloud decoration"
             style={{
-              width: '100%',
+              width: '70%',
               height: 'auto',
               filter: 'drop-shadow(0 4px 18px #7b8457aa)',
               display: 'block',

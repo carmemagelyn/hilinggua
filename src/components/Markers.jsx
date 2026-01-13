@@ -33,17 +33,7 @@ export default function Markers() {
                         
   return (
     <div
-      style={{
-        minHeight: "100vh",
-        width: "100vw",
-        background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        padding: "0",
-        position: "relative"
-      }}
+      
     >
       {/* Left arrow back button */}
       <button
@@ -75,7 +65,7 @@ export default function Markers() {
       </button>
       {/* Top section with GIF and callout */}
       {/* Overlay GIF at top left */}
-      <div style={{ position: 'fixed', top: '30px', left: '-130px', zIndex: 100, pointerEvents: 'none' }}>
+      <div style={{ position: 'fixed', top: '70px', left: '-150px', zIndex: 100, pointerEvents: 'none' }}>
         <img
           src="/asset/ref/blinkhappy.gif"
           alt="Animated character blinking happily"
@@ -94,9 +84,9 @@ export default function Markers() {
           display: "flex",
           alignItems: "flex-start",
           marginTop: "8vw",
-           marginLeft: "calc(110px + 0.5vw)",
-          width: "80%",
-          maxWidth: 900,
+           marginLeft: "calc(40px + 0.2vw)",
+          width: "50%",
+          maxWidth: 800,
         }}
       >
         <img
