@@ -94,7 +94,7 @@ export default function Markers() {
           src="/asset/ref/quizcallout.png"
           alt="Quiz callout quote"
           style={{
-            width: "350px",
+            width: "300px",
             maxWidth: "85vw",
             height: "auto",
             display: "block",
