@@ -95,7 +95,7 @@ export default function StartScreen() {
           alt="Fly right"
           style={{
             position: 'fixed',
-            top: '28%',
+            top: '27%',
             left: 0,
             width: 'min(100vw, 900px)',
             height: 'auto',
@@ -113,7 +113,7 @@ export default function StartScreen() {
           alt="Blink happy"
           style={{
             position: 'fixed',
-            top: '28%',
+            top: '27%',
             left: 0,
             width: 'min(100vw, 900px)',
             height: 'auto',
