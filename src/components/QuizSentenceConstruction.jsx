@@ -116,6 +116,7 @@ export default function QuizSentenceConstruction() {
            }} 
         onClick={handleNext}>Next</button>
       </div>
+
       {/* Left arrow back button */}
       <button
         onClick={() => navigate("/quiz-menu")}
@@ -144,6 +145,7 @@ export default function QuizSentenceConstruction() {
           <polyline points="14,5 7,11 14,17" stroke="#222" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
       </button>
+      
     </main>
   );
 }
