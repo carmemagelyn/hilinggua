@@ -3,43 +3,43 @@ import { useParams, useNavigate } from "react-router-dom";
 
 // Example placeholder data for vocabulary details
 const vocabularyDetails = {
-  Balay: { word: "Balay", pronunciation: "ba-lay", meaning: "house / home", translation: "house / home" },
-  Bata: { word: "Bata", pronunciation: "ba-ta", meaning: "child", translation: "child" },
-  Bulig: { word: "Bulig", pronunciation: "bu-lig", meaning: "help", translation: "help" },
-  Dako: { word: "Dako", pronunciation: "da-ko", meaning: "big", translation: "big" },
-  Eskwelahan: { word: "Eskwelahan", pronunciation: "es-kwe-la-han", meaning: "school", translation: "school" },
-  Gabe: { word: "Gab-e", pronunciation: "gab-e", meaning: "night", translation: "night" },
-  Ginhatag: { word: "Ginhatag", pronunciation: "gin-ha-tag", meaning: "was given", translation: "was given" },
-  Ginhimo: { word: "Ginhimo", pronunciation: "gin-hi-mo", meaning: "made / did", translation: "made / did" },
-  Halong: { word: "Halong", pronunciation: "ha-long", meaning: "take care / be careful", translation: "take care / be careful" },
-  Hatagi: { word: "Hatagi", pronunciation: "ha-ta-gi", meaning: "give (imperative: give someone)", translation: "give (imperative: give someone)" },
-  Init: { word: "Init", pronunciation: "ee-nit", meaning: "hot", translation: "hot" },
-  Isda: { word: "Isda", pronunciation: "ees-da", meaning: "fish", translation: "fish" },
-  Kamusta: { word: "Kamusta", pronunciation: "ka-mus-ta", meaning: "how are you", translation: "how are you" },
-  Libro: { word: "Libro", pronunciation: "leeb-ro", meaning: "book", translation: "book" },
-  Madamo: { word: "Madamo", pronunciation: "ma-da-mo", meaning: "many / plenty", translation: "many / plenty" },
-  Manok: { word: "Manok", pronunciation: "ma-nok", meaning: "chicken", translation: "chicken" },
-  Masadya: { word: "Masadya", pronunciation: "ma-sa-dya", meaning: "happy", translation: "happy" },
-  Matamis: { word: "Matam-is", pronunciation: "ma-tam-is", meaning: "sweet", translation: "sweet" },
-  Matulog: { word: "Matulog", pronunciation: "ma-tu-log", meaning: "to sleep", translation: "to sleep" },
-  Nagahulat: { word: "Nagahulat", pronunciation: "na-ga-hu-lat", meaning: "is waiting", translation: "is waiting" },
-  Nagakaon: { word: "Nagakaon", pronunciation: "na-ga-ka-on", meaning: "is eating", translation: "is eating" },
-  Nagalupad: { word: "Nagalupad", pronunciation: "na-ga-lu-pad", meaning: "is flying", translation: "is flying" },
-  Nagbasa: { word: "Nagbasa", pronunciation: "nag-ba-sa", meaning: "read / was reading", translation: "read / was reading" },
-  Nagbulig: { word: "Nagbulig", pronunciation: "nag-boo-lig", meaning: "helped", translation: "helped" },
-  Nagdaog: { word: "Nagdaog", pronunciation: "nag-da-og", meaning: "won", translation: "won" },
-  Nagkanta: { word: "Nagkanta", pronunciation: "nag-kan-ta", meaning: "sang", translation: "sang" },
-  Naglakat: { word: "Naglakat", pronunciation: "nag-la-kat", meaning: "walked", translation: "walked" },
-  Nageskwela: { word: "Nag-eskwela", pronunciation: "nag-es-kwe-la", meaning: "went to school", translation: "went to school" },
-  Nakadakop: { word: "Nakadakop", pronunciation: "na-ka-da-kop", meaning: "caught / was able to catch", translation: "caught / was able to catch" },
-  Nagsulat: { word: "Nagsulat", pronunciation: "nag-su-lat", meaning: "wrote / was writing", translation: "wrote / was writing" },
-  Nagtuon: { word: "Nagtuon", pronunciation: "nag-tu-on", meaning: "studied", translation: "studied" },
-  Pagpauli: { word: "Pagpauli", pronunciation: "pag-pa-u-li", meaning: "going home / returning home", translation: "going home / returning home" },
-  Prutas: { word: "Prutas", pronunciation: "proo-tas", meaning: "fruit", translation: "fruit" },
-  Saging: { word: "Saging", pronunciation: "sa-ging", meaning: "banana", translation: "banana" },
-  Sapat: { word: "Sapat", pronunciation: "sa-pat", meaning: "animal", translation: "animal" },
-  Tubig: { word: "Tubig", pronunciation: "too-big", meaning: "water", translation: "water" },
-  Tugnaw: { word: "Tugnaw", pronunciation: "toog-now", meaning: "cold", translation: "cold" },
+  Balay: { word: "Balay", pronunciation: "ba-lay", meaning: "a place where a person lives", translation: "house / home" },
+  Bata: { word: "Bata", pronunciation: "ba-ta", meaning: "a young person", translation: "child" },
+  Bulig: { word: "Bulig", pronunciation: "bu-lig", meaning: "assistance or support", translation: "help" },
+  Dako: { word: "Dako", pronunciation: "da-ko", meaning: "large in size or amount", translation: "big" },
+  Eskwelahan: { word: "Eskwelahan", pronunciation: "es-kwe-la-han", meaning: "a place for learning", translation: "school" },
+  Gabe: { word: "Gab-e", pronunciation: "gab-e", meaning: "the time after sunset", translation: "night" },
+  Ginhatag: { word: "Ginhatag", pronunciation: "gin-ha-tag", meaning: "something that was given to someone", translation: "was given" },
+  Ginhimo: { word: "Ginhimo", pronunciation: "gin-hi-mo", meaning: "something that was made or done", translation: "made / did" },
+  Halong: { word: "Halong", pronunciation: "ha-long", meaning: "a warning to be careful or take care", translation: "take care / be careful" },
+  Hatagi: { word: "Hatagi", pronunciation: "ha-ta-gi", meaning: "a command asking someone to give", translation: "give (imperative: give someone)" },
+  Init: { word: "Init", pronunciation: "ee-nit", meaning: "having a high temperature", translation: "hot" },
+  Isda: { word: "Isda", pronunciation: "ees-da", meaning: "an animal that lives in water", translation: "fish" },
+  Kamusta: { word: "Kamusta", pronunciation: "ka-mus-ta", meaning: "a greeting asking about someone’s condition", translation: "how are you" },
+  Libro: { word: "Libro", pronunciation: "leeb-ro", meaning: "a set of written or printed pages", translation: "book" },
+  Madamo: { word: "Madamo", pronunciation: "ma-da-mo", meaning: "a large number or amount", translation: "many / plenty" },
+  Manok: { word: "Manok", pronunciation: "ma-nok", meaning: "a domesticated bird", translation: "chicken" },
+  Masadya: { word: "Masadya", pronunciation: "ma-sa-dya", meaning: "feeling joy or happiness", translation: "happy" },
+  Matamis: { word: "Matam-is", pronunciation: "ma-tam-is", meaning: "having a sugary taste", translation: "sweet" },
+  Matulog: { word: "Matulog", pronunciation: "ma-tu-log", meaning: "to rest by sleeping", translation: "to sleep" },
+  Nagahulat: { word: "Nagahulat", pronunciation: "na-ga-hu-lat", meaning: "the act of staying and waiting for someone or something)", translation: "is waiting" },
+  Nagakaon: { word: "Nagakaon", pronunciation: "na-ga-ka-on", meaning: "the act of eating food", translation: "is eating" },
+  Nagalupad: { word: "Nagalupad", pronunciation: "na-ga-lu-pad", meaning: "moving in the air", translation: "is flying" },
+  Nagbasa: { word: "Nagbasa", pronunciation: "nag-ba-sa", meaning: "the act of reading written words", translation: "read / was reading" },
+  Nagbulig: { word: "Nagbulig", pronunciation: "nag-boo-lig", meaning: "gave help or assistance", translation: "helped" },
+  Nagdaog: { word: "Nagdaog", pronunciation: "nag-da-og", meaning: "became the winner", translation: "won" },
+  Nagkanta: { word: "Nagkanta", pronunciation: "nag-kan-ta", meaning: "made music using the voice", translation: "sang" },
+  Naglakat: { word: "Naglakat", pronunciation: "nag-la-kat", meaning: "moved by foot", translation: "walked" },
+  Nageskwela: { word: "Nag-eskwela", pronunciation: "nag-es-kwe-la", meaning: "attended school", translation: "went to school" },
+  Nakadakop: { word: "Nakadakop", pronunciation: "na-ka-da-kop", meaning: "successfully caught something", translation: "caught / was able to catch" },
+  Nagsulat: { word: "Nagsulat", pronunciation: "nag-su-lat", meaning: "made letters or words", translation: "wrote / was writing" },
+  Nagtuon: { word: "Nagtuon", pronunciation: "nag-tu-on", meaning: "learned or reviewed lessons", translation: "studied" },
+  Pagpauli: { word: "Pagpauli", pronunciation: "pag-pa-u-li", meaning: "the act of going back home", translation: "going home / returning home" },
+  Prutas: { word: "Prutas", pronunciation: "proo-tas", meaning: "edible food that comes from plants", translation: "fruit" },
+  Saging: { word: "Saging", pronunciation: "sa-ging", meaning: "a long yellow fruit", translation: "banana" },
+  Sapat: { word: "Sapat", pronunciation: "sa-pat", meaning: "a living creature, not a human", translation: "animal" },
+  Tubig: { word: "Tubig", pronunciation: "too-big", meaning: "a clear liquid used for drinking", translation: "water" },
+  Tugnaw: { word: "Tugnaw", pronunciation: "toog-now", meaning: "having low temperature", translation: "cold" },
 };
 
 export default function VocabularyDetailPage() {
@@ -1061,7 +1061,8 @@ export default function VocabularyDetailPage() {
               </div>
             )}
           </div>
-          <div style={{ height: '2.5em' }} />
+      <div>
+       <div style={{ height: '2.5em' }} />
           <span style={{ fontWeight: 700, fontSize: '.8em', color: '#222', letterSpacing: '1px', marginLeft: '2vw' }}>ENGLISH TRANSLATION</span>
           <div style={{
             background: 'rgba(255,255,255,0.35)',
@@ -1082,6 +1083,30 @@ export default function VocabularyDetailPage() {
             <span style={{ color: '#555' }}>
               <i>{details.translation || 'No translation.'}</i>
             </span>
+        </div>
+        <div style={{ height: '2.5em' }} />
+          <span style={{ fontWeight: 700, fontSize: '.8em', color: '#222', letterSpacing: '1px', marginLeft: '2vw' }}>MEANING</span>
+          <div style={{
+            background: 'rgba(255,255,255,0.35)',
+            borderRadius: '14px',
+            boxShadow: '0 2px 12px #7b8457',
+            padding: '1em 2em',
+            marginTop: '1em',
+            fontSize: 'clamp(1em, 1.7vw, 1.2em)',
+            color: '#222',
+            fontWeight: 500,
+            textAlign: 'center',
+            maxWidth: '700px',
+            width: '90vw',
+            backdropFilter: 'blur(2px)',
+            display: 'inline-block',
+            fontFamily: 'Montserrat, Arial, sans-serif',
+          }}>
+            <span style={{ color: '#555' }}>
+              <i>{details.meaning || 'No meaning.'}</i>
+            </span>
+        </div>
+          
           </div>
         </div>
       </div>
