@@ -18,6 +18,7 @@ export default function StartScreen() {
   const [showStart, setShowStart] = useState(false);
   const [showFly, setShowFly] = useState(false);
   const [showBlink, setShowBlink] = useState(false);
+  const [blinkAlways, setBlinkAlways] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowStart(true), 6000); // 6s delay for GIF
@@ -28,16 +29,21 @@ export default function StartScreen() {
   useEffect(() => {
     if (showStart) {
       setShowFly(true);
+      // After 1.2s, show blinkhappy and hide flyright
+      setTimeout(() => {
+        setShowFly(false);
+        setShowBlink(true);
+        setBlinkAlways(true);
+      }, 1200);
     }
   }, [showStart]);
 
   // Handler for Start button click
   const handleStart = () => {
-    setShowFly(false);
-    setShowBlink(true);
+    // Only navigate after a short delay, keep blinkhappy showing
     setTimeout(() => {
       navigate("/home");
-    }, 1200); // Show blinkhappy.gif for 1.2s before navigating
+    }, 1200);
   };
 
   return (
@@ -58,7 +64,7 @@ export default function StartScreen() {
         }}
       />
       {/* Start button (delayed) */}
-      {showStart && !showBlink && (
+      {showStart && (
         <button
           onClick={handleStart}
           style={{
@@ -83,7 +89,7 @@ export default function StartScreen() {
         </button>
       )}
       {/* Show flyright.gif when start button appears */}
-      {showFly && !showBlink && (
+      {showFly && (
         <img
           src="/asset/ref/flyright.gif"
           alt="Fly right"
@@ -101,13 +107,13 @@ export default function StartScreen() {
         />
       )}
       {/* Show blinkhappy.gif after start is clicked */}
-      {showBlink && (
+      {(showBlink || blinkAlways) && (
         <img
           src="/asset/ref/blinkhappy.gif"
           alt="Blink happy"
           style={{
             position: 'fixed',
-            top: 0,
+            top: '28%',
             left: 0,
             width: 'min(100vw, 900px)',
             height: 'auto',

@@ -78,7 +78,7 @@ export default function Markers() {
       {/* Overlay GIF at top left */}
       <div style={{ position: 'fixed', top: '370px', left: '-130px', zIndex: 100, pointerEvents: 'none' }}>
         <img
-          src="/asset/ref/blinkhappy.gif"
+          src="/asset/ref/starryeyes.gif"
           alt="Animated character blinking happily"
           style={{
             width: "400px",
