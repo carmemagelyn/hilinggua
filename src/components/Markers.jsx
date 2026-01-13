@@ -3,22 +3,22 @@ import { useNavigate } from "react-router-dom";
 
 // Marker button labels (should match MarkerDetailPage order)
 const markerButtons = [
-  "ANG + VERB – Marks the subject/topic of the sentence.",
-  "SANG + VERB/OBJECT – Marks the object being acted upon.",
-  "SA + VERB/LOCATION/ RECIPIENT – Marks location, direction, or indirect object.",
-  "KAY + VERB/PERSON – Marks the person receiving the action.",
-  "NGA + VERB/DESCRIPTION – Connects adjectives, nouns, or clauses (“that,” “which,” “who”).",
-  "PA / MAN + VERB – Adds emphasis, politeness, or continuation.",
-  "NI + VERB/POSSESSION – Marks possession or “belonging to.”",
-  "NA / NA LANG + VERB – Indicates completion or “already.” / Indicates a decision or choice, often meaning “just” or “might as well.”",
-  "LANG + VERB – Indicates limitation, restriction, or “only / just.”",
-  "GIHAPON + VERB – Indicates continuation, “still” or “anyway.”",
-  "PA + VERB– Indicates request or polite emphasis.",
-  "DAW + VERB – Indicates appearance or uncertainty (“seems,” “appears,” “looks like”).",
-  "SI – marks a singular personal name as the subject",
-  "SANDAY – marks plural personal names as the subject",
-  "SILA  - plural subject pronoun meaning “they.”",
-  "AMO - (used for emphasis / “the one(s) who”)",
+  "ANG + VERB",
+  "SANG + VERB/OBJECT",
+  "SA + VERB/LOCATION/ RECIPIENT",
+  "KAY + VERB/PERSON",
+  "NGA + VERB/DESCRIPTION",
+  "PA / MAN + VERB",
+  "NI + VERB/POSSESSION",
+  "NA / NA LANG + VERB",
+  "LANG + VERB",
+  "GIHAPON + VERB",
+  "PA + VERB",
+  "DAW + VERB",
+  "SI",
+  "SANDAY",
+  "SILA",
+  "AMO",
 ];
 
 export default function Markers() {
@@ -110,7 +110,7 @@ export default function Markers() {
               background: '#fafeaa',
               color: '#222',
               fontWeight: 700,
-              fontSize: 'clamp(1em, 3.5vw, 1.35em)',
+              fontSize: 'clamp(1.4em, 4vw, 2.2em)',
               border: 'none',
               borderRadius: '12px',
               boxShadow: '0 4px 18px #7b8457',
@@ -119,12 +119,12 @@ export default function Markers() {
               outline: 'none',
               cursor: 'pointer',
               width: 'clamp(220px, 80vw, 520px)',
-              maxWidth: '95vw',
+              maxWidth: '75vw',
               whiteSpace: 'normal',
               textAlign: 'center',
               lineHeight: 1.25
             }}
-            onClick={() => navigate(`/marker/${idx}`)}
+            onClick={() => navigate(`/markers/${label}`)}
           >
             {label}
           </button>
