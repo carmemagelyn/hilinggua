@@ -1,19 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
-import fs from 'fs'
-
-// HTTPS dev server config
-let https = undefined;
-try {
-  https = {
-    key: fs.readFileSync('./localhost-key.pem'),
-    cert: fs.readFileSync('./localhost-cert.pem'),
-  };
-} catch (e) {
-  // If certs are missing, fallback to HTTP
-  https = undefined;
-}
 
 export default defineConfig({
   plugins: [
@@ -40,9 +27,5 @@ export default defineConfig({
         ]
       }
     })
-  ],
-  server: {
-    https,
-    host: 'localhost',
-  }
+  ]
 })
