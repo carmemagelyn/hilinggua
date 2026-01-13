@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../style.css";
+import { useNavigate } from "react-router-dom";
 
 const quizData = [
   { sentence: "Ang bata nagakaon.", marker: "ang", options: ["sang", "sa", "ang", "kay"], image: "/asset/img-sentence/Ang bata nagakaon_.png", translation: "The child is eating." },
@@ -30,6 +31,7 @@ function shuffleArray(array) {
 }
 
 export default function QuizMultipleChoice() {
+  const navigate = useNavigate();
   const [quizIndex, setQuizIndex] = useState(0);
   const [selected, setSelected] = useState(null);
   const [feedback, setFeedback] = useState("");

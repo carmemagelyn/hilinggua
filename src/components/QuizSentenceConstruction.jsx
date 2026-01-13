@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import markersSentences from "../data/markersSentences";
 import "../style.css";
+import { useNavigate } from "react-router-dom";
 
 // Utility to shuffle words in a sentence
 function shuffleArray(array) {
@@ -13,6 +14,7 @@ function shuffleArray(array) {
 }
 
 export default function QuizSentenceConstruction() {
+   const navigate = useNavigate();
   const quizData = markersSentences.filter(q => q.sentence && q.sentence.trim().length > 0);
   const [quizIndex, setQuizIndex] = useState(0);
   const [userInput, setUserInput] = useState("");
