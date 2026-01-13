@@ -3,6 +3,29 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function StartScreen() {
+  // PWA install prompt state
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showInstall, setShowInstall] = useState(false);
+
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowInstall(true);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      setShowInstall(false);
+      setDeferredPrompt(null);
+    }
+  };
   useEffect(() => {
     // Remove beebg background and prevent scroll when StartScreen is shown
     const originalBg = document.body.style.background;
@@ -65,28 +88,53 @@ export default function StartScreen() {
       />
       {/* Start button (delayed) */}
       {showStart && (
-        <button
-          onClick={handleStart}
-          style={{
-            background: "none",
-            border: "none",
-            outline: "none",
-            cursor: "pointer",
-            zIndex: 2,
-            margin: "auto"
-          }}
-          aria-label="Start"
-        >
-          <img
-            src="/asset/ref/start.png"
-            alt="Start"
+        <>
+          <button
+            onClick={handleStart}
             style={{
-              width: "180px",
-              maxWidth: "60vw",
-              display: "block"
+              background: "none",
+              border: "none",
+              outline: "none",
+              cursor: "pointer",
+              zIndex: 2,
+              margin: "auto"
             }}
-          />
-        </button>
+            aria-label="Start"
+          >
+            <img
+              src="/asset/ref/start.png"
+              alt="Start"
+              style={{
+                width: "180px",
+                maxWidth: "60vw",
+                display: "block"
+              }}
+            />
+          </button>
+          {/* PWA Install App Button */}
+          {showInstall && (
+            <button
+              onClick={handleInstallClick}
+              style={{
+                marginTop: 24,
+                background: '#fff57e',
+                color: '#26ccc2',
+                border: '2px solid #fff57e',
+                borderRadius: 12,
+                fontWeight: 900,
+                fontSize: 22,
+                padding: '0.7em 2.2em',
+                boxShadow: '0 2px 16px #fff57e44',
+                cursor: 'pointer',
+                zIndex: 3,
+                fontFamily: 'Archivo Black, sans-serif',
+                transition: 'background 0.2s, color 0.2s',
+              }}
+            >
+              Install App
+            </button>
+          )}
+        </>
       )}
       {/* Show flyright.gif when start button appears */}
       {showFly && (
