@@ -124,7 +124,7 @@ export default function VocabularyDetailPage() {
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(11em + 2vw)', // moved down a bit
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',

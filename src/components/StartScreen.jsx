@@ -9,25 +9,18 @@ export default function StartScreen() {
 
   useEffect(() => {
     const handler = (e) => {
-      console.log('[PWA DEBUG] beforeinstallprompt event fired:', e);
       e.preventDefault();
       setDeferredPrompt(e);
       setShowInstall(true);
     };
     window.addEventListener('beforeinstallprompt', handler);
-    console.log('[PWA DEBUG] Listening for beforeinstallprompt event...');
     return () => window.removeEventListener('beforeinstallprompt', handler);
   }, []);
 
   const handleInstallClick = async () => {
-    if (!deferredPrompt) {
-      console.log('[PWA DEBUG] No deferredPrompt available.');
-      return;
-    }
-    console.log('[PWA DEBUG] Prompting install...');
+    if (!deferredPrompt) return;
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    console.log('[PWA DEBUG] User choice:', outcome);
     if (outcome === 'accepted') {
       setShowInstall(false);
       setDeferredPrompt(null);
@@ -120,29 +113,26 @@ export default function StartScreen() {
           </button>
           {/* PWA Install App Button */}
           {showInstall && (
-            <>
-              <div style={{color:'#26ccc2', fontWeight:600, marginBottom:8}}>[PWA DEBUG] Install button visible</div>
-              <button
-                onClick={handleInstallClick}
-                style={{
-                  marginTop: 24,
-                  background: '#fff57e',
-                  color: '#26ccc2',
-                  border: '2px solid #fff57e',
-                  borderRadius: 12,
-                  fontWeight: 900,
-                  fontSize: 22,
-                  padding: '0.7em 2.2em',
-                  boxShadow: '0 2px 16px #fff57e44',
-                  cursor: 'pointer',
-                  zIndex: 3,
-                  fontFamily: 'Archivo Black, sans-serif',
-                  transition: 'background 0.2s, color 0.2s',
-                }}
-              >
-                Install App
-              </button>
-            </>
+            <button
+              onClick={handleInstallClick}
+              style={{
+                marginTop: 24,
+                background: '#fff57e',
+                color: '#26ccc2',
+                border: '2px solid #fff57e',
+                borderRadius: 12,
+                fontWeight: 900,
+                fontSize: 22,
+                padding: '0.7em 2.2em',
+                boxShadow: '0 2px 16px #fff57e44',
+                cursor: 'pointer',
+                zIndex: 3,
+                fontFamily: 'Archivo Black, sans-serif',
+                transition: 'background 0.2s, color 0.2s',
+              }}
+            >
+              Install App
+            </button>
           )}
         </>
       )}

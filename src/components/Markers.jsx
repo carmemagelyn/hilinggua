@@ -124,7 +124,7 @@ export default function Markers() {
               textAlign: 'center',
               lineHeight: 1.25
             }}
-            onClick={() => navigate(`/markers/${label}`)}
+            onClick={() => navigate(`/marker/${idx}`)}
           >
             {label}
           </button>
