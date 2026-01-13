@@ -87,7 +87,7 @@ function Menu() {
               Sentence Construction
             </button>
           </Link>
-           <Link to="/quiz-picture matching" style={{ width: '100%' }}>
+           <Link to="/quiz-picture-matching" style={{ width: '100%' }}>
             <button style={{
               width: '100%',
               maxWidth: '420px',

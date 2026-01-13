@@ -1,78 +1,97 @@
-import React, { useState } from "react";
-import markersSentences from "../data/markersSentences";
+import React, { useState, useEffect } from "react";
 import "../style.css";
-import { useNavigate } from "react-router-dom";
 
-// Utility to generate a multiple choice question
-function makeMultipleChoice(sentence, allSentences) {
-  const words = sentence.split(" ");
-  if (words.length < 3) return { question: sentence, answer: sentence, choices: [sentence] };
-  // Hide a random word (not first or last)
-  const blankIndex = Math.floor(Math.random() * (words.length - 2)) + 1;
-  const answer = words[blankIndex];
-  const question = words.map((w, i) => (i === blankIndex ? "______" : w)).join(" ");
-  // Collect distractors from other sentences
-  const distractors = allSentences
-    .map(s => s.split(" ")[blankIndex])
-    .filter(w => w && w !== answer && w.length > 2)
-    .slice(0, 10);
-  // Shuffle and pick 3 distractors
-  const shuffled = distractors.sort(() => 0.5 - Math.random());
-  const choices = [answer, ...shuffled.filter((w, i, arr) => arr.indexOf(w) === i).slice(0, 3)];
-  // Shuffle choices
-  for (let i = choices.length - 1; i > 0; i--) {
+const quizData = [
+  { sentence: "Ang bata nagakaon.", marker: "ang", options: ["sang", "sa", "ang", "kay"] },
+  { sentence: "Nagbasa siya sang libro.", marker: "sang", options: ["sang", "ang", "sa", "kay"] },
+  { sentence: "Kamusta ka sa eskwelahan?", marker: "sa", options: ["sa", "sang", "ang", "kay"] },
+  { sentence: "Ginhatag ko ini kay Maria.", marker: "kay", options: ["kay", "sa", "sang", "ang"] },
+  { sentence: "Ang bata nga malipayon nagahampang.", marker: "nga", options: ["nga", "pa", "lang", "na"] },
+  { sentence: "Hatagi pa siya sang tubig.", marker: "pa", options: ["pa", "sang", "sa", "lang"] },
+  { sentence: "Balay ni Tatay.", marker: "ni", options: ["ni", "ang", "na", "daw"] },
+  { sentence: "Gab-e na, halong kamo.", marker: "na", options: ["na", "lang", "pa", "gihapon"] },
+  { sentence: "Saging lang gin kaon ko.", marker: "lang", options: ["lang", "pa", "na", "gihapon"] },
+  { sentence: "Nagahulat siya gihapon bisan init.", marker: "gihapon", options: ["gihapon", "lang", "daw", "pa"] },
+  { sentence: "Hatagi pa ako sang tubig.", marker: "pa", options: ["pa", "sang", "lang", "na"] },
+  { sentence: "Daw masadya siya subong.", marker: "daw", options: ["daw", "si", "sila", "sanday"] },
+  { sentence: "Si Maria nagkanta.", marker: "si", options: ["si", "sanday", "sila", "daw"] },
+  { sentence: "Sanday Ana kag Juan naghampang sa mga sapat.", marker: "sanday", options: ["sanday", "si", "sila", "amo"] },
+  { sentence: "Sila amo ang nagahampang.", marker: "sila", options: ["sila", "si", "sanday", "amo"] },
+  { sentence: "Siya amo ang nagdaog sa patimpalak.", marker: "amo", options: ["amo", "sila", "si", "sanday"] },
+];
+
+function shuffleArray(array) {
+  const arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [choices[i], choices[j]] = [choices[j], choices[i]];
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
-  return { question, answer, choices };
+  return arr;
 }
 
 export default function QuizMultipleChoice() {
-  const navigate = useNavigate();
-  const quizData = markersSentences.filter(q => q.sentence && q.sentence.trim().length > 0);
-  const allSentences = quizData.map(q => q.sentence);
   const [quizIndex, setQuizIndex] = useState(0);
   const [selected, setSelected] = useState(null);
   const [feedback, setFeedback] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
+  const [shuffledOrder, setShuffledOrder] = useState([]);
 
-  if (quizData.length === 0) return <div>No quiz data available.</div>;
+  useEffect(() => {
+    const shuffled = [...quizData].sort(() => 0.5 - Math.random());
+    setShuffledOrder(shuffled);
+  }, []);
 
-  const { question, answer, choices } = makeMultipleChoice(quizData[quizIndex].sentence, allSentences);
+  if (shuffledOrder.length === 0) return <div>Loading...</div>;
 
-  const handleNext = () => {
-    setQuizIndex((prev) => (prev + 1) % quizData.length);
+  const current = shuffledOrder[quizIndex % shuffledOrder.length];
+  const choices = shuffleArray(current.options);
+
+  const handleCheck = () => {
+    if (selected === current.marker) {
+      setFeedback("✅ Correct!");
+    } else {
+      setFeedback("❌ Wrong answer. Try again or show answer.");
+    }
+  };
+
+  const handleTryAgain = () => {
     setSelected(null);
     setFeedback("");
     setShowAnswer(false);
   };
 
-  const handleCheck = () => {
-    if (selected === answer) {
-      setFeedback("✅ Correct!");
-    } else {
-      setFeedback("❌ Try again or show answer.");
-    }
+  const handleNext = () => {
+    setQuizIndex((prev) => (prev + 1) % shuffledOrder.length);
+    setSelected(null);
+    setFeedback("");
+    setShowAnswer(false);
   };
+
+  const handleShowAnswer = () => setShowAnswer(true);
 
   return (
     <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat" }}>
-      <div style={{ background: "rgba(255,255,255,0.8)", borderRadius: 24, padding: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.08)", textAlign: "center", maxWidth: 500 }}>
+      <div style={{ background: "rgba(255,255,255,0.8)", borderRadius: 24, padding: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.08)", textAlign: "center", maxWidth: 600 }}>
         <h2 style={{ color: "#26ccc2", fontWeight: 800, fontSize: 28, marginBottom: 24 }}>Multiple Choice</h2>
-        <div style={{ fontSize: 22, marginBottom: 24, color: "#222", fontWeight: 600 }}>{question}</div>
+        
+        <div style={{ fontSize: 18, marginBottom: 24, color: "#666", fontWeight: 600 }}>Which is the marker in the sentence?</div>
+        
+        <div style={{ fontSize: 20, marginBottom: 24, color: "#222", fontWeight: 600, padding: "16px", background: "rgba(38, 204, 194, 0.1)", borderRadius: 12 }}>
+          "{current.sentence}"
+        </div>
+
         <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 16 }}>
           {choices.map((choice, idx) => (
             <button
               key={idx}
-              className="tab-button"
               style={{
                 background: selected === choice ? '#fff57e' : 'rgba(255,255,255,0.7)',
                 color: selected === choice ? '#26ccc2' : '#222',
                 fontWeight: 700,
-                fontSize: 20,
+                fontSize: 18,
                 border: '2px solid #26ccc2',
                 borderRadius: 12,
-                padding: '10px 0',
+                padding: '12px 24px',
                 cursor: 'pointer',
                 transition: 'background 0.2s, color 0.2s',
               }}
@@ -83,14 +102,98 @@ export default function QuizMultipleChoice() {
             </button>
           ))}
         </div>
-        <div style={{ marginBottom: 16 }}>
-          <button className="tab-button" style={{ marginRight: 16 }} onClick={handleCheck} disabled={selected === null}>Check</button>
-          <button className="tab-button" onClick={() => setShowAnswer(true)}>Show Answer</button>
+
+        <div style={{ marginBottom: 16, display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+          <button 
+            style={{
+              background: '#26ccc2',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #26ccc2',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+            }}
+            onClick={handleCheck}
+            disabled={selected === null}
+          >
+            Check
+          </button>
+          <button 
+            style={{
+              background: '#fff57e',
+              color: '#222',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #fff57e',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+            }}
+            onClick={handleShowAnswer}
+            disabled={showAnswer}
+          >
+            Show Answer
+          </button>
         </div>
-        {feedback && <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 8 }}>{feedback}</div>}
-        {showAnswer && <div style={{ fontSize: 18, color: "#ffb76c" }}>Answer: <b>{answer}</b></div>}
-        <button className="tab-button" style={{ marginTop: 32 }} onClick={handleNext}>Next</button>
-        {/* Left arrow back button */}
+
+        {feedback && (
+          <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 16, fontWeight: 700 }}>
+            {feedback}
+          </div>
+        )}
+
+        {feedback.startsWith("❌") && (
+          <button 
+            style={{
+              background: '#fff57e',
+              color: '#222',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #fff57e',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              marginRight: 12,
+              marginBottom: 16,
+              transition: 'all 0.2s',
+            }}
+            onClick={handleTryAgain}
+          >
+            Try Again
+          </button>
+        )}
+
+        {showAnswer && (
+          <div style={{ fontSize: 16, color: "#ffb76c", marginBottom: 16, fontWeight: 700, padding: "12px", background: "rgba(255, 183, 108, 0.1)", borderRadius: 8 }}>
+            Answer: <b>{current.marker}</b>
+          </div>
+        )}
+
+        {(feedback.startsWith("✅") || showAnswer) && (
+          <button 
+            style={{
+              background: '#26ccc2',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #26ccc2',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              marginTop: 16,
+              transition: 'all 0.2s',
+            }}
+            onClick={handleNext}
+          >
+            Next
+          </button>
+        )}
+      </div>
+       {/* Left arrow back button */}
       <button
         onClick={() => navigate("/quiz-menu")}
         style={{
@@ -118,7 +221,6 @@ export default function QuizMultipleChoice() {
           <polyline points="14,5 7,11 14,17" stroke="#222" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
       </button>
-      </div>
     </main>
   );
 }

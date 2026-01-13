@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import markersSentences from "../data/markersSentences";
 import "../style.css";
 
@@ -15,34 +15,41 @@ function shuffleArray(array) {
 export default function QuizSentenceConstruction() {
   const quizData = markersSentences.filter(q => q.sentence && q.sentence.trim().length > 0);
   const [quizIndex, setQuizIndex] = useState(0);
-  const [selectedWords, setSelectedWords] = useState([]);
+  const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
+  const [shuffledOrder, setShuffledOrder] = useState([]);
 
-  if (quizData.length === 0) return <div>No quiz data available.</div>;
+  useEffect(() => {
+    // Shuffle the sentences on component mount
+    const shuffled = [...quizData].sort(() => 0.5 - Math.random());
+    setShuffledOrder(shuffled);
+  }, []);
 
-  const sentence = quizData[quizIndex].sentence;
-  const words = sentence.split(" ");
+  if (shuffledOrder.length === 0) return <div>Loading...</div>;
+
+  const current = shuffledOrder[quizIndex % shuffledOrder.length];
+  const correctSentence = current.sentence.trim();
+  const words = correctSentence.split(" ");
   const scrambled = shuffleArray(words);
 
-  const handleWordClick = (word, idx) => {
-    if (selectedWords.includes(idx)) return;
-    setSelectedWords([...selectedWords, idx]);
-    setFeedback("");
-  };
-
   const handleCheck = () => {
-    const constructed = selectedWords.map(i => scrambled[i]).join(" ");
-    if (constructed.trim() === sentence.trim()) {
+    if (userInput.trim() === correctSentence) {
       setFeedback("✅ Correct!");
     } else {
-      setFeedback("❌ Try again or show answer.");
+      setFeedback("❌ Wrong answer. Try again or show the answer.");
     }
   };
 
+  const handleTryAgain = () => {
+    setUserInput("");
+    setFeedback("");
+    setShowAnswer(false);
+  };
+
   const handleNext = () => {
-    setQuizIndex((prev) => (prev + 1) % quizData.length);
-    setSelectedWords([]);
+    setQuizIndex((prev) => (prev + 1) % shuffledOrder.length);
+    setUserInput("");
     setFeedback("");
     setShowAnswer(false);
   };
@@ -53,70 +60,139 @@ export default function QuizSentenceConstruction() {
     <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat" }}>
       <div style={{ background: "rgba(255,255,255,0.8)", borderRadius: 24, padding: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.08)", textAlign: "center", maxWidth: 600 }}>
         <h2 style={{ color: "#26ccc2", fontWeight: 800, fontSize: 28, marginBottom: 24 }}>Sentence Construction</h2>
-        <div style={{ fontSize: 22, marginBottom: 24, color: "#222", fontWeight: 600 }}>Arrange the words to form the correct sentence:</div>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 24, justifyContent: "center" }}>
+        
+        <div style={{ fontSize: 18, marginBottom: 24, color: "#666", fontWeight: 600 }}>Arrange the words to form the correct sentence:</div>
+        
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 24, justifyContent: "center", padding: "16px", background: "rgba(38, 204, 194, 0.1)", borderRadius: 12 }}>
           {scrambled.map((word, idx) => (
             <button
               key={idx}
-              className="tab-button"
               style={{
-                opacity: selectedWords.includes(idx) ? 0.3 : 1,
-                pointerEvents: selectedWords.includes(idx) ? 'none' : 'auto',
-                fontSize: 20,
-                borderRadius: 10,
-                padding: '8px 18px',
+                fontSize: 16,
+                borderRadius: 8,
+                padding: '8px 14px',
                 border: '2px solid #26ccc2',
                 background: '#fff',
                 color: '#26ccc2',
                 fontWeight: 700,
                 cursor: 'pointer',
-                transition: 'opacity 0.2s',
+                transition: 'all 0.2s',
               }}
-              onClick={() => handleWordClick(word, idx)}
+              onClick={() => setUserInput(prev => prev ? prev + " " + word : word)}
             >
               {word}
             </button>
           ))}
         </div>
-        <div style={{ fontSize: 22, marginBottom: 16, color: '#222', fontWeight: 600, minHeight: 32 }}>
-          {selectedWords.length > 0 && selectedWords.map(i => scrambled[i]).join(' ')}
+
+        <input
+          type="text"
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+          placeholder="Type the sentence here or click words above"
+          style={{
+            width: "100%",
+            fontSize: 16,
+            padding: "12px 16px",
+            border: "2px solid #fff57e",
+            borderRadius: 12,
+            marginBottom: 16,
+            boxSizing: "border-box",
+            fontFamily: "inherit",
+          }}
+        />
+
+        <div style={{ marginBottom: 16, display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+          <button 
+            style={{
+              background: '#26ccc2',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #26ccc2',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+            }}
+            onClick={handleCheck}
+            disabled={!userInput.trim()}
+          >
+            Check
+          </button>
+          <button 
+            style={{
+              background: '#fff57e',
+              color: '#222',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #fff57e',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+            }}
+            onClick={handleShowAnswer}
+            disabled={showAnswer}
+          >
+            Show Answer
+          </button>
         </div>
 
-        <div style={{ marginBottom: 16 }}>
-          <button className="tab-button" 
-          style={{ marginRight: 16,
-          background: '#26ccc2',
-          color: '#222',
-          fontWeight: 700,
-          fontSize: 11,
-           }} 
-          onClick={handleCheck} disabled={selectedWords.length !== words.length}>Check</button>
+        {feedback && (
+          <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 16, fontWeight: 700 }}>
+            {feedback}
+          </div>
+        )}
 
-          <button className="tab-button" 
-          style={{ marginRight: 16,
-          background: '#ff4d4f',
-          color: '#fff',
-          fontWeight: 700,
-          fontSize: 11,
-           }} 
-          onClick={handleShowAnswer}>Show Answer</button>
-        </div>
+        {feedback.startsWith("❌") && (
+          <button 
+            style={{
+              background: '#fff57e',
+              color: '#222',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #fff57e',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              marginRight: 12,
+              marginBottom: 16,
+              transition: 'all 0.2s',
+            }}
+            onClick={handleTryAgain}
+          >
+            Try Again
+          </button>
+        )}
 
-        {feedback && <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 8 }}>{feedback}</div>}
-        {showAnswer && <div style={{ fontSize: 18, color: "#000000ff" }}>Answer: <b>{sentence}</b></div>}
-      
+        {showAnswer && (
+          <div style={{ fontSize: 16, color: "#ffb76c", marginBottom: 16, fontWeight: 700, padding: "12px", background: "rgba(255, 183, 108, 0.1)", borderRadius: 8 }}>
+            Answer: <b>{correctSentence}</b>
+            <div style={{ fontSize: 14, color: "#666", marginTop: 8, fontWeight: 500 }}>{current.translation}</div>
+          </div>
+        )}
 
-
-        <button className="tab-button" 
-        style={{ marginTop: 32,
-        background: '#fff57e',
-        color: '#222',
-        fontWeight: 700,
-        fontSize: 11,
-           }} 
-        onClick={handleNext}>Next</button>
+        {(feedback.startsWith("✅") || showAnswer) && (
+          <button 
+            style={{
+              background: '#26ccc2',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #26ccc2',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              marginTop: 16,
+              transition: 'all 0.2s',
+            }}
+            onClick={handleNext}
+          >
+            Next
+          </button>
+        )}
       </div>
-
       {/* Left arrow back button */}
       <button
         onClick={() => navigate("/quiz-menu")}
@@ -145,7 +221,6 @@ export default function QuizSentenceConstruction() {
           <polyline points="14,5 7,11 14,17" stroke="#222" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
         </svg>
       </button>
-      
     </main>
   );
 }

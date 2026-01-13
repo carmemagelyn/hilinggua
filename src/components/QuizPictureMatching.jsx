@@ -1,47 +1,71 @@
-import React, { useState } from "react";
-import markersSentences from "../data/markersSentences";
+import React, { useState, useEffect } from "react";
 import "../style.css";
 import { useNavigate } from "react-router-dom";
 
-// This is a placeholder for picture matching. In a real app, each quiz item would have an image URL.
-// For now, we'll use a static image and match to the sentence/word.
-const demoImages = [
-  "/asset/ref/quizcallout.png",
-  "/asset/ref/blinkhappy.gif",
-  "/asset/ref/markerquote.png"
+// Word data with image paths from public/asset/img-word
+const wordData = [
+  { word: "bata", image: "/asset/img-word/bata.png" },
+  { word: "libro", image: "/asset/img-word/libro.png" },
+  { word: "manok", image: "/asset/img-word/manok.png" },
+  { word: "balay", image: "/asset/img-word/balay.png" },
+  { word: "prutas", image: "/asset/img-word/prutas.png" },
+  { word: "tugnaw", image: "/asset/img-word/tugnaw.png" },
+  { word: "sapat", image: "/asset/img-word/sapat.png" },
 ];
 
 export default function QuizPictureMatching() {
   const navigate = useNavigate();
-  const quizData = markersSentences.filter(q => q.sentence && q.sentence.trim().length > 0);
   const [quizIndex, setQuizIndex] = useState(0);
   const [selected, setSelected] = useState(null);
   const [feedback, setFeedback] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
+  const [shuffledOrder, setShuffledOrder] = useState([]);
 
-  // For demo: cycle through demoImages, match to sentence index
-  const image = demoImages[quizIndex % demoImages.length];
-  const correct = quizData[quizIndex]?.sentence || "";
-  // For demo: pick 3 random other sentences as distractors
-  const distractors = quizData
-    .filter((q, i) => i !== quizIndex)
-    .map(q => q.sentence)
+  useEffect(() => {
+    // Shuffle the questions on component mount
+    const shuffled = [...wordData].sort(() => 0.5 - Math.random());
+    setShuffledOrder(shuffled);
+  }, []);
+
+  const current = shuffledOrder[quizIndex % shuffledOrder.length] || {};
+  const correct = current.word;
+  const image = current.image;
+
+  // Pick 3 random other words as distractors
+  const distractors = shuffledOrder
+    .filter((w) => w.word !== correct)
+    .map(w => w.word)
     .sort(() => 0.5 - Math.random())
     .slice(0, 3);
   const choices = [correct, ...distractors].sort(() => 0.5 - Math.random());
 
   const handleNext = () => {
-    setQuizIndex((prev) => (prev + 1) % quizData.length);
+    setQuizIndex((prev) => (prev + 1) % wordData.length);
     setSelected(null);
     setFeedback("");
     setShowAnswer(false);
+    setIsWrong(false);
   };
 
-  const handleCheck = () => {
-    if (selected === correct) {
+  const handleTryAgain = () => {
+    setSelected(null);
+    setFeedback("");
+    setShowAnswer(false);
+    setIsWrong(false);
+  };
+
+  const handleSelectOption = (choice) => {
+    if (feedback) return; // Prevent selection after answer is locked
+    
+    setSelected(choice);
+
+    if (choice === correct) {
       setFeedback("✅ Correct!");
+      setIsWrong(false);
     } else {
-      setFeedback("❌ Try again or show answer.");
+      setFeedback("❌ Wrong answer.");
+      setIsWrong(true);
     }
   };
 
@@ -50,64 +74,89 @@ export default function QuizPictureMatching() {
       <div style={{ background: "rgba(255,255,255,0.8)", borderRadius: 24, padding: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.08)", textAlign: "center", maxWidth: 600 }}>
         <h2 style={{ color: "#26ccc2", fontWeight: 800, fontSize: 28, marginBottom: 24 }}>Picture Matching</h2>
         <img src={image} alt="Quiz visual" style={{ width: 220, height: 'auto', marginBottom: 24, borderRadius: 16, boxShadow: '0 2px 12px #0002' }} />
-        <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 16 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 16 }}>
           {choices.map((choice, idx) => (
             <button
               key={idx}
-              className="tab-button"
               style={{
-                background: selected === choice ? '#fff57e' : 'rgba(255,255,255,0.7)',
-                color: selected === choice ? '#26ccc2' : '#222',
+                background: selected === choice ? (feedback.startsWith("✅") ? '#26ccc2' : '#ff4d4f') : 'rgba(255,255,255,0.7)',
+                color: selected === choice ? '#fff' : '#222',
                 fontWeight: 700,
-                fontSize: 20,
+                fontSize: 18,
                 border: '2px solid #26ccc2',
                 borderRadius: 12,
-                padding: '10px 0',
-                cursor: 'pointer',
-                transition: 'background 0.2s, color 0.2s',
+                padding: '12px 16px',
+                cursor: isWrong ? 'not-allowed' : 'pointer',
+                transition: 'all 0.2s',
+                opacity: isWrong ? 0.5 : 1,
               }}
-              onClick={() => setSelected(choice)}
-              disabled={!!feedback}
+              onClick={() => handleSelectOption(choice)}
+              disabled={isWrong}
             >
               {choice}
             </button>
           ))}
         </div>
-        <div style={{ marginBottom: 16 }}>
-          <button className="tab-button" style={{ marginRight: 16 }} onClick={handleCheck} disabled={selected === null}>Check</button>
-          <button className="tab-button" onClick={() => setShowAnswer(true)}>Show Answer</button>
-        </div>
-        {feedback && <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 8 }}>{feedback}</div>}
-        {showAnswer && <div style={{ fontSize: 18, color: "#ffb76c" }}>Answer: <b>{correct}</b></div>}
-        <button className="tab-button" style={{ marginTop: 32 }} onClick={handleNext}>Next</button>
-      {/* Left arrow back button */}
-      <button
-        onClick={() => navigate("/quiz-menu")}
-        style={{
-          position: 'fixed',
-          top: 24,
-          left: 18,
-          zIndex: 200,
-          background: 'rgba(255,255,255,0.85)',
-          border: 'none',
-          borderRadius: '50%',
-          width: 48,
-          height: 48,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 0 16px 4px #fff, 0 0 32px 8px #fff57e88',
-          cursor: 'pointer',
-          padding: 0,
-          outline: 'none',
-          transition: 'box-shadow 0.2s',
-        }}
-        aria-label="Back to Home"
-      >
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polyline points="14,5 7,11 14,17" stroke="#222" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        </svg>
-      </button>
+        {feedback && <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 16, fontWeight: 700 }}>{feedback}</div>}
+        {isWrong && feedback && (
+          <button 
+            style={{
+              background: '#fff57e',
+              color: '#222',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #fff57e',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              marginRight: 12,
+              marginBottom: 16,
+              transition: 'all 0.2s',
+            }}
+            onClick={handleTryAgain}
+          >
+            Try Again
+          </button>
+        )}
+        {showAnswer && <div style={{ fontSize: 18, color: "#ffb76c", marginBottom: 16, fontWeight: 700 }}>Answer: <b>{correct}</b></div>}
+        {!feedback && (
+          <button 
+            style={{
+              background: '#fff57e',
+              color: '#222',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #fff57e',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              marginRight: 12,
+              transition: 'all 0.2s',
+            }}
+            onClick={() => setShowAnswer(true)}
+          >
+            Show Answer
+          </button>
+        )}
+        {(feedback && feedback.startsWith("✅")) || showAnswer ? (
+          <button 
+            style={{
+              background: '#26ccc2',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #26ccc2',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              marginTop: 16,
+              transition: 'all 0.2s',
+            }}
+            onClick={handleNext}
+          >
+            Next
+          </button>
+        ) : null}
       </div>
       {/* Left arrow back button */}
       <button

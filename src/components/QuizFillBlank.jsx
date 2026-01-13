@@ -1,58 +1,189 @@
 import React, { useState } from "react";
-// import markersSentences from "../data/markersSentences";
 import "../style.css";
 import { useNavigate } from "react-router-dom";
 
+const markerOptions = ["ang", "sang", "sa", "kay", "nga", "pa", "ni", "na", "lang", "gihapon", "daw", "si", "sanday", "sila", "amo"];
 
+const shuffleArray = (arr) => [...arr].sort(() => 0.5 - Math.random());
 
-// Static contextual fill-in-the-blank questions
-const fillBlankQuestions = [
-  {
-    sentence: "___ bata naga kaon sang saging.",
-    options: ["Ang", "Sang", "Sa"],
-    answer: "Ang",
-    translation: "The child is eating a banana."
-  },
-  {
-    sentence: "Naga ___ ang manok sa kahoy.",
-    options: ["kaon", "lupad", "tulog"],
-    answer: "lupad",
-    translation: "The chicken is flying in the tree."
-  }
-];
-
+const getRandomOptions = (correctMarker, allOptions) => {
+  const wrongOptions = allOptions.filter(m => m !== correctMarker);
+  const randomWrong = shuffleArray(wrongOptions).slice(0, 3);
+  return shuffleArray([correctMarker, ...randomWrong]);
+};
 
 export default function QuizFillBlank() {
   const navigate = useNavigate();
-  const [quizIndex, setQuizIndex] = useState(0);
   const [selected, setSelected] = useState(null);
   const [feedback, setFeedback] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
+  const [quizIndex, setQuizIndex] = useState(0);
 
-  const current = fillBlankQuestions[quizIndex];
+  const quizData = [
+    {
+      sentence: "Ang bata _________.",
+      marker: "nagakaon",
+      image: "/asset/img-sentence/Ang bata nagakaon_.png",
+      translation: "The child is eating."
+    },
+    {
+      sentence: "Nagbasa siya _____ libro.",
+      marker: "sang",
+      image: "/asset/img-sentence/Nagbasa siya sang libro_.png",
+      translation: "He/She read a book."
+    },
+    {
+      sentence: "Kamusta ka _____ eskwelahan?",
+      marker: "sa",
+      image: "/asset/img-sentence/Kamusta ka sa eskwelahan__.png",
+      translation: "How are you at school?"
+    },
+    {
+      sentence: "Ginhatag ko ini ____ Maria.",
+      marker: "kay",
+      image: "/asset/img-sentence/Ginhatag ko ini kay Maria_.png",
+      translation: "I gave this to Maria."
+    },
+    {
+      sentence: "Ang bata _____ malipayon naga hampang.",
+      marker: "nga",
+      image: "/asset/img-sentence/Ang bata nga malipayon nagahampang_.png",
+      translation: "The happy child is playing."
+    },
+    {
+      sentence: "Hatagi ____ siya sang tubig.",
+      marker: "pa",
+      image: "/asset/img-sentence/Hatagi pa siya sang tubig_.png",
+      translation: "Give him/her water please."
+    },
+    {
+      sentence: "Balay ____ Tatay.",
+      marker: "ni",
+      image: "/asset/img-sentence/Balay ni Tatay_.png",
+      translation: "Father's house."
+    },
+    {
+      sentence: "Gab-e ___, halong kamo.",
+      marker: "na",
+      image: "/asset/img-sentence/Gab-e na, halong kamo. (It's night already, take care).png",
+      translation: "It's night already, take care."
+    },
+    {
+      sentence: "Saging ____ gin kaon ko.",
+      marker: "lang",
+      image: "/asset/img-sentence/Naglakat lang siya sa plaza (He_She just walked to the plaza.).png",
+      translation: "I only ate banana."
+    },
+    {
+      sentence: "Nagahulat siya ____ bisan init.",
+      marker: "gihapon",
+      image: "/asset/img-sentence/Nagahulat siya gihapon bisan init. (He_She is still waiting even if its hot.).png",
+      translation: "He/She is still waiting even if it's hot."
+    },
+    {
+      sentence: "Hatagi ____ ako sang tubig.",
+      marker: "pa",
+      image: "/asset/img-sentence/Hatagi pa ako sang tubig, palihog..png",
+      translation: "Give me water please."
+    },
+    {
+      sentence: "____ masadya siya subong.",
+      marker: "daw",
+      image: "/asset/img-sentence/Daw masadya siya subong. (He_She seems happy now.).png",
+      translation: "He/She seems happy now."
+    },
+    {
+      sentence: "____ Maria nagkanta.",
+      marker: "si",
+      image: "/asset/img-sentence/Si Maria nagkanta.  (Maria sang.).png",
+      translation: "Maria sang."
+    },
+    {
+      sentence: "_____ Ana kag Juan naghampang sa mga sapat.",
+      marker: "sanday",
+      image: "/asset/img-sentence/Sanday Ana kag Juan naghampang sa mga sapat. (Ana and Juan played with the animals.).png",
+      translation: "Ana and Juan played together with the animals."
+    },
+    {
+      sentence: "_____ amo ang nagahampang.",
+      marker: "sila",
+      image: "/asset/img-sentence/Sila amo ang nagahampang (They are the ones who are playing.).png",
+      translation: "They are the ones who are playing."
+    },
+    {
+      sentence: "_____ amo ang nagdaog sa patimpalak.",
+      marker: "amo",
+      image: "/asset/img-sentence/Siya amo ang nagdaog sa patimpalak. (He_She is the one who won the contest.).png",
+      translation: "He/She is the one who won the contest."
+    }
+  ];
 
-  const handleNext = () => {
-    setQuizIndex((prev) => (prev + 1) % fillBlankQuestions.length);
-    setSelected(null);
-    setFeedback("");
-    setShowAnswer(false);
-  };
+  const [currentOptions, setCurrentOptions] = useState(() => 
+    getRandomOptions(quizData[0].marker, markerOptions)
+  );
+
+  const current = quizData[quizIndex];
 
   const handleCheck = () => {
-    if (selected === current.answer) {
+    if (selected === current.marker) {
       setFeedback("✅ Correct!");
+      setShowAnswer(false);
     } else {
       setFeedback("❌ Try again or show answer.");
     }
   };
 
+  const handleTryAgain = () => {
+    setSelected(null);
+    setFeedback("");
+    setShowAnswer(false);
+  };
+
+  const handleShowAnswer = () => {
+    setShowAnswer(true);
+  };
+
+  const handleNext = () => {
+    if (quizIndex < quizData.length - 1) {
+      setQuizIndex(quizIndex + 1);
+      setSelected(null);
+      setFeedback("");
+      setShowAnswer(false);
+      setCurrentOptions(getRandomOptions(quizData[quizIndex + 1].marker, markerOptions));
+    }
+  };
+
   return (
-    <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat" }}>
-      <div style={{ background: "rgba(255,255,255,0.8)", borderRadius: 24, padding: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.08)", textAlign: "center", maxWidth: 500 }}>
-        <h2 style={{ color: "#26ccc2", fontWeight: 800, fontSize: 28, marginBottom: 24 }}>Fill in the Blank (Contextual)</h2>
-        <div style={{ fontSize: 22, marginBottom: 24, color: "#222", fontWeight: 600 }}>{current.sentence}</div>
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: 16, marginBottom: 24 }}>
-          {current.options.map((option, idx) => (
+    <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat", paddingBottom: 48 }}>
+      <div style={{ background: "rgba(255,255,255,0.85)", borderRadius: 24, padding: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.08)", textAlign: "center", maxWidth: 600 }}>
+        <h2 style={{ color: "#26ccc2", fontWeight: 800, fontSize: 28, marginBottom: 24 }}>Fill in the Blank</h2>
+        
+        {/* Image */}
+        {current.image && (
+          <div style={{ marginBottom: 24, display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <img 
+              src={current.image} 
+              alt="sentence illustration" 
+              style={{ maxWidth: "100%", maxHeight: 300, borderRadius: 12, objectFit: "cover", marginBottom: 12 }}
+            />
+            {current.translation && (
+              <div style={{ fontSize: 16, color: "#666", fontStyle: "italic", textAlign: "center", maxWidth: "100%" }}>
+                {current.translation}
+              </div>
+            )}
+          </div>
+        )}
+        
+        {/* Sentence with Blank */}
+        <div style={{ marginBottom: 24, textAlign: "center" }}>
+          <div style={{ fontSize: 20, fontWeight: 600, color: "#222", lineHeight: 1.6 }}>
+            {current.sentence}
+          </div>
+        </div>
+
+        {/* Marker Options */}
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: 8, marginBottom: 24, flexWrap: 'wrap' }}>
+          {currentOptions.map((option, idx) => (
             <button
               key={idx}
               className="tab-button"
@@ -60,55 +191,115 @@ export default function QuizFillBlank() {
                 background: selected === option ? '#fff57e' : 'rgba(255,255,255,0.7)',
                 color: selected === option ? '#26ccc2' : '#222',
                 fontWeight: 700,
-                fontSize: 20,
+                fontSize: 16,
                 border: '2px solid #26ccc2',
-                borderRadius: 12,
-                padding: '10px 18px',
+                borderRadius: 10,
+                padding: '8px 14px',
                 cursor: 'pointer',
                 transition: 'background 0.2s, color 0.2s',
               }}
               onClick={() => setSelected(option)}
-              disabled={!!feedback}
+              disabled={feedback.startsWith("✅")}
             >
               {option}
             </button>
           ))}
         </div>
 
-        <div style={{ marginBottom: 16 }}>
-          <button className="tab-button" 
-          style={{ marginRight: 16,
-          background: '#26ccc2',
-          color: '#222',
-          fontWeight: 700,
-          fontSize: 11,
-           }} 
-          onClick={handleCheck} disabled={selected === null}>Check</button>
-
-          <button className="tab-button" 
-          style={{ marginRight: 16,
-          background: '#ff4d4f',
-          color: '#fff',
-          fontWeight: 700,
-          fontSize: 11,
-           }} 
-          onClick={() => setShowAnswer(true)}>Show Answer</button>
+        {/* Check Button */}
+        <div style={{ marginBottom: 16, display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+          <button 
+            style={{
+              background: '#26ccc2',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #26ccc2',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+            }}
+            onClick={handleCheck}
+            disabled={selected === null}
+          >
+            Check
+          </button>
+          <button 
+            style={{
+              background: '#fff57e',
+              color: '#222',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #fff57e',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+            }}
+            onClick={handleShowAnswer}
+            disabled={showAnswer}
+          >
+            Show Answer
+          </button>
         </div>
 
-        {feedback && <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 8 }}>{feedback}</div>}
-        {showAnswer && <div style={{ fontSize: 18, color: "#000000ff" }}>Answer: <b>{current.answer}</b></div>}
-        <div style={{ fontSize: 12, color: '#888', marginTop: 50 }}>ENGLISH TRANSLATION:</div>
-        <div style={{ fontSize: 17, color: '#888', marginTop: 10 }}><b>{current.translation}</b></div>
-        
-        <button className="tab-button" 
-        style={{ marginTop: 32,
-        background: '#fff57e',
-        color: '#222',
-        fontWeight: 700,
-        fontSize: 11,
-           }} 
-        onClick={handleNext}>Next</button>
+        {/* Feedback */}
+        {feedback && (
+          <div>
+            <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 12, fontWeight: 600 }}>
+              {feedback}
+            </div>
+            {feedback.startsWith("❌") && (
+              <button 
+                onClick={handleTryAgain}
+                style={{
+                  background: '#ffb76c',
+                  color: '#222',
+                  fontWeight: 700,
+                  fontSize: 16,
+                  border: '2px solid #ffb76c',
+                  borderRadius: 12,
+                  padding: '10px 24px',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                }}
+              >
+                Try Again
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Show Answer */}
+        {showAnswer && (
+          <div style={{ fontSize: 18, color: "#ffb76c", marginBottom: 12, fontWeight: 600 }}>
+            Answer: <b>{current.marker}</b>
+          </div>
+        )}
+
+        {/* Next Button - Only show after correct answer */}
+        {feedback.startsWith("✅") && (
+          <button 
+            onClick={handleNext}
+            style={{
+              background: '#26ccc2',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: 16,
+              border: '2px solid #26ccc2',
+              borderRadius: 12,
+              padding: '10px 24px',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              marginTop: 12,
+            }}
+          >
+            {quizIndex < quizData.length - 1 ? "Next" : "Complete"}
+          </button>
+        )}
       </div>
+      
       {/* Left arrow back button */}
       <button
         onClick={() => navigate("/quiz-menu")}
