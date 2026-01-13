@@ -33,17 +33,7 @@ export default function Markers() {
                         
   return (
     <div
-      style={{
-        minHeight: "100vh",
-        width: "100vw",
-        background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        padding: "0",
-        position: "relative"
-      }}
+     
     >
       {/* Left arrow back button */}
       <button
