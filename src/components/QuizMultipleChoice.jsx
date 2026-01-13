@@ -2,22 +2,22 @@ import React, { useState, useEffect } from "react";
 import "../style.css";
 
 const quizData = [
-  { sentence: "Ang bata nagakaon.", marker: "ang", options: ["sang", "sa", "ang", "kay"] },
-  { sentence: "Nagbasa siya sang libro.", marker: "sang", options: ["sang", "ang", "sa", "kay"] },
-  { sentence: "Kamusta ka sa eskwelahan?", marker: "sa", options: ["sa", "sang", "ang", "kay"] },
-  { sentence: "Ginhatag ko ini kay Maria.", marker: "kay", options: ["kay", "sa", "sang", "ang"] },
-  { sentence: "Ang bata nga malipayon nagahampang.", marker: "nga", options: ["nga", "pa", "lang", "na"] },
-  { sentence: "Hatagi pa siya sang tubig.", marker: "pa", options: ["pa", "sang", "sa", "lang"] },
-  { sentence: "Balay ni Tatay.", marker: "ni", options: ["ni", "ang", "na", "daw"] },
-  { sentence: "Gab-e na, halong kamo.", marker: "na", options: ["na", "lang", "pa", "gihapon"] },
-  { sentence: "Saging lang gin kaon ko.", marker: "lang", options: ["lang", "pa", "na", "gihapon"] },
-  { sentence: "Nagahulat siya gihapon bisan init.", marker: "gihapon", options: ["gihapon", "lang", "daw", "pa"] },
-  { sentence: "Hatagi pa ako sang tubig.", marker: "pa", options: ["pa", "sang", "lang", "na"] },
-  { sentence: "Daw masadya siya subong.", marker: "daw", options: ["daw", "si", "sila", "sanday"] },
-  { sentence: "Si Maria nagkanta.", marker: "si", options: ["si", "sanday", "sila", "daw"] },
-  { sentence: "Sanday Ana kag Juan naghampang sa mga sapat.", marker: "sanday", options: ["sanday", "si", "sila", "amo"] },
-  { sentence: "Sila amo ang nagahampang.", marker: "sila", options: ["sila", "si", "sanday", "amo"] },
-  { sentence: "Siya amo ang nagdaog sa patimpalak.", marker: "amo", options: ["amo", "sila", "si", "sanday"] },
+  { sentence: "Ang bata nagakaon.", marker: "ang", options: ["sang", "sa", "ang", "kay"], image: "/asset/img-sentence/Ang bata nagakaon_.png", translation: "The child is eating." },
+  { sentence: "Nagbasa siya sang libro.", marker: "sang", options: ["sang", "ang", "sa", "kay"], image: "/asset/img-sentence/Nagbasa siya sang libro_.png", translation: "He/She read a book." },
+  { sentence: "Kamusta ka sa eskwelahan?", marker: "sa", options: ["sa", "sang", "ang", "kay"], image: "/asset/img-sentence/Kamusta ka sa eskwelahan__.png", translation: "How are you at school?" },
+  { sentence: "Ginhatag ko ini kay Maria.", marker: "kay", options: ["kay", "sa", "sang", "ang"], image: "/asset/img-sentence/Ginhatag ko ini kay Maria_.png", translation: "I gave this to Maria." },
+  { sentence: "Ang bata nga malipayon nagahampang.", marker: "nga", options: ["nga", "pa", "lang", "na"], image: "/asset/img-sentence/Ang bata nga malipayon nagahampang_.png", translation: "The happy child is playing." },
+  { sentence: "Hatagi pa siya sang tubig.", marker: "pa", options: ["pa", "sang", "sa", "lang"], image: "/asset/img-sentence/Hatagi pa siya sang tubig_.png", translation: "Please give him/her water." },
+  { sentence: "Balay ni Tatay.", marker: "ni", options: ["ni", "ang", "na", "daw"], image: "/asset/img-sentence/Balay ni Tatay_.png", translation: "Father's house." },
+  { sentence: "Gab-e na, halong kamo.", marker: "na", options: ["na", "lang", "pa", "gihapon"], image: "/asset/img-sentence/Gab-e na, halong kamo. (It's night already, take care).png", translation: "It's night already, take care." },
+  { sentence: "Saging lang gin kaon ko.", marker: "lang", options: ["lang", "pa", "na", "gihapon"], image: "/asset/img-sentence/Naglakat lang siya sa plaza (He_She just walked to the plaza.).png", translation: "I only ate a banana." },
+  { sentence: "Nagahulat siya gihapon bisan init.", marker: "gihapon", options: ["gihapon", "lang", "daw", "pa"], image: "/asset/img-sentence/Nagahulat siya gihapon bisan init. (He_She is still waiting even if its hot.).png", translation: "He/She is still waiting even if it's hot." },
+  { sentence: "Hatagi pa ako sang tubig.", marker: "pa", options: ["pa", "sang", "lang", "na"], image: "/asset/img-sentence/Hatagi pa ako sang tubig, palihog..png", translation: "Please give me water." },
+  { sentence: "Daw masadya siya subong.", marker: "daw", options: ["daw", "si", "sila", "sanday"], image: "/asset/img-sentence/Daw masadya siya subong. (He_She seems happy now.).png", translation: "He/She seems happy now." },
+  { sentence: "Si Maria nagkanta.", marker: "si", options: ["si", "sanday", "sila", "daw"], image: "/asset/img-sentence/Si Maria nagkanta.  (Maria sang.).png", translation: "Maria sang." },
+  { sentence: "Sanday Ana kag Juan naghampang sa mga sapat.", marker: "sanday", options: ["sanday", "si", "sila", "amo"], image: "/asset/img-sentence/Sanday Ana kag Juan naghampang sa mga sapat. (Ana and Juan played with the animals.).png", translation: "Ana and Juan played with the animals." },
+  { sentence: "Sila amo ang nagahampang.", marker: "sila", options: ["sila", "si", "sanday", "amo"], image: "/asset/img-sentence/Sila amo ang nagahampang (They are the ones who are playing.).png", translation: "They are the ones who are playing." },
+  { sentence: "Siya amo ang nagdaog sa patimpalak.", marker: "amo", options: ["amo", "sila", "si", "sanday"], image: "/asset/img-sentence/Siya amo ang nagdaog sa patimpalak. (He_She is the one who won the contest.).png", translation: "He/She is the one who won the contest." },
 ];
 
 function shuffleArray(array) {
@@ -73,6 +73,24 @@ export default function QuizMultipleChoice() {
     <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "url('/asset/ref/beebg.jpg') center center/cover no-repeat" }}>
       <div style={{ background: "rgba(255,255,255,0.8)", borderRadius: 24, padding: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.08)", textAlign: "center", maxWidth: 600 }}>
         <h2 style={{ color: "#26ccc2", fontWeight: 800, fontSize: 28, marginBottom: 24 }}>Multiple Choice</h2>
+        
+        {/* Image */}
+        {current.image && (
+          <div style={{ marginBottom: 24, display: "flex", justifyContent: "center" }}>
+            <img 
+              src={current.image} 
+              alt="sentence illustration" 
+              style={{ maxWidth: "100%", maxHeight: 300, borderRadius: 12, objectFit: "cover" }}
+            />
+          </div>
+        )}
+        
+        {/* English Translation */}
+        {current.translation && (
+          <div style={{ fontSize: 14, color: "#888", marginBottom: 16, fontStyle: "italic", padding: "8px", background: "rgba(38, 204, 194, 0.05)", borderRadius: 8 }}>
+            {current.translation}
+          </div>
+        )}
         
         <div style={{ fontSize: 18, marginBottom: 24, color: "#666", fontWeight: 600 }}>Which is the marker in the sentence?</div>
         
@@ -193,8 +211,7 @@ export default function QuizMultipleChoice() {
           </button>
         )}
       </div>
-       {/* Left arrow back button */}
-      <button
+    <button
         onClick={() => navigate("/quiz-menu")}
         style={{
           position: 'fixed',

@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 // Word data with image paths from public/asset/img-word
 const wordData = [
-  { word: "bata", image: "/asset/img-word/bata.png" },
-  { word: "libro", image: "/asset/img-word/libro.png" },
-  { word: "manok", image: "/asset/img-word/manok.png" },
-  { word: "balay", image: "/asset/img-word/balay.png" },
-  { word: "prutas", image: "/asset/img-word/prutas.png" },
-  { word: "tugnaw", image: "/asset/img-word/tugnaw.png" },
-  { word: "sapat", image: "/asset/img-word/sapat.png" },
+  { word: "bata", image: "/asset/img-word/bata.png", translation: "child" },
+  { word: "libro", image: "/asset/img-word/libro.png", translation: "book" },
+  { word: "manok", image: "/asset/img-word/manok.png", translation: "chicken" },
+  { word: "balay", image: "/asset/img-word/balay.png", translation: "house" },
+  { word: "prutas", image: "/asset/img-word/prutas.png", translation: "fruit" },
+  { word: "tugnaw", image: "/asset/img-word/tugnaw.png", translation: "cold" },
+  { word: "sapat", image: "/asset/img-word/sapat.png", translation: "shoes" },
 ];
 
 export default function QuizPictureMatching() {
@@ -31,6 +31,7 @@ export default function QuizPictureMatching() {
   const current = shuffledOrder[quizIndex % shuffledOrder.length] || {};
   const correct = current.word;
   const image = current.image;
+  const translation = current.translation;
 
   // Pick 3 random other words as distractors
   const distractors = shuffledOrder
@@ -98,6 +99,11 @@ export default function QuizPictureMatching() {
           ))}
         </div>
         {feedback && <div style={{ fontSize: 18, color: feedback.startsWith("✅") ? "#26ccc2" : "#ff4d4f", marginBottom: 16, fontWeight: 700 }}>{feedback}</div>}
+        {(feedback.startsWith("✅") || showAnswer) && translation && (
+          <div style={{ fontSize: 14, color: "#888", marginBottom: 16, fontStyle: "italic", padding: "8px", background: "rgba(38, 204, 194, 0.05)", borderRadius: 8 }}>
+            {translation}
+          </div>
+        )}
         {isWrong && feedback && (
           <button 
             style={{

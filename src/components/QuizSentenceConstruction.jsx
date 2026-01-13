@@ -61,6 +61,19 @@ export default function QuizSentenceConstruction() {
       <div style={{ background: "rgba(255,255,255,0.8)", borderRadius: 24, padding: 32, boxShadow: "0 4px 24px rgba(0,0,0,0.08)", textAlign: "center", maxWidth: 600 }}>
         <h2 style={{ color: "#26ccc2", fontWeight: 800, fontSize: 28, marginBottom: 24 }}>Sentence Construction</h2>
         
+        {/* Image */}
+        {current.image && (
+          <div style={{ marginBottom: 24, display: "flex", justifyContent: "center" }}>
+            <img 
+              src={current.image} 
+              alt="sentence illustration" 
+              style={{ maxWidth: "100%", maxHeight: 300, borderRadius: 12, objectFit: "cover" }}
+            />
+          </div>
+        )}
+        
+      
+        
         <div style={{ fontSize: 18, marginBottom: 24, color: "#666", fontWeight: 600 }}>Arrange the words to form the correct sentence:</div>
         
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 24, justifyContent: "center", padding: "16px", background: "rgba(38, 204, 194, 0.1)", borderRadius: 12 }}>

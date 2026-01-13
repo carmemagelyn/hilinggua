@@ -54,7 +54,7 @@ export default function QuizFillBlank() {
       sentence: "Hatagi ____ siya sang tubig.",
       marker: "pa",
       image: "/asset/img-sentence/Hatagi pa siya sang tubig_.png",
-      translation: "Give him/her water please."
+      translation: "Please give him/her water."
     },
     {
       sentence: "Balay ____ Tatay.",
@@ -72,7 +72,7 @@ export default function QuizFillBlank() {
       sentence: "Saging ____ gin kaon ko.",
       marker: "lang",
       image: "/asset/img-sentence/Naglakat lang siya sa plaza (He_She just walked to the plaza.).png",
-      translation: "I only ate banana."
+      translation: "I only ate a banana."
     },
     {
       sentence: "Nagahulat siya ____ bisan init.",
@@ -84,7 +84,7 @@ export default function QuizFillBlank() {
       sentence: "Hatagi ____ ako sang tubig.",
       marker: "pa",
       image: "/asset/img-sentence/Hatagi pa ako sang tubig, palihog..png",
-      translation: "Give me water please."
+      translation: "Please give me water."
     },
     {
       sentence: "____ masadya siya subong.",
@@ -102,7 +102,7 @@ export default function QuizFillBlank() {
       sentence: "_____ Ana kag Juan naghampang sa mga sapat.",
       marker: "sanday",
       image: "/asset/img-sentence/Sanday Ana kag Juan naghampang sa mga sapat. (Ana and Juan played with the animals.).png",
-      translation: "Ana and Juan played together with the animals."
+      translation: "Ana and Juan played with the animals."
     },
     {
       sentence: "_____ amo ang nagahampang.",
@@ -160,17 +160,19 @@ export default function QuizFillBlank() {
         
         {/* Image */}
         {current.image && (
-          <div style={{ marginBottom: 24, display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div style={{ marginBottom: 24, display: "flex", justifyContent: "center" }}>
             <img 
               src={current.image} 
               alt="sentence illustration" 
-              style={{ maxWidth: "100%", maxHeight: 300, borderRadius: 12, objectFit: "cover", marginBottom: 12 }}
+              style={{ maxWidth: "100%", maxHeight: 300, borderRadius: 12, objectFit: "cover" }}
             />
-            {current.translation && (
-              <div style={{ fontSize: 16, color: "#666", fontStyle: "italic", textAlign: "center", maxWidth: "100%" }}>
-                {current.translation}
-              </div>
-            )}
+          </div>
+        )}
+        
+        {/* English Translation */}
+        {current.translation && (
+          <div style={{ fontSize: 14, color: "#888", marginBottom: 16, fontStyle: "italic", padding: "8px", background: "rgba(38, 204, 194, 0.05)", borderRadius: 8 }}>
+            {current.translation}
           </div>
         )}
         
