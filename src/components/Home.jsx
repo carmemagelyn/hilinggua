@@ -15,7 +15,7 @@ function Home() {
     <main style={{ position: 'relative', minHeight: isMobile ? '100vh' : undefined, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2em', justifyContent: 'center', alignItems: 'center', width: isMobile ? '90vw' : 340, maxWidth: 400 }}>
         {/* Logo and tagline */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1.5em', marginTop: '-7em' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1em', marginTop: '-5em' }}>
           <img
             src="/asset/ref/logo.png"
             alt="Hilinggua Logo"
@@ -27,7 +27,7 @@ function Home() {
             color: '#222',
             letterSpacing: '1.2px',
             textAlign: 'center',
-            marginBottom: '0.5em',
+          
             fontFamily: 'Montserrat, Arial, sans-serif',
             textShadow: '0 2px 12px #fff57e44',
           }}>
@@ -38,16 +38,19 @@ function Home() {
             <button style={{
               width: '100%',
               maxWidth: '420px',
-              height: '100px',
-              background: 'white',
+              height: '125px',
+              backgroundImage: 'url(/asset/ref/textbox.png)',
+              backgroundSize: '90%',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
               color: 'black',
               textTransform: 'uppercase',
                 fontWeight: 900,
                 fontSize: '2em',
               border: 'none',
-              boxShadow: '0 0 12px 2px white',
-              marginTop: '1em',
-              marginBottom: '1.2em',
+             
+              marginTop: '.5em',
+              marginBottom: '.5em',
               letterSpacing: '1px',
               filter: 'drop-shadow(0 0 8px #fff)',
               transition: 'all 0.3s',
@@ -62,15 +65,18 @@ function Home() {
             <button style={{
               width: '100%',
               maxWidth: '420px',
-              height: '100px',
-              background: 'white',
+              height: '125px',
+              backgroundImage: 'url(/asset/ref/textbox.png)',
+              backgroundSize: '90%',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
               color: 'black',
               textTransform: 'uppercase',
                 fontWeight: 900,
                 fontSize: '2em',
               border: 'none',
-              boxShadow: '0 0 12px 2px white',
-              marginBottom: '1.2em',
+              
+              marginBottom: '.5em',
               letterSpacing: '1px',
               filter: 'drop-shadow(0 0 8px #fff)',
               transition: 'all 0.3s',
@@ -85,15 +91,18 @@ function Home() {
             <button style={{
               width: '100%',
               maxWidth: '420px',
-              height: '100px',
-              background: 'white',
+              height: '125px',
+              backgroundImage: 'url(/asset/ref/textbox.png)',
+              backgroundSize: '90%',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
               color: 'black',
               textTransform: 'uppercase',
               fontWeight: 900,
               fontSize: '2em',
               border: 'none',
-              boxShadow: '0 0 12px 2px white',
-              marginBottom: '1.2em',
+             
+              marginBottom: '.5em',
               letterSpacing: '1px',
               filter: 'drop-shadow(0 0 8px #fff)',
               transition: 'all 0.3s',
