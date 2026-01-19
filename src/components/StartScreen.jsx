@@ -33,23 +33,9 @@ export default function StartScreen() {
     document.body.style.background = 'none';
     document.body.style.overflow = 'hidden';
     
-    // Play intro audio automatically
-    const audio = new Audio('/asset/ref/intro.mp3');
-    audio.volume = 1;
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(err => {
-        console.log('Audio play failed, trying with user interaction:', err);
-        document.addEventListener('click', () => {
-          audio.play().catch(e => console.log('Audio still failed:', e));
-        }, { once: true });
-      });
-    }
-    
     return () => {
       document.body.style.background = originalBg;
       document.body.style.overflow = originalOverflow;
-      audio.pause();
     };
   }, []);
   const navigate = useNavigate();

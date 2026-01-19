@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './components/Home';
 import Menu from './components/Menu';
@@ -19,10 +19,57 @@ import VocabularyDetailPage from './components/VocabularyDetailPage';
 import './App.css';
 
 function AppContent() {
+  const introRef = useRef(null);
+  const musicRef = useRef(null);
+  const [musicStarted, setMusicStarted] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
   const [vocabIndex, setVocabIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const totalWords = 15;
+
+  const toggleMusic = () => {
+    if (musicPlaying) {
+      if (musicRef.current) {
+        musicRef.current.pause();
+      }
+      setMusicPlaying(false);
+    } else {
+      if (musicRef.current) {
+        musicRef.current.play().catch(err => {
+          console.log('Music play failed:', err);
+        });
+      }
+      setMusicPlaying(true);
+    }
+  };
+
+  useEffect(() => {
+    // Try to play intro with a small delay to ensure element is ready
+    const timer = setTimeout(() => {
+      if (introRef.current) {
+        introRef.current.currentTime = 0;
+        introRef.current.volume = 1;
+        
+        // Force play attempt
+        const playPromise = introRef.current.play();
+        if (playPromise) {
+          playPromise.catch(err => {
+            console.log('Autoplay blocked, attempting workaround:', err);
+            // Muted autoplay workaround
+            introRef.current.muted = true;
+            introRef.current.play().then(() => {
+              setTimeout(() => {
+                introRef.current.muted = false;
+              }, 100);
+            });
+          });
+        }
+      }
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handlePrevious = () => {
     setVocabIndex(prev => prev === 0 ? totalWords - 1 : prev - 1);
@@ -39,6 +86,39 @@ function AppContent() {
 
   return (
     <div className="App">
+      <audio ref={introRef} autoPlay style={{ display: 'none' }}>
+        <source src="/asset/ref/intro.mp3" type="audio/mpeg" />
+      </audio>
+      <audio ref={musicRef} loop style={{ display: 'none' }}>
+        <source src="/asset/ref/music.mp3" type="audio/mpeg" />
+      </audio>
+      <button
+        onClick={toggleMusic}
+        style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          zIndex: 1000,
+          background: musicPlaying ? '#fff57e' : '#26ccc2',
+          color: musicPlaying ? '#26ccc2' : '#fff',
+          border: '2px solid #fff57e',
+          borderRadius: '50%',
+          width: '50px',
+          height: '50px',
+          fontSize: '24px',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          transition: 'all 0.3s',
+          boxShadow: '0 0 12px rgba(255, 183, 108, 0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: 0,
+        }}
+        title={musicPlaying ? 'Pause music' : 'Play music'}
+      >
+        {musicPlaying ? '🔊' : '🔇'}
+      </button>
       <Routes>
         <Route path="/" element={<StartScreen />} />
         <Route path="/home" element={<Home />} />
