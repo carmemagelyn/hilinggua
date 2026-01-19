@@ -18,22 +18,24 @@ function Menu() {
     
     <main style={{ position: 'relative', minHeight: isMobile ? '100vh' : undefined, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2em', justifyContent: 'center', alignItems: 'center', width: isMobile ? '80vw' : 340, maxWidth: 400 }}>
+          <img
+            src="/asset/ref/pickcategory.png"
+            alt="Pick a Category"
+            style={{ width: isMobile ? 300 : 180, height: 'auto', marginBottom: '0.5em', marginTop: '-2.5em' }}
+          />
           <Link to="/quiz-fill-blank" style={{ width: '100%' }}>
             <button style={{
               width: '100%',
-              maxWidth: '420px',
-              height: '130px',
-              backgroundImage: 'url(/asset/ref/textbox.png)',
-              backgroundSize: '100%',
+              maxWidth: '320px',
+              height: '120px',
+              backgroundImage: 'url(/asset/ref/fill_textbox.png)',
+              backgroundSize: '90%',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
-              color: 'black',
-              textTransform: 'uppercase',
-                fontWeight: 900,
-                fontSize: '1.5em',
+             
               border: 'none',
               
-              marginBottom: '.5em',
+              marginBottom: '0em',
               letterSpacing: '1px',
               filter: 'drop-shadow(0 0 8px #fff)',
               transition: 'all 0.3s',
@@ -41,25 +43,23 @@ function Menu() {
               cursor: 'pointer',
               fontFamily: 'Archivo Black, sans-serif',
             }}>
-              Fill in the Blank
+              
             </button>
           </Link>
           <Link to="/quiz-multiple-choice" style={{ width: '100%' }}>
             <button style={{
               width: '100%',
-              maxWidth: '420px',
-              height: '130px',
-              backgroundImage: 'url(/asset/ref/textbox.png)',
-              backgroundSize: '100%',
+              maxWidth: '320px',
+              height: '120px',
+              backgroundImage: 'url(/asset/ref/multiple_textbox.png)',
+              backgroundSize: '90%',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               color: 'black',
-              textTransform: 'uppercase',
-                fontWeight: 900,
-                fontSize: '1.5em',
+             
               border: 'none',
               
-              marginBottom: '.5em',
+              marginBottom: '0em',
               letterSpacing: '1px',
               filter: 'drop-shadow(0 0 8px #fff)',
               transition: 'all 0.3s',
@@ -67,16 +67,16 @@ function Menu() {
               cursor: 'pointer',
               fontFamily: 'Archivo Black, sans-serif',
             }}>
-              Multiple Choice
+              
             </button>
           </Link>
           <Link to="/quiz-sentence-construction" style={{ width: '100%' }}>
             <button style={{
               width: '100%',
-              maxWidth: '420px',
-              height: '130px',
-              backgroundImage: 'url(/asset/ref/textbox.png)',
-              backgroundSize: '100%',
+              maxWidth: '320px',
+              height: '120px',
+              backgroundImage: 'url(/asset/ref/sentence_textbox.png)',
+              backgroundSize: '90%',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               color: 'black',
@@ -85,7 +85,7 @@ function Menu() {
               fontSize: '1.5em',
               border: 'none',
              
-              marginBottom: '.5em',
+              marginBottom: '0em',
               letterSpacing: '1px',
               filter: 'drop-shadow(0 0 8px #fff)',
               transition: 'all 0.3s',
@@ -93,16 +93,16 @@ function Menu() {
               cursor: 'pointer',
               fontFamily: 'Archivo Black, sans-serif',
             }}>
-              Sentence Construction
+             
             </button>
           </Link>
            <Link to="/quiz-picture-matching" style={{ width: '100%' }}>
             <button style={{
               width: '100%',
-              maxWidth: '420px',
-              height: '130px',
-              backgroundImage: 'url(/asset/ref/textbox.png)',
-              backgroundSize: '100%',
+              maxWidth: '320px',
+              height: '120px',
+              backgroundImage: 'url(/asset/ref/picture_textbox.png)',
+              backgroundSize: '90%',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               color: 'black',
@@ -111,7 +111,7 @@ function Menu() {
               fontSize: '1.5em',
               border: 'none',
              
-              marginBottom: '.5em',
+              marginBottom: '0em',
               letterSpacing: '1px',
               filter: 'drop-shadow(0 0 8px #fff)',
               transition: 'all 0.3s',
@@ -119,7 +119,7 @@ function Menu() {
               cursor: 'pointer',
               fontFamily: 'Archivo Black, sans-serif',
             }}>
-              Picture Matching
+              
             </button>
           </Link>
  {/* Left arrow back button */}

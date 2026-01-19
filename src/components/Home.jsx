@@ -39,7 +39,7 @@ function Home() {
               width: '100%',
               maxWidth: '420px',
               height: '125px',
-              backgroundImage: 'url(/asset/ref/textbox.png)',
+              backgroundImage: 'url(/asset/ref/vocab_textbox.png)',
               backgroundSize: '90%',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
@@ -58,7 +58,7 @@ function Home() {
               cursor: 'pointer',
               fontFamily: 'Archivo Black, sans-serif',
             }}>
-              Vocabulary
+             
             </button>
           </Link>
           <Link to="/markers" style={{ width: '100%' }}>
@@ -66,7 +66,7 @@ function Home() {
               width: '100%',
               maxWidth: '420px',
               height: '125px',
-              backgroundImage: 'url(/asset/ref/textbox.png)',
+              backgroundImage: 'url(/asset/ref/marker_textbox.png)',
               backgroundSize: '90%',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
@@ -84,7 +84,7 @@ function Home() {
               cursor: 'pointer',
               fontFamily: 'Archivo Black, sans-serif',
             }}>
-              Markers
+              
             </button>
           </Link>
           <Link to="/quiz" style={{ width: '100%' }}>
@@ -92,7 +92,7 @@ function Home() {
               width: '100%',
               maxWidth: '420px',
               height: '125px',
-              backgroundImage: 'url(/asset/ref/textbox.png)',
+              backgroundImage: 'url(/asset/ref/quiz_textbox.png)',
               backgroundSize: '90%',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
@@ -110,7 +110,7 @@ function Home() {
               cursor: 'pointer',
               fontFamily: 'Archivo Black, sans-serif',
             }}>
-              Quiz
+              
             </button>
           </Link>
 
