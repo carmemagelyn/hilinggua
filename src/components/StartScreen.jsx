@@ -32,19 +32,44 @@ export default function StartScreen() {
     const originalOverflow = document.body.style.overflow;
     document.body.style.background = 'none';
     document.body.style.overflow = 'hidden';
+    
+    // Play intro audio automatically
+    const audio = new Audio('/asset/ref/intro.mp3');
+    audio.volume = 1;
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        console.log('Audio play failed, trying with user interaction:', err);
+        document.addEventListener('click', () => {
+          audio.play().catch(e => console.log('Audio still failed:', e));
+        }, { once: true });
+      });
+    }
+    
     return () => {
       document.body.style.background = originalBg;
       document.body.style.overflow = originalOverflow;
+      audio.pause();
     };
   }, []);
   const navigate = useNavigate();
   const [showStart, setShowStart] = useState(false);
+  const [showWink, setShowWink] = useState(false);
+  const [showBorder, setShowBorder] = useState(false);
   const [showFly, setShowFly] = useState(false);
   const [showBlink, setShowBlink] = useState(false);
   const [blinkAlways, setBlinkAlways] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowStart(true), 6000); // 6s delay for GIF
+    const timer = setTimeout(() => {
+      setShowWink(true);
+      setShowBorder(true);
+    }, 4200); // Show wink and border after peekaboo
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowStart(true), 4200); // Start button appears with wink gif
     return () => clearTimeout(timer);
   }, []);
 
@@ -97,7 +122,10 @@ export default function StartScreen() {
               outline: "none",
               cursor: "pointer",
               zIndex: 2,
-              margin: "auto"
+              margin: "auto",
+              marginTop: "600px",
+              marginLeft: "80px",
+              animation: 'fadeIn 2s ease-in-out forwards'
             }}
             aria-label="Start"
           >
@@ -136,62 +164,94 @@ export default function StartScreen() {
           )}
         </>
       )}
-      {/* Show flyright.gif when start button appears */}
-      {showFly && (
-        <img
-          src="/asset/ref/flyright.gif"
-          alt="Fly right"
-          style={{
-            position: 'fixed',
-            top: '20%',
-            left: 0,
-            width: 'min(100vw, 900px)',
-            height: 'auto',
-            zIndex: 100,
-            pointerEvents: 'none',
-            display: 'block',
-            maxHeight: '40vh',
-          }}
-        />
-      )}
-      {/* Show blinkhappy.gif after start is clicked */}
-      {(showBlink || blinkAlways) && (
-        <img
-          src="/asset/ref/blinkhappy.gif"
-          alt="Blink happy"
-          style={{
-            position: 'fixed',
-            top: '20%',
-            left: 0,
-            width: 'min(100vw, 900px)',
-            height: 'auto',
-            zIndex: 200,
-            pointerEvents: 'none',
-            display: 'block',
-            maxHeight: '40vh',
-          }}
-        />
-      )}
-      {/* Peekaboo GIF for mobile at the bottom, only show before start button */}
-      {!showStart && (
+
+
+      {/* Peekaboo GIF for mobile at the bottom, only show before wink */}
+      {!showWink && (
         <img
           src="/asset/ref/peekaboo.gif"
           alt="Peekaboo"
           style={{
-            width: '150vw',
+            width: '250vw',
             maxWidth: '150%',
             height: 'auto',
             position: 'fixed',
-            left: '-25vw',
-            bottom: 0,
+            left: '-27vw',
+            bottom: '310px',
             zIndex: 3,
             pointerEvents: 'none',
             display: 'block',
-            minHeight: '756px',
-            maxHeight: '100vh',
+            minHeight: '50px',
+            maxHeight: '500vh',
+            animation: 'fadeOutEnd 4.5s ease-in-out forwards'
           }}
         />
       )}
+      {/* Wink GIF appears after peekaboo */}
+      {showWink && (
+        <img
+          src="/asset/ref/wink.gif"
+          alt="Wink"
+          style={{
+            width: '250vw',
+            maxWidth: '150%',
+            height: 'auto',
+            position: 'fixed',
+            left: '-110px',
+            bottom: '310px',
+            zIndex: 3,
+            pointerEvents: 'none',
+            display: 'block',
+            minHeight: '150px',
+            maxHeight: '600vh',            animation: 'fadeIn 2s ease-in-out forwards',          }}
+        />
+      )}
+      {/* Border appears with fade transition */}
+      {showBorder && (
+        <img
+          src="/asset/ref/border.png"
+          alt="Border"
+          style={{
+            position: 'fixed',
+            top: '160px',
+            left: '-35px',
+            width: '115vw',
+            height: '52vh',
+            zIndex: 1,
+            pointerEvents: 'none',
+            animation: 'fadeIn 2s ease-in-out forwards',
+          }}
+        />
+      )}
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        @keyframes fadeOut {
+          from {
+            opacity: 1;
+          }
+          to {
+            opacity: 0;
+          }
+        }
+        @keyframes fadeOutEnd {
+          0% {
+            opacity: 1;
+          }
+          75% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+      `}</style>
     </div>
   );
 }
