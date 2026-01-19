@@ -19,10 +19,9 @@ import VocabularyDetailPage from './components/VocabularyDetailPage';
 import './App.css';
 
 function AppContent() {
-  const introRef = useRef(null);
   const musicRef = useRef(null);
   const [musicStarted, setMusicStarted] = useState(false);
-  const [musicPlaying, setMusicPlaying] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(true);
   const [vocabIndex, setVocabIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -36,46 +35,51 @@ function AppContent() {
       setMusicPlaying(false);
     } else {
       if (musicRef.current) {
-        musicRef.current.play().catch(err => {
-          console.log('Music play failed:', err);
-        });
+        musicRef.current.play();
       }
       setMusicPlaying(true);
     }
   };
 
   useEffect(() => {
-    // Play intro on first user interaction (click or touch)
-    const handleFirstInteraction = () => {
-      if (introRef.current) {
-        introRef.current.currentTime = 0;
-        introRef.current.volume = 1;
-        console.log('User interaction detected, playing intro...');
-        
-        introRef.current.play()
-          .then(() => {
-            console.log('Intro playing successfully');
-            setMusicPlaying(true);
-          })
-          .catch(err => {
-            console.log('Failed to play intro:', err);
-          });
+    let hasPlayedMusic = false;
+
+    const playMusic = () => {
+      if (musicRef.current && !hasPlayedMusic) {
+        musicRef.current.volume = 1;
+        musicRef.current.play().then(() => {
+          hasPlayedMusic = true;
+          setMusicPlaying(true);
+          // Remove listeners after successful play
+          document.removeEventListener('click', playMusic);
+          document.removeEventListener('touchstart', playMusic);
+        }).catch(() => {
+          // Silently handle play error
+        });
       }
-      
-      // Remove listeners after first interaction
-      document.removeEventListener('click', handleFirstInteraction);
-      document.removeEventListener('touchstart', handleFirstInteraction);
     };
 
-    // Add listeners for first interaction
-    document.addEventListener('click', handleFirstInteraction, { once: true });
-    document.addEventListener('touchstart', handleFirstInteraction, { once: true });
+    // Fallback: play on user interaction
+    document.addEventListener('click', playMusic);
+    document.addEventListener('touchstart', playMusic);
 
     return () => {
-      document.removeEventListener('click', handleFirstInteraction);
-      document.removeEventListener('touchstart', handleFirstInteraction);
+      document.removeEventListener('click', playMusic);
+      document.removeEventListener('touchstart', playMusic);
     };
   }, []);
+
+  useEffect(() => {
+    if (musicRef.current) {
+      if (musicPlaying) {
+        musicRef.current.play().catch(() => {});
+      } else {
+        musicRef.current.pause();
+      }
+    }
+  }, [musicPlaying])
+
+
 
   const handlePrevious = () => {
     setVocabIndex(prev => prev === 0 ? totalWords - 1 : prev - 1);
@@ -92,9 +96,6 @@ function AppContent() {
 
   return (
     <div className="App">
-      <audio ref={introRef} style={{ display: 'none' }}>
-        <source src="/asset/ref/intro.mp3" type="audio/mpeg" />
-      </audio>
       <audio ref={musicRef} loop style={{ display: 'none' }}>
         <source src="/asset/ref/music.mp3" type="audio/mpeg" />
       </audio>
