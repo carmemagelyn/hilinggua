@@ -45,30 +45,36 @@ function AppContent() {
   };
 
   useEffect(() => {
-    // Try to play intro with a small delay to ensure element is ready
-    const timer = setTimeout(() => {
+    // Play intro on first user interaction (click or touch)
+    const handleFirstInteraction = () => {
       if (introRef.current) {
         introRef.current.currentTime = 0;
         introRef.current.volume = 1;
+        console.log('User interaction detected, playing intro...');
         
-        // Force play attempt
-        const playPromise = introRef.current.play();
-        if (playPromise) {
-          playPromise.catch(err => {
-            console.log('Autoplay blocked, attempting workaround:', err);
-            // Muted autoplay workaround
-            introRef.current.muted = true;
-            introRef.current.play().then(() => {
-              setTimeout(() => {
-                introRef.current.muted = false;
-              }, 100);
-            });
+        introRef.current.play()
+          .then(() => {
+            console.log('Intro playing successfully');
+            setMusicPlaying(true);
+          })
+          .catch(err => {
+            console.log('Failed to play intro:', err);
           });
-        }
       }
-    }, 50);
+      
+      // Remove listeners after first interaction
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
+    };
 
-    return () => clearTimeout(timer);
+    // Add listeners for first interaction
+    document.addEventListener('click', handleFirstInteraction, { once: true });
+    document.addEventListener('touchstart', handleFirstInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
+    };
   }, []);
 
   const handlePrevious = () => {
@@ -86,7 +92,7 @@ function AppContent() {
 
   return (
     <div className="App">
-      <audio ref={introRef} autoPlay style={{ display: 'none' }}>
+      <audio ref={introRef} style={{ display: 'none' }}>
         <source src="/asset/ref/intro.mp3" type="audio/mpeg" />
       </audio>
       <audio ref={musicRef} loop style={{ display: 'none' }}>
