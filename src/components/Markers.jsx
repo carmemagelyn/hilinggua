@@ -37,7 +37,7 @@ export default function Markers() {
     >
       {/* Left arrow back button */}
       <button
-        onClick={() => navigate("/menu")}
+        onClick={() => navigate("/home")}
         style={{
           position: 'fixed',
           top: 24,
