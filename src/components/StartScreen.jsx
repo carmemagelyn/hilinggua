@@ -50,12 +50,12 @@ export default function StartScreen() {
     const timer = setTimeout(() => {
       setShowWink(true);
       setShowBorder(true);
-    }, 4200); // Show wink and border after peekaboo
+    }, 4500); // Show wink and border after peekaboo
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowStart(true), 4200); // Start button appears with wink gif
+    const timer = setTimeout(() => setShowStart(true), 4500); // Start button appears with wink gif
     return () => clearTimeout(timer);
   }, []);
 
@@ -169,7 +169,7 @@ export default function StartScreen() {
             display: 'block',
             minHeight: '50px',
             maxHeight: '500vh',
-            animation: 'fadeOutEnd 4.5s ease-in-out forwards'
+            animation: 'fadeOutEnd 6.5s ease-in-out forwards'
           }}
         />
       )}
@@ -201,7 +201,7 @@ export default function StartScreen() {
           alt="Border"
           style={{
             position: 'fixed',
-            top: '200px',
+            top: '150px',
             left: '0px',
             width: '100vw',
             height: '45vh',
