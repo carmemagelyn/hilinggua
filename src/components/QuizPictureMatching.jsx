@@ -37,7 +37,7 @@ const wordData = [
   { word: "nagtuon", image: "/asset/img-word/Nag tuon.png", translation: "studied" },
   { word: "pagpauli", image: "/asset/img-word/pagpauli.png", translation: "going home" },
   { word: "prutas", image: "/asset/img-word/prutass.png", translation: "fruit" },
-  { word: "regalo", image: "/asset/img-word/regalo.png", translation: "gift" },
+
   { word: "saging", image: "/asset/img-word/saging.png", translation: "banana" },
   { word: "sapat", image: "/asset/img-word/sapat.png", translation: "animal" },
 
