@@ -19,7 +19,7 @@ const wordData = [
   { word: "kamusta", image: "/asset/img-word/kumusta.png", translation: "how are you" },
   { word: "libro", image: "/asset/img-word/libro.png", translation: "book" },
   { word: "madamo", image: "/asset/img-word/madamo.png", translation: "many" },
-  { word: "manok", image: "/asset/img-word/manok.png", translation: "chicken" },
+  { word: "manok", image: "/asset/img-word/manokk.png", translation: "chicken" },
   { word: "masadya", image: "/asset/img-word/masadya.png", translation: "happy" },
   { word: "matamis", image: "/asset/img-word/matam is.png", translation: "sweet" },
   { word: "matulog", image: "/asset/img-word/Matulog.png", translation: "to sleep" },
