@@ -433,7 +433,7 @@ export default function VocabularyDetailPage() {
             pointerEvents: 'none',
           }}>
             <img
-              src="/asset/img-word/libro.png"
+              src="/asset/img-word/libroo.png"
               alt="Libro"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
@@ -870,7 +870,7 @@ export default function VocabularyDetailPage() {
             pointerEvents: 'none',
           }}>
             <img
-              src="/asset/img-word/prutas.png"
+              src="/asset/img-word/prutass.png"
               alt="Prutas"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
