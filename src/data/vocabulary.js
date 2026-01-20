@@ -89,17 +89,6 @@ export const vocabularyData = [
     exampleSentenceAudio: "/asset/word-sent-hil/Sapatos ni Ana kag Maria.m4a"
   },
   {
-    id: 9,
-    word: "Balay",
-    pronunciation: "ba-lay",
-    meaning: "House",
-    exampleSentence: "May balay siya nga daku.",
-    exampleTranslation: "He/She has a house that is big.",
-    exampleImage: "/asset/img-sentence/He_She has a house that is big..png",
-    image: "/asset/img-word/balay.png",
-    audio: "/asset/word-voice/Balay.m4a"
-  },
-  {
     id: 10,
     word: "Tulog",
     pronunciation: "tu-log",
