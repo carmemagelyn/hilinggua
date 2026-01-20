@@ -216,6 +216,29 @@ export default function VocabularyDetailPage() {
           </div>
         )}
         {/* Word image for Bata overlaying the cloud */}
+        {details.word === 'Bulig' && (
+          <div style={{
+            position: 'absolute',
+            left: '50%',
+            top: 'calc(12em + 2vw)', // moved down a bit
+            transform: 'translate(-50%, -60%)',
+            zIndex: 120,
+            pointerEvents: 'none',
+          }}>
+            <img
+              src="/asset/img-word/bulig.png"
+              alt="Bulig"
+              style={{
+                width: 'clamp(180px, 30vw, 320px)',
+                maxWidth: '90vw',
+                height: 'auto',
+                display: 'block',
+                filter: 'drop-shadow(0 2px 12px #7b8457aa)',
+              }}
+            />
+          </div>
+        )}
+        {/* Word image for Bata overlaying the cloud */}
         {details.word === 'Gab e' && (
           <div style={{
             position: 'absolute',
