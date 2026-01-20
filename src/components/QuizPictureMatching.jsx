@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 // Word data with image paths from public/asset/img-word
 const wordData = [
-  { word: "bata", image: "/asset/img-word/bata.png", translation: "child" },
+ 
   { word: "libro", image: "/asset/img-word/libro.png", translation: "book" },
   { word: "manok", image: "/asset/img-word/manok.png", translation: "chicken" },
-  { word: "balay", image: "/asset/img-word/balay.png", translation: "house" },
+  
   { word: "prutas", image: "/asset/img-word/prutas.png", translation: "fruit" },
   { word: "tugnaw", image: "/asset/img-word/tugnaw.png", translation: "cold" },
   { word: "sapat", image: "/asset/img-word/sapat.png", translation: "shoes" },

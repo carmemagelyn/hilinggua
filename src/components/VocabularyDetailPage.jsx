@@ -111,7 +111,7 @@ export default function VocabularyDetailPage() {
             pointerEvents: 'none',
           }}>
             <img
-              src="/asset/img-word/balayy.png"
+              src="/asset/img-word/balay.png"
               alt="Balay"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
@@ -134,7 +134,7 @@ export default function VocabularyDetailPage() {
             pointerEvents: 'none',
           }}>
             <img
-              src="/asset/img-word/bataa.png"
+              src="/asset/img-word/bata.png"
               alt="Bata"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
