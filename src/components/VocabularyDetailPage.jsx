@@ -101,7 +101,7 @@ export default function VocabularyDetailPage() {
       </button>
       <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '2em', gap: '1.5em', paddingBottom: '0' }}>
         {/* Word image for Balay overlaying the cloud */}
-        {details.word && details.word.toLowerCase() === 'balay' && (
+        {details.word && details.word.toLowerCase() === 'bulig' && (
           <div style={{
             position: 'absolute',
             left: '50%',
@@ -124,7 +124,7 @@ export default function VocabularyDetailPage() {
           </div>
         )}
         {/* Word image for Bata overlaying the cloud */}
-        {details.word && details.word.toLowerCase() === 'bata' && (
+        {details.word && details.word.toLowerCase() === 'bulig' && (
           <div style={{
             position: 'absolute',
             left: '50%',
