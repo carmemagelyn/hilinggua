@@ -7,7 +7,7 @@ export const vocabularyData = [
     exampleSentence: "Ang bata nagakaon.",
     exampleTranslation: "The child is eating.",
     exampleImage: "/asset/img-sentence/The child is eating..png",
-    image: "/asset/img-word/Bata.png",
+    image: "/asset/img-word/bata.png",
     audio: "/asset/word-voice/Bata.m4a"
   },
   {
@@ -96,7 +96,7 @@ export const vocabularyData = [
     exampleSentence: "May balay siya nga daku.",
     exampleTranslation: "He/She has a house that is big.",
     exampleImage: "/asset/img-sentence/He_She has a house that is big..png",
-    image: "/asset/img-word/Balay.png",
+    image: "/asset/img-word/balay.png",
     audio: "/asset/word-voice/Balay.m4a"
   },
   {
