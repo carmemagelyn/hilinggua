@@ -1,15 +1,5 @@
 export const vocabularyData = [
-  {
-    id: 1,
-    word: "Bata",
-    pronunciation: "ba-ta",
-    meaning: "Child",
-    exampleSentence: "Ang bata nagakaon.",
-    exampleTranslation: "The child is eating.",
-    exampleImage: "/asset/img-sentence/The child is eating..png",
-    image: "/asset/img-word/bata.png",
-    audio: "/asset/word-voice/Bata.m4a"
-  },
+
   {
     id: 2,
     word: "Manok",
@@ -43,17 +33,7 @@ export const vocabularyData = [
     image: "/asset/img-word/Tubig.png",
     audio: "/asset/word-voice/Tubig.m4a"
   },
-  {
-    id: 5,
-    word: "Eskwelahan",
-    pronunciation: "es-kwe-la-han",
-    meaning: "School",
-    exampleSentence: "Nagpadulong siya sa eskwelahan.",
-    exampleTranslation: "He/She went to school.",
-    exampleImage: "/asset/img-sentence/He_She went to school..png",
-    image: "/asset/img-word/Eskwelahan.png",
-    audio: "/asset/word-voice/Eskwelahan.m4a"
-  },
+ 
   {
     id: 6,
     word: "Regalo",
