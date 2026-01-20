@@ -100,18 +100,18 @@ export default function VocabularyDetailPage() {
         </svg>
       </button>
       <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '2em', gap: '1.5em', paddingBottom: '0' }}>
-        {/* Word image for Balay overlaying the cloud */}
-        {details.word && details.word.toLowerCase() === 'bulig' && (
+        {/* Word image for Bata overlaying the cloud */}
+        {details.word === 'Balay' && (
           <div style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(11em + 2vw)', // moved down a bit
+            top: 'calc(12em + 2vw)', // moved down a bit
             transform: 'translate(-50%, -60%)',
             zIndex: 120,
             pointerEvents: 'none',
           }}>
             <img
-              src="/asset/img-word/bulig.png"
+              src="/asset/img-word/balay.png"
               alt="Balay"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
@@ -124,7 +124,7 @@ export default function VocabularyDetailPage() {
           </div>
         )}
         {/* Word image for Bata overlaying the cloud */}
-        {details.word && details.word.toLowerCase() === 'bulig' && (
+        {details.word === 'Bata' && (
           <div style={{
             position: 'absolute',
             left: '50%',
@@ -134,7 +134,7 @@ export default function VocabularyDetailPage() {
             pointerEvents: 'none',
           }}>
             <img
-              src="/asset/img-word/bulig.png"
+              src="/asset/img-word/bata.png"
               alt="Bata"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
