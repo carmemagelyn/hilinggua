@@ -203,8 +203,8 @@ export default function VocabularyDetailPage() {
             pointerEvents: 'none',
           }}>
             <img
-              src="/asset/img-word/eskwelahan.png"
-              alt="Bulig"
+              src="/asset/img-word/eskwelahann.png"
+              alt="Eskwelahan"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
                 maxWidth: '90vw',
