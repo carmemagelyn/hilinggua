@@ -110,7 +110,7 @@ export default function StartScreen() {
               zIndex: 2,
               margin: "auto",
               marginTop: "600px",
-              marginLeft: "80px",
+              marginLeft: "100px",
               animation: 'fadeIn 2s ease-in-out forwards'
             }}
             aria-label="Start"
@@ -119,7 +119,7 @@ export default function StartScreen() {
               src="/asset/ref/start.png"
               alt="Start"
               style={{
-                width: "180px",
+                width: "150px",
                 maxWidth: "60vw",
                 display: "block"
               }}
@@ -163,7 +163,7 @@ export default function StartScreen() {
             height: 'auto',
             position: 'fixed',
             left: '-27vw',
-            bottom: '310px',
+            bottom: '300px',
             zIndex: 3,
             pointerEvents: 'none',
             display: 'block',
@@ -180,16 +180,18 @@ export default function StartScreen() {
           alt="Wink"
           style={{
             width: '250vw',
-            maxWidth: '150%',
+            maxWidth: '120%',
             height: 'auto',
             position: 'fixed',
-            left: '-110px',
-            bottom: '310px',
+            left: '-50px',
+            bottom: '330px',
             zIndex: 3,
             pointerEvents: 'none',
             display: 'block',
             minHeight: '150px',
-            maxHeight: '600vh',            animation: 'fadeIn 2s ease-in-out forwards',          }}
+            maxHeight: '600vh',            
+            animation: 'fadeIn 2s ease-in-out forwards',          
+          }}
         />
       )}
       {/* Border appears with fade transition */}
@@ -199,10 +201,10 @@ export default function StartScreen() {
           alt="Border"
           style={{
             position: 'fixed',
-            top: '160px',
-            left: '-35px',
-            width: '115vw',
-            height: '52vh',
+            top: '200px',
+            left: '0px',
+            width: '100vw',
+            height: '45vh',
             zIndex: 1,
             pointerEvents: 'none',
             animation: 'fadeIn 2s ease-in-out forwards',

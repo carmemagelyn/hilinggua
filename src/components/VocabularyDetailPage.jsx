@@ -502,7 +502,7 @@ export default function VocabularyDetailPage() {
             pointerEvents: 'none',
           }}>
             <img
-              src="/asset/img-word/masadya.png"
+              src="/asset/img-word/masadyaa.png"
               alt="Masadya"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
