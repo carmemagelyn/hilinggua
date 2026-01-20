@@ -12,17 +12,7 @@ export const vocabularyData = [
     image: "/asset/img-word/Libro.png",
     audio: "/asset/word-voice/Libro.m4a"
   },
-  {
-    id: 4,
-    word: "Tubig",
-    pronunciation: "tu-big",
-    meaning: "Water",
-    exampleSentence: "Nagkuha siya sang tubig.",
-    exampleTranslation: "He/She took the water.",
-    exampleImage: "/asset/img-sentence/He_She took the water..png",
-    image: "/asset/img-word/Tubig.png",
-    audio: "/asset/word-voice/Tubig.m4a"
-  },
+
  
 
 

@@ -4,13 +4,47 @@ import { useNavigate } from "react-router-dom";
 
 // Word data with image paths from public/asset/img-word
 const wordData = [
- 
+  { word: "balay", image: "/asset/img-word/balay.png", translation: "house" },
+  { word: "bata", image: "/asset/img-word/bata.png", translation: "child" },
+  { word: "bulig", image: "/asset/img-word/bulig.png", translation: "help" },
+  { word: "dako", image: "/asset/img-word/dako.png", translation: "big" },
+
+  { word: "gabe", image: "/asset/img-word/gab e.png", translation: "night" },
+  { word: "ginhatag", image: "/asset/img-word/Gin hatag.png", translation: "was given" },
+  { word: "ginhimo", image: "/asset/img-word/Ginhimo.png", translation: "made" },
+  { word: "halong", image: "/asset/img-word/halong kamo.png", translation: "take care" },
+  { word: "hatagi", image: "/asset/img-word/Hatagi.png", translation: "give" },
+  { word: "init", image: "/asset/img-word/init.png", translation: "hot" },
+  { word: "isda", image: "/asset/img-word/isda.png", translation: "fish" },
+  { word: "kamusta", image: "/asset/img-word/kumusta.png", translation: "how are you" },
   { word: "libro", image: "/asset/img-word/libro.png", translation: "book" },
+  { word: "madamo", image: "/asset/img-word/madamo.png", translation: "many" },
   { word: "manok", image: "/asset/img-word/manok.png", translation: "chicken" },
-  
+  { word: "masadya", image: "/asset/img-word/masadya.png", translation: "happy" },
+  { word: "matamis", image: "/asset/img-word/matam is.png", translation: "sweet" },
+  { word: "matulog", image: "/asset/img-word/Matulog.png", translation: "to sleep" },
+  { word: "nagahulat", image: "/asset/img-word/Naga hulat.png", translation: "is waiting" },
+  { word: "nagakaon", image: "/asset/img-word/Naga_kaon.png", translation: "is eating" },
+  { word: "nagalupad", image: "/asset/img-word/Naga_lupad.png", translation: "is flying" },
+  { word: "nagbasa", image: "/asset/img-word/Nagbasa.png", translation: "read" },
+  { word: "nagbulig", image: "/asset/img-word/Nag bulig.png", translation: "helped" },
+  { word: "nagdaog", image: "/asset/img-word/Nag daog.png", translation: "won" },
+  { word: "nagkanta", image: "/asset/img-word/Nag kanta.png", translation: "sang" },
+  { word: "naglakat", image: "/asset/img-word/Nag lakat.png", translation: "walked" },
+  { word: "nageskwela", image: "/asset/img-word/Nag eskwela.png", translation: "went to school" },
+  { word: "nakadakop", image: "/asset/img-word/Nakadakop.png", translation: "caught" },
+  { word: "nagsulat", image: "/asset/img-word/Nag sulat.png", translation: "wrote" },
+  { word: "nagtuon", image: "/asset/img-word/Nag tuon.png", translation: "studied" },
+  { word: "pagpauli", image: "/asset/img-word/pagpauli.png", translation: "going home" },
   { word: "prutas", image: "/asset/img-word/prutas.png", translation: "fruit" },
+  { word: "regalo", image: "/asset/img-word/regalo.png", translation: "gift" },
+  { word: "saging", image: "/asset/img-word/saging.png", translation: "banana" },
+  { word: "sapat", image: "/asset/img-word/sapat.png", translation: "animal" },
+
+
+  { word: "tubig", image: "/asset/img-word/Tubig.png", translation: "water" },
   { word: "tugnaw", image: "/asset/img-word/tugnaw.png", translation: "cold" },
-  { word: "sapat", image: "/asset/img-word/sapat.png", translation: "shoes" },
+
 ];
 
 export default function QuizPictureMatching() {
