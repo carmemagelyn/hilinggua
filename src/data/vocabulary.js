@@ -1,16 +1,6 @@
 export const vocabularyData = [
 
-  {
-    id: 2,
-    word: "Manok",
-    pronunciation: "ma-nok",
-    meaning: "Chicken",
-    exampleSentence: "Ang manok nagalupad.",
-    exampleTranslation: "The chicken is flying.",
-    exampleImage: "/asset/img-sentence/The chicken is flying..png",
-    image: "/asset/img-word/Manok.png",
-    audio: "/asset/word-voice/Manok.m4a"
-  },
+
   {
     id: 3,
     word: "Libro",
