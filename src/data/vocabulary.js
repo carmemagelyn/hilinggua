@@ -34,87 +34,8 @@ export const vocabularyData = [
     audio: "/asset/word-voice/Tubig.m4a"
   },
  
-  {
-    id: 6,
-    word: "Regalo",
-    pronunciation: "re-ga-lo",
-    meaning: "Gift",
-    exampleSentence: "Ginhatag niya ang regalo sa bata.",
-    exampleTranslation: "He/She gave the gift to the child.",
-    exampleImage: "/asset/img-sentence/He_She gave the gift to the child..png",
-    image: "/asset/img-word/Regalo.png",
-    audio: "/asset/word-voice/Regalo.m4a"
-  },
-  {
-    id: 7,
-    word: "Tatay",
-    pronunciation: "ta-tay",
-    meaning: "Father",
-    exampleSentence: "Nagsulat siya para kay tatay.",
-    exampleTranslation: "He/She wrote a letter to Dad.",
-    exampleImage: "/asset/img-sentence/He_She wrote a letter to Dad..png",
-    image: "/asset/img-word/Tatay.png",
-    audio: "/asset/word-voice/Tatay.m4a"
-  },
-  {
-    id: 8,
-    word: "Sapatos",
-    pronunciation: "sa-pa-tos",
-    meaning: "Shoes",
-    exampleSentence: "Sapatos nina Ana kag Maria.",
-    exampleTranslation: "Ana and Maria's shoes.",
-    exampleImage: "/asset/img-sentence/Ana and Maria’s shoes..png",
-    image: "/asset/img-word/Sapatos.png",
-    audio: "/asset/word-voice/Sapatos.m4a",
-    exampleSentenceAudio: "/asset/word-sent-hil/Sapatos ni Ana kag Maria.m4a"
-  },
-  
-  {    id: 10,
-    word: "Tulog",
-    pronunciation: "tu-log",
-    meaning: "Sleep",
-    exampleSentence: "Matulog na lang ko.",
-    exampleTranslation: "I'll just sleep.",
-    exampleImage: "/asset/img-sentence/I’ll just sleep..png",
-    image: "/asset/img-word/Tulog.png",
-    audio: "/asset/word-voice/Tulog.m4a",
-    exampleSentenceAudio: "/asset/word-sent-hil/Matulog nalang ko.m4a"
-  },
-  {
-    id: 11,
-    word: "Mag-tuon",
-    pronunciation: "mag-tu-on",
-    meaning: "Study",
-    exampleSentence: "Magtuon ka lang anay.",
-    exampleTranslation: "Just study.",
-    exampleImage: "/asset/img-sentence/just study..png",
-    image: "/asset/img-word/Tuon.png",
-    audio: "/asset/word-voice/Magtuon.m4a"
-  },
-  {
-    id: 12,
-    word: "Makalakat",
-    pronunciation: "ma-ka-la-kat",
-    meaning: "Travel",
-    exampleSentence: "Malain ang panahon, gani indi kita makalakat.",
-    exampleTranslation: "The weather is bad, so we won't go.",
-    exampleImage: "/asset/img-sentence/The weather is bad, so we won’t go..png",
-    image: "/asset/img-word/Makalakat.png",
-    audio: "/asset/word-voice/Makalakat.m4a",
-    exampleSentenceAudio: "/asset/word-sent-hil/Malain ang panahon, gani indi kita makalakat.m4a"
-  },
-  {
-    id: 13,
-    word: "Mag-luto",
-    pronunciation: "mag-lu-to",
-    meaning: "Cook",
-    exampleSentence: "Tudloi man ako magluto.",
-    exampleTranslation: "Teach me to cook too.",
-    exampleImage: "/asset/img-sentence/Teach me to cook too..png",
-    image: "/asset/img-word/Luto.png",
-    audio: "/asset/word-voice/Magluto.m4a",
-    exampleSentenceAudio: "/asset/word-sent-hil/Tudlui man ako magluto.m4a"
-  },
+
+
   {
     id: 14,
     word: "Masadya",
