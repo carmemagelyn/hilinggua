@@ -479,7 +479,7 @@ export default function VocabularyDetailPage() {
             pointerEvents: 'none',
           }}>
             <img
-              src="/asset/img-word/manok.png"
+              src="/asset/img-word/manokk.png"
               alt="Manok"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
