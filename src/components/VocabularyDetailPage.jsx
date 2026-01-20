@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { vocabularyData } from "../data/vocabulary";
 
 // Example placeholder data for vocabulary details
 const vocabularyDetails = {
@@ -45,7 +46,10 @@ const vocabularyDetails = {
 export default function VocabularyDetailPage() {
   const { vocabId } = useParams();
   const navigate = useNavigate();
-  const details = vocabularyDetails[vocabId] || {};
+  
+  // Get data from vocabularyData array
+  const vocabItem = vocabularyData.find(item => item.word === vocabId);
+  const details = vocabItem || vocabularyDetails[vocabId] || {};
 
   // Audio playback logic
   const [audioError, setAudioError] = React.useState(false);
