@@ -20,7 +20,7 @@ const wordData = [
   { word: "libro", image: "/asset/img-word/libroo.png", translation: "book" },
   { word: "madamo", image: "/asset/img-word/madamo.png", translation: "many" },
   { word: "manok", image: "/asset/img-word/manokk.png", translation: "chicken" },
-  { word: "masadya", image: "/asset/img-word/masadyaa.png", translation: "happy" },
+
   { word: "matamis", image: "/asset/img-word/matam is.png", translation: "sweet" },
   { word: "matulog", image: "/asset/img-word/Matulog.png", translation: "to sleep" },
   { word: "nagahulat", image: "/asset/img-word/Naga hulat.png", translation: "is waiting" },
