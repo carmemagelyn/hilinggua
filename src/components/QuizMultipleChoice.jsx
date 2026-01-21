@@ -2,23 +2,26 @@ import React, { useState, useEffect } from "react";
 import "../style.css";
 import { useNavigate } from "react-router-dom";
 
+// List of all Hiligaynon markers for wrong answers
+const allMarkers = ["ang", "sang", "sa", "kay", "nga", "pa", "ni", "na", "lang", "gihapon", "daw", "si", "sanday", "sila", "amo", "man"];
+
 const quizData = [
-  { sentence: "Ang bata nagakaon.", marker: "ang", options: ["sang", "sa", "ang", "kay"], image: "/asset/img-sentence/Ang bata nagakaon_.png", translation: "The child is eating." },
-  { sentence: "Nagbasa siya sang libro.", marker: "sang", options: ["sang", "ang", "sa", "kay"], image: "/asset/img-sentence/Nagbasa siya sang libro_.png", translation: "He/She read a book." },
-  { sentence: "Kamusta ka sa eskwelahan?", marker: "sa", options: ["sa", "sang", "ang", "kay"], image: "/asset/img-sentence/Kamusta ka sa eskwelahan__.png", translation: "How are you at school?" },
-  { sentence: "Ginhatag ko ini kay Maria.", marker: "kay", options: ["kay", "sa", "sang", "ang"], image: "/asset/img-sentence/Ginhatag ko ini kay Maria_.png", translation: "I gave this to Maria." },
-  { sentence: "Ang bata nga malipayon nagahampang.", marker: "nga", options: ["nga", "pa", "lang", "na"], image: "/asset/img-sentence/Ang bata nga malipayon nagahampang_.png", translation: "The happy child is playing." },
-  { sentence: "Hatagi pa siya sang tubig.", marker: "pa", options: ["pa", "sang", "sa", "lang"], image: "/asset/img-sentence/Hatagi pa siya sang tubig_.png", translation: "Please give him/her water." },
-  { sentence: "Balay ni Tatay.", marker: "ni", options: ["ni", "ang", "na", "daw"], image: "/asset/img-sentence/Balay ni Tatay_.png", translation: "Father's house." },
-  { sentence: "Gab-e na, halong kamo.", marker: "na", options: ["na", "lang", "pa", "gihapon"], image: "/asset/img-sentence/Gab-e na, halong kamo. (It's night already, take care).png", translation: "It's night already, take care." },
-  { sentence: "Saging lang gin kaon ko.", marker: "lang", options: ["lang", "pa", "na", "gihapon"], image: "/asset/img-sentence/Naglakat lang siya sa plaza (He_She just walked to the plaza.).png", translation: "I only ate a banana." },
-  { sentence: "Nagahulat siya gihapon bisan init.", marker: "gihapon", options: ["gihapon", "lang", "daw", "pa"], image: "/asset/img-sentence/Nagahulat siya gihapon bisan init. (He_She is still waiting even if its hot.).png", translation: "He/She is still waiting even if it's hot." },
-  { sentence: "Hatagi pa ako sang tubig.", marker: "pa", options: ["pa", "sang", "lang", "na"], image: "/asset/img-sentence/Hatagi pa ako sang tubig, palihog..png", translation: "Please give me water." },
-  { sentence: "Daw masadya siya subong.", marker: "daw", options: ["daw", "si", "sila", "sanday"], image: "/asset/img-sentence/Daw masadya siya subong. (He_She seems happy now.).png", translation: "He/She seems happy now." },
-  { sentence: "Si Maria nagkanta.", marker: "si", options: ["si", "sanday", "sila", "daw"], image: "/asset/img-sentence/Si Maria nagkanta.  (Maria sang.).png", translation: "Maria sang." },
-  { sentence: "Sanday Ana kag Juan naghampang sa mga sapat.", marker: "sanday", options: ["sanday", "si", "sila", "amo"], image: "/asset/img-sentence/Sanday Ana kag Juan naghampang sa mga sapat. (Ana and Juan played with the animals.).png", translation: "Ana and Juan played with the animals." },
-  { sentence: "Sila amo ang nagahampang.", marker: "sila", options: ["sila", "si", "sanday", "amo"], image: "/asset/img-sentence/Sila amo ang nagahampang (They are the ones who are playing.).png", translation: "They are the ones who are playing." },
-  { sentence: "Siya amo ang nagdaog sa patimpalak.", marker: "amo", options: ["amo", "sila", "si", "sanday"], image: "/asset/img-sentence/Siya amo ang nagdaog sa patimpalak. (He_She is the one who won the contest.).png", translation: "He/She is the one who won the contest." },
+  { sentence: "Ang bata nagakaon.", marker: "ang", image: "/asset/img-sentence/Ang bata nagakaon_.png", translation: "The child is eating." },
+  { sentence: "Nagbasa siya sang libro.", marker: "sang", image: "/asset/img-sentence/Nagbasa siya sang libro_.png", translation: "He/She read a book." },
+  { sentence: "Kamusta ka sa eskwelahan?", marker: "sa", image: "/asset/img-sentence/Kamusta ka sa eskwelahan__.png", translation: "How are you at school?" },
+  { sentence: "Ginhatag ko ini kay Maria.", marker: "kay", image: "/asset/img-sentence/Ginhatag ko ini kay Maria_.png", translation: "I gave this to Maria." },
+  { sentence: "Ang bata nga malipayon nagahampang.", marker: "nga", image: "/asset/img-sentence/Ang bata nga malipayon nagahampang_.png", translation: "The happy child is playing." },
+  { sentence: "Hatagi pa siya sang tubig.", marker: "pa", image: "/asset/img-sentence/Hatagi pa siya sang tubig_.png", translation: "Please give him/her water." },
+  { sentence: "Balay ni Tatay.", marker: "ni", image: "/asset/img-sentence/Balay ni Tatay_.png", translation: "Father's house." },
+  { sentence: "Gab-e na, halong kamo.", marker: "na", image: "/asset/img-sentence/Gab-e na, halong kamo. (It’s night already, take care).png", translation: "It's night already, take care." },
+  { sentence: "Saging lang gin kaon ko.", marker: "lang", image: "/asset/img-sentence/Naglakat lang siya sa plaza (He_She just walked to the plaza.).png", translation: "I only ate a banana." },
+  { sentence: "Nagahulat siya gihapon bisan init.", marker: "gihapon", image: "/asset/img-sentence/Nagahulat siya gihapon bisan init. (He_She is still waiting even if its hot.).png", translation: "He/She is still waiting even if it's hot." },
+  { sentence: "Hatagi pa ako sang tubig.", marker: "pa", image: "/asset/img-sentence/Hatagi pa ako sang tubig, palihog..png", translation: "Please give me water." },
+  { sentence: "Daw masadya siya subong.", marker: "daw", image: "/asset/img-sentence/Daw masadya siya subong. (He_She seems happy now.).png", translation: "He/She seems happy now." },
+  { sentence: "Si Maria nagkanta.", marker: "si", image: "/asset/img-sentence/Si Maria nagkanta.  (Maria sang.).png", translation: "Maria sang." },
+  { sentence: "Sanday Ana kag Juan naghampang sa mga sapat.", marker: "sanday", image: "/asset/img-sentence/Sanday Ana kag Juan naghampang sa mga sapat. (Ana and Juan played with the animals.).png", translation: "Ana and Juan played with the animals." },
+  { sentence: "Sila amo ang nagahampang.", marker: "sila", image: "/asset/img-sentence/Sila amo ang nagahampang (They are the ones who are playing.).png", translation: "They are the ones who are playing." },
+  { sentence: "Siya amo ang nagdaog sa patimpalak.", marker: "amo", image: "/asset/img-sentence/Siya amo ang nagdaog sa patimpalak. (He_She is the one who won the contest.).png", translation: "He/She is the one who won the contest." },
 ];
 
 function shuffleArray(array) {
@@ -46,7 +49,25 @@ export default function QuizMultipleChoice() {
   if (shuffledOrder.length === 0) return <div>Loading...</div>;
 
   const current = shuffledOrder[quizIndex % shuffledOrder.length];
-  const choices = shuffleArray(current.options);
+  
+  // Extract words from sentence and get the correct marker
+  const getChoices = () => {
+    // Remove punctuation and split sentence into words, convert to lowercase
+    const words = current.sentence
+      .replace(/[.,!?;:]/g, "")
+      .split(/\s+/)
+      .filter(w => w.length > 0)
+      .map(w => w.toLowerCase());
+    
+    // Get the 3 wrong answer words (other words from the sentence, excluding the marker)
+    const wrongAnswers = words.filter(w => w !== current.marker).slice(0, 3);
+    
+    // Combine correct marker with wrong answers and shuffle
+    const choices = [current.marker, ...wrongAnswers];
+    return shuffleArray(choices);
+  };
+  
+  const choices = getChoices();
 
   const handleCheck = () => {
     if (selected === current.marker) {
@@ -94,7 +115,7 @@ export default function QuizMultipleChoice() {
           </div>
         )}
         
-        <div style={{ fontSize: 18, marginBottom: 24, color: "#666", fontWeight: 600 }}>Which is the marker in the sentence?</div>
+        <div style={{ fontSize: 18, marginBottom: 24, color: "#666", fontWeight: 600 }}>Find the marker in the sentence?</div>
         
         <div style={{ fontSize: 20, marginBottom: 24, color: "#222", fontWeight: 600, padding: "16px", background: "rgba(38, 204, 194, 0.1)", borderRadius: 12 }}>
           "{current.sentence}"
