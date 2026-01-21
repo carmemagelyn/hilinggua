@@ -23,85 +23,76 @@ const markerButtons = [
 ];
 
 export default function MarkerDetailPage() {
+  // Helper function to play audio with maximum volume
+  const playAudioWithBoost = (audioPath) => {
+    const audio = new window.Audio(audioPath);
+    audio.volume = 1.0;
+    audio.play().catch(() => {});
+  };
+
                     // Audio playback for AMO marker
                     const playAmoVerbAudio = () => {
-                      const audio = new window.Audio('/asset/word-sent-hil/Siya ang nagdaog sa patimpalak.m4a');
-                      audio.play();
+                      playAudioWithBoost('/asset/word-sent-hil/Siya ang nagdaog sa patimpalak.m4a');
                     };
               // Audio playback for PA / MAN + VERB marker
               const playPaManVerbAudio = () => {
-                const audio = new window.Audio('/asset/word-sent-hil/Hatagi pa siya sang tubig.m4a');
-                audio.play();
+                playAudioWithBoost('/asset/word-sent-hil/Hatagi pa siya sang tubig.m4a');
               };
               // Audio playback for NI + VERB/POSSESSION marker
               const playNiVerbAudio = () => {
-                const audio = new window.Audio('/asset/word-sent-hil/Balay ni Tatay.m4a');
-                audio.play();
+                playAudioWithBoost('/asset/word-sent-hil/Balay ni Tatay.m4a');
               };
               // Audio playback for NA / NA LANG + VERB marker
               const playNaVerbAudio = () => {
-                const audio = new window.Audio('/asset/word-sent-hil/Gab e na, halong kamo.m4a');
-                audio.play();
+                playAudioWithBoost('/asset/word-sent-hil/Gab e na, halong kamo.m4a');
               };
               // Audio playback for LANG + VERB marker
               const playLangVerbAudio = () => {
-                const audio = new window.Audio('/asset/word-sent-hil/Saging lang ang ginkaon ko.m4a');
-                audio.play();
+                playAudioWithBoost('/asset/word-sent-hil/Saging lang ang ginkaon ko.m4a');
               };
               // Audio playback for GIHAPON + VERB marker
               const playGihaponVerbAudio = () => {
-                const audio = new window.Audio('/asset/word-sent-hil/Nagahulat siya gihapon bisan init.m4a');
-                audio.play();
+                playAudioWithBoost('/asset/word-sent-hil/Nagahulat siya gihapon bisan init.m4a');
               };
               // Audio playback for PA + VERB marker
               const playPaVerbAudio = () => {
-                const audio = new window.Audio('/asset/word-sent-hil/Hatagi pa ako sang tubig palihog.m4a');
-                audio.play();
+                playAudioWithBoost('/asset/word-sent-hil/Hatagi pa ako sang tubig palihog.m4a');
               };
               // Audio playback for DAW + VERB marker
               const playDawVerbAudio = () => {
-                const audio = new window.Audio('/asset/word-sent-hil/Daw masadya sya subong.m4a');
-                audio.play();
+                playAudioWithBoost('/asset/word-sent-hil/Daw masadya sya subong.m4a');
               };
               // Audio playback for SI marker
               const playSiVerbAudio = () => {
-                const audio = new window.Audio('/asset/word-sent-hil/Si Maria nagkanta.m4a');
-                audio.play();
+                playAudioWithBoost('/asset/word-sent-hil/Si Maria nagkanta.m4a');
               };
               // Audio playback for SANDAY marker
               const playSandayVerbAudio = () => {
-                const audio = new window.Audio('/asset/word-sent-hil/Sanday Ana kag Juan naghampang sa mga sapat.m4a');
-                audio.play();
+                playAudioWithBoost('/asset/word-sent-hil/Sanday Ana kag Juan naghampang sa mga sapat.m4a');
               };
               // Audio playback for SILA marker
               const playSilaVerbAudio = () => {
-                const audio = new window.Audio('/asset/word-sent-hil/Sila amo ang nagahampang.m4a');
-                audio.play();
+                playAudioWithBoost('/asset/word-sent-hil/Sila amo ang nagahampang.m4a');
               };
             // Audio playback for NGA + VERB/DESCRIPTION marker
             const playNgaVerbAudio = () => {
-              const audio = new window.Audio('/asset/word-sent-hil/Ang bata nga malipayon nagahampang.m4a');
-              audio.play();
+              playAudioWithBoost('/asset/word-sent-hil/Ang bata nga malipayon nagahampang.m4a');
             };
           // Audio playback for KAY + VERB/PERSON marker
           const playKayVerbAudio = () => {
-            const audio = new window.Audio('/asset/word-sent-hil/Ginhatag ko ini kay Maria.m4a');
-            audio.play();
+            playAudioWithBoost('/asset/word-sent-hil/Ginhatag ko ini kay Maria.m4a');
           };
         // Audio playback for SA + VERB/LOCATION/RECIPIENT marker
         const playSaVerbAudio = () => {
-          const audio = new window.Audio('/asset/word-sent-hil/Kumusta ka sa eskwelahan_.m4a');
-          audio.play();
+          playAudioWithBoost('/asset/word-sent-hil/Kumusta ka sa eskwelahan_.m4a');
         };
       // Audio playback for SANG + VERB/OBJECT marker
       const playSangVerbAudio = () => {
-        const audio = new window.Audio('/asset/word-sent-hil/Nagbasa siya sang libro.m4a');
-        audio.play();
+        playAudioWithBoost('/asset/word-sent-hil/Nagbasa siya sang libro.m4a');
       };
     // Audio playback for ANG + VERB marker
     const playAngVerbAudio = () => {
-      const audio = new window.Audio('/asset/word-sent-hil/Ang bata nagakaon.m4a');
-      audio.play();
+      playAudioWithBoost('/asset/word-sent-hil/Ang bata nagakaon.m4a');
     };
   const { markerId } = useParams();
   const navigate = useNavigate();
@@ -110,7 +101,9 @@ export default function MarkerDetailPage() {
 
   return (
     <div
-      
+      style={{
+        overflow: 'visible',
+      }}
     >
       {/* Back arrow button to Markers Front Page */}
       <button
@@ -902,23 +895,24 @@ export default function MarkerDetailPage() {
              const objectLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>object</div>;
              const locationLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>location</div>;
              const possesorLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>possesor</div>;
+             const blankLabel = <div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>&nbsp;</div>;
             const examples = [
               <><span style={{ display: 'inline-block' }}><b>Ang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>naga-kaon.</i>{verbLabel}</span></>,
               <><span style={{ display: 'inline-block' }}><i>Nagbasa</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>sang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>libro.{objectLabel}</span></>,
               <><span style={{ display: 'inline-block' }}><i>Kamusta</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ka</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>sa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>eskwelahan?{locationLabel}</span></>,
-              <><span style={{ display: 'inline-block' }}><i>Ginhatag</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ko</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>kay</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>Maria{<div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>recipient.</div>}</span></>,
-              <><span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>nga</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>malipayon{<div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>description</div>}</span> <span style={{ display: 'inline-block' }}><i>nagahampang.</i>{verbLabel}</span></>,
-              <><span style={{ display: 'inline-block' }}><i>Hatagi</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>pa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>tubig.{objectLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><i>Ginhatag</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ko</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}>ini{blankLabel}</span> <span style={{ display: 'inline-block' }}><b>kay</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>Maria{<div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>recipient.</div>}</span></>,
+              <><span style={{ display: 'inline-block' }}><span style={{ display: 'inline-block' }}>Ang</span> <span style={{ textDecoration: 'underline' }}>bata</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>nga</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>malipayon{<div style={{ fontSize: '0.7em', color: '#555', marginTop: '2px', textAlign: 'center' }}>description</div>}</span> <span style={{ display: 'inline-block' }}><i>nagahampang.</i>{verbLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><i>Hatagi</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><b>pa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}>sang{blankLabel}</span> <span style={{ display: 'inline-block' }}>tubig.{objectLabel}</span></>,
               <><span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Balay</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>ni</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>Tatay.{possesorLabel}</span></>,
-              <><span style={{ display: 'inline-block' }}>Gab-e </span><span style={{ display: 'inline-block' }}><b>na,</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>halong</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>kamo.</span>{subjectLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}>Gab-e{blankLabel}</span> <span style={{ display: 'inline-block' }}><b>na,</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>halong</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>kamo.</span>{subjectLabel}</span></>,
               <><span style={{ display: 'inline-block' }}>Saging{objectLabel}</span> <span style={{ display: 'inline-block' }}><b>lang</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>gin kaon</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ko.</span>{subjectLabel}</span></>,
-              <><span style={{ display: 'inline-block' }}><i>Nagahulat</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>gihapon</b>{markerLabel}</span> bisan init.</>,
-              <><span style={{ display: 'inline-block' }}><i>Hatagi</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><b>pa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ako</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}>tubig,{objectLabel}</span> palihog.</>,
-              <><span style={{ display: 'inline-block' }}><b>Daw</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>masadya</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> subong.</>,
+              <><span style={{ display: 'inline-block' }}><i>Nagahulat</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>gihapon</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>bisan init.{blankLabel}</span> </>,
+              <><span style={{ display: 'inline-block' }}><i>Hatagi</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><b>pa</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>ako</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}>sang {blankLabel}</span> <span style={{ display: 'inline-block' }}>tubig, {objectLabel}</span> <span style={{ display: 'inline-block' }}>palihog.{blankLabel}</span> </>,
+              <><span style={{ display: 'inline-block' }}><b>Daw</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>masadya</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>siya</span>{subjectLabel}</span><span style={{ display: 'inline-block' }}>subong.{blankLabel}</span> </>,
               <><span style={{ display: 'inline-block' }}><b>Si</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Maria</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>nagkanta.</i>{verbLabel}</span></>,
-              <><span style={{ display: 'inline-block' }}><b>Sanday</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Ana kag Juan</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>naghampang</i>{verbLabel}</span> sa mga sapat.</>,
-              <><span style={{ display: 'inline-block' }}><b>Sila</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>nagahampang.</i>{verbLabel}</span></>,
-              <><span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>amo</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>nagdaog</i>{verbLabel}</span> sa patimpalak.</>,
+              <><span style={{ display: 'inline-block' }}><b>Sanday</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Ana kag Juan</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><i>naghampang</i>{verbLabel}</span><span style={{ display: 'inline-block' }}>sa mga sapat.{blankLabel}</span> </>,
+              <><span style={{ display: 'inline-block' }}><b>Sila</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}>amo ang{blankLabel}</span> <span style={{ display: 'inline-block' }}><i>nagahampang.</i>{verbLabel}</span></>,
+              <><span style={{ display: 'inline-block' }}><span style={{ textDecoration: 'underline' }}>Siya</span>{subjectLabel}</span> <span style={{ display: 'inline-block' }}><b>amo</b>{markerLabel}</span> <span style={{ display: 'inline-block' }}><i>nagdaog</i>{verbLabel}</span> <span style={{ display: 'inline-block' }}>sa patimpalak.{blankLabel}</span> </>,
             ];
             return (
               <div style={{ marginTop: '2.5em', marginBottom: '0.5em', textAlign: 'center', width: '100%' }}>

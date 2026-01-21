@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { MusicProvider } from './context/MusicContext';
 import Home from './components/Home';
 import Menu from './components/Menu';
 import MarkerDetailPage from './components/MarkerDetailPage';
@@ -16,70 +17,14 @@ import QuizPictureMatching from './components/QuizPictureMatching';
 import Login from './components/Login';
 import Register from './components/Register';
 import VocabularyDetailPage from './components/VocabularyDetailPage';
+import MusicController from './components/MusicController';
 import './App.css';
 
 function AppContent() {
-  const musicRef = useRef(null);
-  const [musicStarted, setMusicStarted] = useState(false);
-  const [musicPlaying, setMusicPlaying] = useState(true);
   const [vocabIndex, setVocabIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const totalWords = 15;
-
-  const toggleMusic = () => {
-    if (musicPlaying) {
-      if (musicRef.current) {
-        musicRef.current.pause();
-      }
-      setMusicPlaying(false);
-    } else {
-      if (musicRef.current) {
-        musicRef.current.play();
-      }
-      setMusicPlaying(true);
-    }
-  };
-
-  useEffect(() => {
-    let hasPlayedMusic = false;
-
-    const playMusic = () => {
-      if (musicRef.current && !hasPlayedMusic) {
-        musicRef.current.volume = 1;
-        musicRef.current.play().then(() => {
-          hasPlayedMusic = true;
-          setMusicPlaying(true);
-          // Remove listeners after successful play
-          document.removeEventListener('click', playMusic);
-          document.removeEventListener('touchstart', playMusic);
-        }).catch(() => {
-          // Silently handle play error
-        });
-      }
-    };
-
-    // Fallback: play on user interaction
-    document.addEventListener('click', playMusic);
-    document.addEventListener('touchstart', playMusic);
-
-    return () => {
-      document.removeEventListener('click', playMusic);
-      document.removeEventListener('touchstart', playMusic);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (musicRef.current) {
-      if (musicPlaying) {
-        musicRef.current.play().catch(() => {});
-      } else {
-        musicRef.current.pause();
-      }
-    }
-  }, [musicPlaying])
-
-
 
   const handlePrevious = () => {
     setVocabIndex(prev => prev === 0 ? totalWords - 1 : prev - 1);
@@ -96,36 +41,6 @@ function AppContent() {
 
   return (
     <div className="App">
-      <audio ref={musicRef} loop style={{ display: 'none' }}>
-        <source src="/asset/ref/music.mp3" type="audio/mpeg" />
-      </audio>
-      <button
-        onClick={toggleMusic}
-        style={{
-          position: 'fixed',
-          top: '20px',
-          right: '20px',
-          zIndex: 1000,
-          background: musicPlaying ? '#fff57e' : '#26ccc2',
-          color: musicPlaying ? '#26ccc2' : '#fff',
-          border: '2px solid #fff57e',
-          borderRadius: '50%',
-          width: '50px',
-          height: '50px',
-          fontSize: '24px',
-          cursor: 'pointer',
-          fontWeight: 'bold',
-          transition: 'all 0.3s',
-          boxShadow: '0 0 12px rgba(255, 183, 108, 0.5)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: 0,
-        }}
-        title={musicPlaying ? 'Pause music' : 'Play music'}
-      >
-        {musicPlaying ? '🔊' : '🔇'}
-      </button>
       <Routes>
         <Route path="/" element={<StartScreen />} />
         <Route path="/home" element={<Home />} />
@@ -150,9 +65,12 @@ function AppContent() {
 
 function App() {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <MusicProvider>
+      <Router>
+        <MusicController />
+        <AppContent />
+      </Router>
+    </MusicProvider>
   );
 }
 

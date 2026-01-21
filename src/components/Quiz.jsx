@@ -35,7 +35,7 @@ export default function Markers() {
     <div
      
     >
-      {/* Left arrow back button */}
+      {/* Left arrow back button */}}
       <button
         onClick={() => navigate("/quiz-menu")}
         style={{

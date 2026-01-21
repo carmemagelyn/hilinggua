@@ -62,6 +62,7 @@ export default function VocabularyDetailPage() {
   const playAudio = () => {
     setAudioError(false);
     if (audioRef.current) {
+      audioRef.current.volume = 1.0;
       audioRef.current.load();
       audioRef.current.play().catch(() => setAudioError(true));
     }
@@ -69,9 +70,11 @@ export default function VocabularyDetailPage() {
 
   return (
     <div
-       
+      style={{
+        overflow: 'visible',
+      }}
     >
-      {/* Back arrow button */}
+      {/* Back arrow button */}}
       <button
         onClick={() => navigate("/vocabulary")}
         style={{

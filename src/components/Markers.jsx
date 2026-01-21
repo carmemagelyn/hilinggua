@@ -32,10 +32,8 @@ export default function Markers() {
                                     
                         
   return (
-    <div
-      
-    >
-      {/* Left arrow back button */}
+    <div>
+      {/* Left arrow back button */}}
       <button
         onClick={() => navigate("/home")}
         style={{
