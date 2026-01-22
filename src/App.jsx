@@ -4,6 +4,7 @@ import { MusicProvider } from './context/MusicContext';
 import Home from './components/Home';
 import Menu from './components/Menu';
 import MarkerDetailPage from './components/MarkerDetailPage';
+import About from './components/About';
 
 import StartScreen from './components/StartScreen';
 import Vocabulary from './components/Vocabulary';
@@ -35,19 +36,37 @@ function AppContent() {
   };
 
   const isVocabularyPage = location.pathname === '/vocabulary';
+  const isStartScreen = location.pathname === '/';
 
   // Detect mobile
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
 
   return (
     <div className="App">
+      {!isStartScreen && (
+        <div style={{
+          position: 'fixed',
+          bottom: '20px',
+          left: '20px',
+          zIndex: 100,
+        }}>
+          <Link to="/about" style={{ 
+            textDecoration: 'none',
+            fontSize: '24px',
+            cursor: 'pointer',
+            color: '#000',
+          }}>
+            ⓘ
+          </Link>
+        </div>
+      )}
       <Routes>
         <Route path="/" element={<StartScreen />} />
         <Route path="/home" element={<Home />} />
         <Route path="/vocabulary" element={<Vocabulary key={vocabIndex} initialIndex={vocabIndex} onIndexChange={setVocabIndex} />} />
         <Route path="/vocabulary/:vocabId" element={<VocabularyDetailPage />} />
         <Route path="/markers" element={<Markers />} />
-
+        <Route path="/about" element={<About />} />
         <Route path="/marker/:markerId" element={<MarkerDetailPage />} />
         <Route path="/quiz-menu" element={<QuizMenu />} />
         <Route path="/quiz-fill-blank" element={<QuizFillBlank />} />

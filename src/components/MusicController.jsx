@@ -32,8 +32,8 @@ export default function MusicController() {
         <button
           onClick={toggleMusic}
           style={{
-            background: musicPlaying ? '#fff57e' : '#26ccc2',
-            color: musicPlaying ? '#26ccc2' : '#fff',
+            background: musicPlaying ? '#fff57e' : 'transparent',
+            color: musicPlaying ? '#26ccc2' : '#26ccc2',
             border: '2px solid #fff57e',
             borderRadius: '50%',
             width: '50px',
@@ -41,7 +41,7 @@ export default function MusicController() {
             cursor: 'pointer',
             fontWeight: 'bold',
             transition: 'all 0.3s',
-            boxShadow: '0 0 12px rgba(255, 183, 108, 0.5)',
+            
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -53,8 +53,8 @@ export default function MusicController() {
             src="/asset/ref/speaker.png" 
             alt={musicPlaying ? 'Speaker' : 'Muted'} 
             style={{ 
-              width: '28px', 
-              height: '16px',
+              width: '25px', 
+              height: '15px',
               opacity: musicPlaying ? 1 : 0.6,
             }} 
           />
