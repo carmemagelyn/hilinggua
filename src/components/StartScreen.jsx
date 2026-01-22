@@ -109,7 +109,7 @@ export default function StartScreen() {
               cursor: "pointer",
               zIndex: 2,
               margin: "auto",
-              marginTop: "600px",
+              marginTop: "500px",
               marginLeft: "100px",
               animation: 'fadeIn 2s ease-in-out forwards'
             }}
@@ -158,17 +158,17 @@ export default function StartScreen() {
           src="/asset/ref/peekaboo.gif"
           alt="Peekaboo"
           style={{
-            width: '250vw',
+            width: '220vw',
             maxWidth: '150%',
             height: 'auto',
             position: 'fixed',
             left: '-27vw',
-            bottom: '250px',
+            bottom: '240px',
             zIndex: 3,
             pointerEvents: 'none',
             display: 'block',
             minHeight: '50px',
-            maxHeight: '500vh',
+            maxHeight: '300vh',
             animation: 'fadeOutEnd 6.5s ease-in-out forwards'
           }}
         />
