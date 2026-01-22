@@ -942,7 +942,7 @@ export default function VocabularyDetailPage() {
             pointerEvents: 'none',
           }}>
             <img
-              src="/asset/img-word/tubig.png"
+              src="/asset/img-word/tubigg.png"
               alt="Tubig"
               style={{
                 width: 'clamp(180px, 30vw, 320px)',
